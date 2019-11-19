@@ -32,7 +32,7 @@ jobs:
         with:
           name: build
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+        uses: lowply/deploy-firebase@v0.0.2
         with:
           args: deploy
         env:
