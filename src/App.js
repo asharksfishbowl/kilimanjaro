@@ -65,7 +65,7 @@ function App() {
           <h1>A Shark's Fishbowl</h1>
           <h2>What's up Sharks!!!!! :)</h2>
           <p>
-            I am going to be sharing my knowlegde of creation soon :)
+            I am going to be sharing my knowledge of creation soon :)
           </p>
           <h3>For Example</h3>
           <hr />
