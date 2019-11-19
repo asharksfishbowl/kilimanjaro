@@ -32,8 +32,8 @@ jobs:
         with:
           name: build
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@v1.1.0
+        uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting:prod
+          args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
