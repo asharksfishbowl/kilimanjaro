@@ -30,10 +30,10 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: kilimanjaro
+          name: production
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting:prod
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: AIzaSyCwf1CkW5fBFYPq5rSDp9wdFM2m52mNbQw
