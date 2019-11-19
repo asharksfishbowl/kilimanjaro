@@ -35,6 +35,9 @@ const useStyles = makeStyles(theme => ({
   slider:{
     width:200,
     'z-index':1,
+  },
+  list:{
+    'text-align':'left'
   }
 }));
 
@@ -59,20 +62,25 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         <Typography>
-          <h1>A Sharks's Fishbowl</h1>
+          <h1>A Shark's Fishbowl</h1>
+          <h2>What's up Sharks!!!!!</h2>
           <p>
-            What's up Sharks!!!!! <br />
-            I am going to sharing my knowlegde of creation soon, for example<br />
-            Software Creation from basic link page to full on web app<br />
-            Music Creation from mixing to mastering a track<br />
-            So let's get creating :)
+            I am going to be sharing my knowlegde of creation soon :)
           </p>
+          <h3>For Example</h3>
+          <hr />
+          <ul className={classes.list}>
+            <li>Software Creation from basic link page to full on web app</li>
+            <li>Music Creation from mixing to mastering a track</li>
+            <li>Video and Photo creation from using a camera to editing</li>
+          </ul>
+          <h2>So let's get creating :)</h2>
         </Typography>
 
 
         <div className={classes.slider}>
           <Typography id="continuous-slider" gutterBottom>
-            Volume
+            Slide to control Volume 
           </Typography>
           <Grid container spacing={2}>
             <Grid item>
@@ -135,7 +143,7 @@ function App() {
         <video id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
             <source src={backgroundVideo} type='video/mp4' />
         </video>
-        
+
       </header>
     </div>
   );
