@@ -18,11 +18,11 @@ jobs:
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
-          name: build
+          name: kilimanjaro
           path: build
   deploy:
     name: Deploy
-    needs: build
+    needs: kilimanjaro
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -30,7 +30,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: build
+          name: kilimanjaro
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
