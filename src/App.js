@@ -61,10 +61,43 @@ function App() {
         <Typography>
           <h1>A Sharks's Fishbowl</h1>
           <p>
-            What's up Sharks!!!!!
-            Let's get creating :)
+            What's up Sharks!!!!! <br />
+            I am going to sharing my knowlegde of creation soon, for example<br />
+            Software Creation from basic link page to full on web app<br />
+            Music Creation from mixing to mastering a track<br />
+            So let's get creating :)
           </p>
         </Typography>
+
+
+        <div className={classes.slider}>
+          <Typography id="continuous-slider" gutterBottom>
+            Volume
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid item>
+              <VolumeDown />
+            </Grid>
+            <Grid item xs>
+              <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+            </Grid>
+            <Grid item>
+              <VolumeUp />
+            </Grid>
+          </Grid>
+        </div>
+
+        <div className="App-link">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="NMEW6UUZ4RB5L" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+          <Typography>
+            You don't have to donate but it's big help to keep these projects going :)
+          </Typography>
+        </div>
 
         <div className="App-link">
           <IconButton className={classes.button} aria-label="YouTube">
@@ -98,36 +131,6 @@ function App() {
             </Link>
           </IconButton>
         </div>
-
-        <div className={classes.slider}>
-          <Typography id="continuous-slider" gutterBottom>
-            Volume
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item>
-              <VolumeDown />
-            </Grid>
-            <Grid item xs>
-              <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
-            </Grid>
-            <Grid item>
-              <VolumeUp />
-            </Grid>
-          </Grid>
-        </div>
-
-        <div className="App-link">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick" />
-            <input type="hidden" name="hosted_button_id" value="NMEW6UUZ4RB5L" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-          <Typography>
-            You don't have to donate but it's big help to keep these projects going :)
-          </Typography>
-        </div>
-
 
         <video id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
             <source src={backgroundVideo} type='video/mp4' />
