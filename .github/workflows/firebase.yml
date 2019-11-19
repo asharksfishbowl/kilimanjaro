@@ -1,15 +1,2 @@
-name: Firebase App Distribution
-  uses: wzieba/Firebase-Distribution-Github-Action@v1.1.1
-  with:
-    # App id can be found on the General Settings page
-    appId: 
-    # Upload token - see Firebase CLI Reference
-    token: 
-    # Artifact to upload (.apk or .ipa)
-    file: 
-    # Distribution groups
-    groups: # optional
-    # Release notes visible on release page
-    releaseNotes: # optional
-    # Flag that can included to print verbose log output.
-    debug: # optional
+name: GitHub Action for Firebase
+  uses: w9jds/firebase-action@v1.1.0
