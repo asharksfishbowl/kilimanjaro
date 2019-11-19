@@ -63,7 +63,7 @@ function App() {
 
         <Typography>
           <h1>A Shark's Fishbowl</h1>
-          <h2>What's up Sharks!!!!!</h2>
+          <h2>What's up Sharks!!!!! :)</h2>
           <p>
             I am going to be sharing my knowlegde of creation soon :)
           </p>
@@ -80,7 +80,7 @@ function App() {
 
         <div className={classes.slider}>
           <Typography id="continuous-slider" gutterBottom>
-            Slide to control Volume 
+            Slide to control Volume
           </Typography>
           <Grid container spacing={2}>
             <Grid item>
