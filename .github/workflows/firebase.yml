@@ -32,7 +32,7 @@ jobs:
         with:
           name: build
       - name: Deploy to Firebase
-        uses: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+        uses: firebase deploy --token $FIREBASE_TOKEN
         with:
           args: deploy 
         env:
