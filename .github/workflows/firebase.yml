@@ -32,7 +32,7 @@ jobs:
         with:
           name: build
       - name: Deploy to Firebase
-        uses: firebase deploy --token 'AIzaSyCwf1CkW5fBFYPq5rSDp9wdFM2m52mNbQw'
+        uses: firebase deploy --token
         with:
           args: deploy 
         env:
