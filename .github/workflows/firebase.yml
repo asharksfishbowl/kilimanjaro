@@ -32,8 +32,6 @@ jobs:
         with:
           name: build
       - name: Deploy to Firebase
-        uses: firebase deploy --token
-        with:
-          args: deploy 
+        uses: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} 
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
