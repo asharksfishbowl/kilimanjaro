@@ -15,7 +15,7 @@ jobs:
         run: npm install
       - name: Install Firebase tools
         run: npm install firebase-tools
-      - name: Build
+      - name: Build Production Artifact
         run: npm run build production
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
@@ -34,6 +34,8 @@ jobs:
         with:
           name: build
       - name: Deploy to Firebase
-        run: firebase deploy --token $FIREBASE_TOKEN
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:build
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
