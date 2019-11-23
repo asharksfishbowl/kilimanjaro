@@ -5,7 +5,8 @@ import 'typeface-roboto';
 
 // Material UI Componets
 import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
+import ButtonBase from '@material-ui/core/ButtonBase';
+// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -24,8 +25,33 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 
 // Assets
 import backgroundVideo from './assets/videos/Vision.mp4';
+import MiguelDelCampoImg from './assets/images/MiguelDelCampo.jpg';
+import LeaMeyerRodarteImg from './assets/images/LeaMeyerRodarte.jpg';
+import NickSharkMarinoImg from './assets/images/NickSharkMarino.jpg';
+
+const images = [{
+    src: MiguelDelCampoImg,
+    title: 'Miguel Del Campo Photography',
+    width: '35%',
+  },{
+    src: LeaMeyerRodarteImg,
+    title: 'Lea Meyer Rodarte Photography',
+    width: '35%',
+  },{
+    src: NickSharkMarinoImg,
+    title: 'Nick Shark Marino Photography',
+    width: '35%',
+  },
+];
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    minWidth: 300,
+    width: '100%',
+    'z-index':1,
+  },
   button: {
     margin: theme.spacing(1),
   },
@@ -38,7 +64,73 @@ const useStyles = makeStyles(theme => ({
   },
   list:{
     'text-align':'left'
-  }
+  },
+  image: {
+    position: 'relative',
+    height: 150,
+    [theme.breakpoints.down('xs')]: {
+      width: '100% !important', // Overrides inline-style
+      height: 100,
+    },
+    '&:hover, &$focusVisible': {
+      zIndex: 1,
+      '& $imageBackdrop': {
+        opacity: 0.15,
+      },
+      '& $imageMarked': {
+        opacity: 0,
+      },
+      '& $imageTitle': {
+        border: '4px solid currentColor',
+      },
+    },
+  },
+  focusVisible: {},
+  imageButton: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.common.white,
+  },
+  imageSrc: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center 40%',
+    height: '100%',
+    width: '100%'
+  },
+  imageBackdrop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: theme.palette.common.black,
+    opacity: 0.4,
+    transition: theme.transitions.create('opacity'),
+  },
+  imageTitle: {
+    position: 'relative',
+    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+  },
+  imageMarked: {
+    height: 3,
+    width: 18,
+    backgroundColor: theme.palette.common.white,
+    position: 'absolute',
+    bottom: -2,
+    left: 'calc(50% - 9px)',
+    transition: theme.transitions.create('opacity'),
+  },
 }));
 
 function App() {
@@ -138,6 +230,37 @@ function App() {
               <GitHubIcon color="secondary" />
             </Link>
           </IconButton>
+        </div>
+
+        <div className={classes.root}>
+          {images.map(image => (
+            <ButtonBase
+              focusRipple
+              key={image.title}
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+                width: image.width,
+              }}
+            >
+              <img
+                className={classes.imageSrc}
+                src={image.src}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+                >
+                  {image.title}
+                  <span className={classes.imageMarked} />
+                </Typography>
+              </span>
+            </ButtonBase>
+          ))}
         </div>
 
         <video id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
