@@ -32,15 +32,15 @@ import NickSharkMarinoImg from './assets/images/NickSharkMarino.jpg';
 const images = [{
     src: MiguelDelCampoImg,
     title: 'Miguel Del Campo Photography',
-    width: '35%',
+    width: '33%',
   },{
     src: LeaMeyerRodarteImg,
     title: 'Lea Meyer Rodarte Photography',
-    width: '35%',
+    width: '33%',
   },{
     src: NickSharkMarinoImg,
     title: 'Nick Shark Marino Photography',
-    width: '35%',
+    width: '33%',
   },
 ];
 
