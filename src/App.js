@@ -33,14 +33,17 @@ const images = [{
     src: MiguelDelCampoImg,
     title: 'Miguel Del Campo Photography',
     width: '33%',
+    height: '150px',
   },{
     src: LeaMeyerRodarteImg,
     title: 'Lea Meyer Rodarte Photography',
     width: '33%',
+    height: '150px',
   },{
     src: NickSharkMarinoImg,
     title: 'Nick Shark Marino Photography',
     width: '33%',
+    height: '150px',
   },
 ];
 
@@ -241,6 +244,7 @@ function App() {
               focusVisibleClassName={classes.focusVisible}
               style={{
                 width: image.width,
+                height: image.height
               }}
             >
               <img
