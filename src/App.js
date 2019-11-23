@@ -33,7 +33,7 @@ const images = [{
     src: MiguelDelCampoImg,
     title: 'Miguel Del Campo Photography',
     width: '33%',
-    height: '250px',
+    height: '350px',
   },{
     src: LeaMeyerRodarteImg,
     title: 'Lea Meyer Rodarte Photography',
@@ -43,7 +43,7 @@ const images = [{
     src: NickSharkMarinoImg,
     title: 'Nick Shark Marino Photography',
     width: '33%',
-    height: '325px',
+    height: '350px',
   },
 ];
 
