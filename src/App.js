@@ -33,17 +33,17 @@ const images = [{
     src: MiguelDelCampoImg,
     title: 'Miguel Del Campo Photography',
     width: '33%',
-    height: '150px',
+    height: '250px',
   },{
     src: LeaMeyerRodarteImg,
     title: 'Lea Meyer Rodarte Photography',
     width: '33%',
-    height: '150px',
+    height: '350px',
   },{
     src: NickSharkMarinoImg,
     title: 'Nick Shark Marino Photography',
     width: '33%',
-    height: '150px',
+    height: '325px',
   },
 ];
 
