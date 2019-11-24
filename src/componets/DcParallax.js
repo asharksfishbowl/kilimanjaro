@@ -25,6 +25,12 @@ function DcParallax() {
         justifyContent: 'center',
         background:'black'
     };
+    const size = {
+      height:"100%",
+      width: "100%",
+      height2:"90%",
+      width2: "85%",
+    };
     return(
       <Parallax pages={4} className={classes.parallax}>
 
@@ -33,7 +39,7 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-                <img src={Miguel1} height="65%" width="100%" alt="" />
+                <img src={Miguel1} height={size.height} width={size.width} alt="" />
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -41,7 +47,7 @@ function DcParallax() {
                 speed={-0.1}
                 style={styles}
             >
-                <img src={Miguel2} height="65%" width="100%" alt="" />
+                <img src={Miguel2} height={size.height} width={size.width} alt="" />
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -49,7 +55,7 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-                <img src={Miguel3} height="65%" width="100%" alt="" />
+                <img src={Miguel3}  height={size.height2} width={size.width2} alt="" />
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -57,7 +63,7 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-                <img src={Miguel4} height="65%" width="100%" alt="" />
+                <img src={Miguel4}  height={size.height} width={size.width} alt="" />
             </Parallax.Layer>
 
       </Parallax>
