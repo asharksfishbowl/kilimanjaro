@@ -33,7 +33,7 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-                <img src={Miguel1} height="100%" width="66%" alt="" />
+                <img src={Miguel1} height="77%" width="66%" alt="" />
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -41,7 +41,7 @@ function DcParallax() {
                 speed={-0.1}
                 style={styles}
             >
-                <img src={Miguel2} height="100%" width="66%" alt="" />
+                <img src={Miguel2} height="77%" width="66%" alt="" />
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -49,7 +49,7 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-                <img src={Miguel3} height="100%" width="66%" alt="" />
+                <img src={Miguel3} height="77%" width="66%" alt="" />
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -57,7 +57,7 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-                <img src={Miguel4} height="100%" width="66%" alt="" />
+                <img src={Miguel4} height="77%" width="66%" alt="" />
             </Parallax.Layer>
 
       </Parallax>
