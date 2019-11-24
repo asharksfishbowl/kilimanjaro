@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Img from 'react-image';
 import AspectRatio from 'react-aspect-ratio';
+import AspectRatioStyles from '../assets/css/AspectRatio.css';
 
 import Miguel1 from '../assets/images/Miguel1.jpg';
 import Miguel2 from '../assets/images/Miguel2.jpg';
@@ -37,9 +38,9 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-            <AspectRatio ratio="1/8">
-              <Img src={Miguel1} />
-            </AspectRatio>
+              <AspectRatio ratio="3/4" style={{position: 'fixed',}}>
+                <Img src={Miguel1} />
+              </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -47,9 +48,9 @@ function DcParallax() {
                 speed={-0.1}
                 style={styles}
             >
-            <AspectRatio ratio="1/2">
-              <Img src={Miguel2} />
-            </AspectRatio>
+              <AspectRatio ratio="3/4">
+                <Img src={Miguel2} />
+              </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -57,9 +58,9 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-            <AspectRatio ratio="350/440">
-              <Img src={Miguel3} />
-            </AspectRatio>
+              <AspectRatio ratio="3/4" style={{position: 'fixed',}}>
+                <Img src={Miguel3} />
+              </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
@@ -67,9 +68,9 @@ function DcParallax() {
                 speed={0.5}
                 style={styles}
             >
-            <AspectRatio ratio="1/4">
-              <Img src={Miguel4} />
-            </AspectRatio>
+              <AspectRatio ratio="3/4">
+                <Img src={Miguel4} />
+              </AspectRatio>
             </Parallax.Layer>
 
       </Parallax>

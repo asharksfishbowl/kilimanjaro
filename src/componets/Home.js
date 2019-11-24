@@ -6,7 +6,6 @@ import 'typeface-roboto';
 // Material UI Componets
 import Link from '@material-ui/core/Link';
 import ButtonBase from '@material-ui/core/ButtonBase';
-// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -142,17 +141,19 @@ const useStyles = makeStyles(theme => ({
 function Home() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const videoDOM = React.createRef();
     const handleChange = (event, newValue) => {
-      var vid = document.getElementById("backgroundVideoDiv");
+      // var vid = document.getElementById("backgroundVideoDiv");
       if (newValue > 0) {
-        vid.muted = false;
+        videoDOM.muted = false;
       }
       else {
-        vid.muted = true;
+        videoDOM.muted = true;
       }
-      vid.volume = newValue / 100;
+      videoDOM.volume = newValue / 100;
       setValue(newValue);
     };
+
 
     return (
       <div className="App">
@@ -174,7 +175,6 @@ function Home() {
             </ul>
             <h2>So let's get creating :)</h2>
           </Typography>
-
 
           <div className={classes.slider}>
             <Typography id="continuous-slider" gutterBottom>
@@ -271,7 +271,7 @@ function Home() {
             ))}
           </div>
 
-          <video id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
+          <video ref={videoDOM} id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
               <source src={BackgroundVideo} type='video/mp4' />
           </video>
 
