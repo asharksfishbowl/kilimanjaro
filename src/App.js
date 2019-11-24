@@ -12,6 +12,7 @@ import Home from './componets/Home.js';
 import DcParallax from './componets/DcParallax.js';
 
 function App() {
+
   return (
     <Router>
       <div>
