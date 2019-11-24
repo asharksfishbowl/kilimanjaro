@@ -23,7 +23,7 @@ function DcParallax() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background:'black'
+        background:'black',
     };
     const size = {
       height:"100%",
