@@ -10,6 +10,10 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -73,7 +77,8 @@ const useStyles = makeStyles(theme => ({
     'z-index':1,
   },
   list:{
-    'text-align':'left'
+    textAlign: 'center',
+    'z-index':1,
   },
   image: {
     position: 'relative',
@@ -159,36 +164,39 @@ function Home() {
       setValue(newValue);
     };
 
-
     return (
       <div className="App">
         <header className="App-header">
           <Img src={logo} className="App-logo" alt="logo" />
 
-            <Typography variant="h2"  gutterBottom>
+            <Typography variant="h2" gutterBottom>
               A Shark's Fishbowl
             </Typography>
 
-            <Typography variant="h4"  gutterBottom>
+            <Typography variant="h4" gutterBottom>
               What's up Sharks!
             </Typography>
 
-            <Typography variant="h5"  gutterBottom>
-              I am going to be sharing my knowledge of creation soon :)
+            <Typography variant="overline"  gutterBottom>
+              I am going to be sharing my knowledge of creation soon!
             </Typography>
 
-            <Typography variant="h6"  gutterBottom>
-              For Example
+            <Typography variant="overline"  gutterBottom>
+              For Example :)
             </Typography>
 
-            <hr />
-
-            <Typography variant="body1" gutterBottom>
-              <ul className={classes.list}>
-                <li>Software Creation from basic link page to full on web app</li>
-                <li>Music Creation from mixing to mastering a track</li>
-                <li>Video and Photo creation from using a camera to editing</li>
-              </ul>
+            <Typography variant="overline" textAlign="center" gutterBottom>
+              <List component="nav" className={classes.list} aria-label="mailbox folders">
+                <ListItem button>
+                  <ListItemText primary="Software Creation from basic link page to full on web app" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Music Creation from mixing to mastering a track" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Video and Photo creation from using a camera to editing" />
+                </ListItem>
+              </List>
             </Typography>
 
             <Typography variant="h4"  gutterBottom>
