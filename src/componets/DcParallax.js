@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Img from 'react-image';
 import AspectRatio from 'react-aspect-ratio';
-import AspectRatioStyles from '../assets/css/AspectRatio.css';
+import '../assets/css/AspectRatio.css';
 
 import Miguel1 from '../assets/images/Miguel1.jpg';
 import Miguel2 from '../assets/images/Miguel2.jpg';

@@ -13,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -151,25 +150,19 @@ const useStyles = makeStyles(theme => ({
 function Home() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-    const videoDOM = React.createRef();
     const handleChange = (event, newValue) => {
-      debugger;
-      window.onload = function(){
-           var vid = document.getElementById("backgroundVideoDiv");
+       var vid = document.getElementById("backgroundVideoDiv");
 
-            vid.onclick = function() {
-                alert('I am clicked!');
-            }
-        };
-      // var vid = document.getElementById("backgroundVideoDiv");
-      if (newValue > 0) {
-        vid.muted = false;
-      }
-      else {
-        vid.muted = true;
-      }
-      vid.volume = newValue / 100;
-      setValue(newValue);
+        alert(vid);
+
+        if (newValue > 0) {
+          vid.muted = false;
+        }
+        else {
+          vid.muted = true;
+        }
+        vid.volume = newValue / 100;
+        setValue(newValue);
     };
 
     return (
@@ -189,7 +182,7 @@ function Home() {
               I am going to be sharing my knowledge of creation soon! Click the links below for more :)
             </Typography>
 
-            <Typography variant="overline" textAlign="center" gutterBottom>
+            <Typography variant="overline" gutterBottom>
               <List component="nav" className={classes.list} aria-label="mailbox folders">
                 <ListItem button>
                   <ListItemText primary="Software Creation from basic link page to full on web app" />
