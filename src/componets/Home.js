@@ -153,14 +153,22 @@ function Home() {
     const [value, setValue] = React.useState(0);
     const videoDOM = React.createRef();
     const handleChange = (event, newValue) => {
+      debugger;
+      window.onload = function(){
+           var vid = document.getElementById("backgroundVideoDiv");
+
+            vid.onclick = function() {
+                alert('I am clicked!');
+            }
+        };
       // var vid = document.getElementById("backgroundVideoDiv");
       if (newValue > 0) {
-        videoDOM.muted = false;
+        vid.muted = false;
       }
       else {
-        videoDOM.muted = true;
+        vid.muted = true;
       }
-      videoDOM.volume = newValue / 100;
+      vid.volume = newValue / 100;
       setValue(newValue);
     };
 
@@ -300,7 +308,7 @@ function Home() {
             ))}
           </div>
 
-          <video ref={videoDOM} id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
+          <video id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
               <source src={BackgroundVideo} type='video/mp4' />
           </video>
 
