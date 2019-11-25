@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Img from 'react-image';
 import AspectRatio from 'react-aspect-ratio';
 
-import Miguel1 from '../assets/images/Miguel1.jpg';
+import ColoradoSprings from '../assets/images/ColoradoSprings.jpg';
 import Miguel2 from '../assets/images/Miguel2.jpg';
 import Miguel3 from '../assets/images/Miguel3.jpg';
 import Miguel4 from '../assets/images/Miguel4.jpg';
@@ -38,7 +38,7 @@ function DcParallax() {
                 style={styles}
             >
             <AspectRatio ratio="1/8">
-              <Img src={Miguel1} />
+              <Img src={ColoradoSprings} />
             </AspectRatio>
             </Parallax.Layer>
 
