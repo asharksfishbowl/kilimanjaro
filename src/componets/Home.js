@@ -152,16 +152,14 @@ function Home() {
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
        var vid = document.getElementById("backgroundVideoDiv");
-
-        alert(vid);
-
-        if (newValue > 0) {
-          vid.muted = false;
-        }
-        else {
-          vid.muted = true;
-        }
-        vid.volume = newValue / 100;
+       if (vid) {
+         vid.volume = newValue / 100;
+         vid.muted = true;
+         if (newValue > 0) {
+           alert(vid);
+           vid.muted = false;
+         }
+       }
         setValue(newValue);
     };
 
