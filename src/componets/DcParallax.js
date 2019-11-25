@@ -10,6 +10,7 @@ import ColoradoSprings from '../assets/images/ColoradoSprings.jpg';
 import Miguel2 from '../assets/images/Miguel2.jpg';
 import Miguel3 from '../assets/images/Miguel3.jpg';
 import Miguel4 from '../assets/images/Miguel4.jpg';
+import Percy from '../assets/images/Percy.jpeg';
 
 const useStyles = makeStyles(theme => ({
   parallax: {
@@ -31,7 +32,7 @@ function DcParallax() {
    };
 
     return(
-      <Parallax pages={8.5} className={classes.parallax}>
+      <Parallax pages={12.5} className={classes.parallax}>
 
             <Parallax.Layer
                 offset={0}
@@ -70,6 +71,16 @@ function DcParallax() {
             >
               <AspectRatio ratio="1">
                 <Img src={Miguel4} />
+              </AspectRatio>
+            </Parallax.Layer>
+
+            <Parallax.Layer
+                offset={5.25}
+                speed={0.5}
+                style={styles}
+            >
+              <AspectRatio ratio="1">
+                <Img src={Percy} />
               </AspectRatio>
             </Parallax.Layer>
 
