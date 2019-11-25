@@ -156,8 +156,10 @@ function Home() {
          vid.volume = newValue / 100;
          vid.muted = true;
          if (newValue > 0) {
-           alert(vid);
            vid.muted = false;
+         }
+         else {
+           alert(vid);
          }
        }
         setValue(newValue);
