@@ -31,7 +31,7 @@ function DcParallax() {
    };
 
     return(
-      <Parallax pages={7} className={classes.parallax}>
+      <Parallax pages={8.5} className={classes.parallax}>
 
             <Parallax.Layer
                 offset={0}
@@ -54,7 +54,7 @@ function DcParallax() {
             </Parallax.Layer>
 
             <Parallax.Layer
-                offset={2}
+                offset={2.75}
                 speed={0.5}
                 style={styles}
             >
@@ -64,7 +64,7 @@ function DcParallax() {
             </Parallax.Layer>
 
             <Parallax.Layer
-                offset={3}
+                offset={4}
                 speed={0.5}
                 style={styles}
             >
