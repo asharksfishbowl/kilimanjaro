@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Img from 'react-image';
 import AspectRatio from 'react-aspect-ratio';
+import '../assets/css/AspectRatio.css';
 
 import ColoradoSprings from '../assets/images/ColoradoSprings.jpg';
 import Miguel2 from '../assets/images/Miguel2.jpg';
@@ -30,46 +31,46 @@ function DcParallax() {
    };
 
     return(
-      <Parallax pages={12} className={classes.parallax}>
+      <Parallax pages={7} className={classes.parallax}>
 
             <Parallax.Layer
                 offset={0}
                 speed={0.5}
                 style={styles}
             >
-            <AspectRatio ratio="1/8">
+            <AspectRatio ratio="1">
               <Img src={ColoradoSprings} />
             </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
+                offset={1}
+                speed={0.5}
+                style={styles}
+            >
+              <AspectRatio ratio="1">
+                <Img src={Miguel2} />
+              </AspectRatio>
+            </Parallax.Layer>
+
+            <Parallax.Layer
                 offset={2}
-                speed={-0.1}
-                style={styles}
-            >
-            <AspectRatio ratio="1/2">
-              <Img src={Miguel2} />
-            </AspectRatio>
-            </Parallax.Layer>
-
-            <Parallax.Layer
-                offset={4}
                 speed={0.5}
                 style={styles}
             >
-            <AspectRatio ratio="350/440">
-              <Img src={Miguel3} />
-            </AspectRatio>
+              <AspectRatio ratio="1" >
+                <Img src={Miguel3} />
+              </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
-                offset={6}
+                offset={3}
                 speed={0.5}
                 style={styles}
             >
-            <AspectRatio ratio="1/4">
-              <Img src={Miguel4} />
-            </AspectRatio>
+              <AspectRatio ratio="1">
+                <Img src={Miguel4} />
+              </AspectRatio>
             </Parallax.Layer>
 
       </Parallax>

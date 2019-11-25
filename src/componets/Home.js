@@ -2,14 +2,18 @@ import React from 'react';
 import logo from '../logo.jpg';
 import '../App.css';
 import 'typeface-roboto';
+import Img from 'react-image';
 
 // Material UI Componets
 import Link from '@material-ui/core/Link';
 import ButtonBase from '@material-ui/core/ButtonBase';
-// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
 
 import IconButton from '@material-ui/core/IconButton';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -34,19 +38,22 @@ const images = [{
     title: 'Miguel Del Campo Photography',
     width: '33%',
     height: '365px',
-    link: 'DcParallax'
+    link: 'DcParallax',
+    alt: 'Missing DcParallax'
   },{
     src: LeaMeyerRodarteImg,
     title: 'Lea Meyer Rodarte Photography',
     width: '33%',
     height: '365px',
-    link: 'LrParallax'
+    link: 'LrParallax',
+    alt: 'Missing LrParallax'
   },{
     src: NickSharkMarinoImg,
     title: 'Nick Shark Marino Photography',
     width: '33%',
     height: '365px',
-    link: 'NmParallax'
+    link: 'NmParallax',
+    alt: 'Missing NmParallax'
   },
 ];
 
@@ -69,7 +76,8 @@ const useStyles = makeStyles(theme => ({
     'z-index':1,
   },
   list:{
-    'text-align':'left'
+    textAlign: 'center',
+    'z-index':1,
   },
   image: {
     position: 'relative',
@@ -143,38 +151,58 @@ function Home() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
-      var vid = document.getElementById("backgroundVideoDiv");
-      if (newValue > 0) {
-        vid.muted = false;
-      }
-      else {
-        vid.muted = true;
-      }
-      vid.volume = newValue / 100;
-      setValue(newValue);
+       var vid = document.getElementById("backgroundVideoDiv");
+       if (vid) {
+         vid.volume = newValue / 100;
+         vid.muted = true;
+         if (newValue > 0) {
+           vid.muted = false;
+         }
+         else {
+           alert(vid);
+         }
+       }
+        setValue(newValue);
     };
 
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <Img src={logo} className="App-logo" alt="logo" />
+
+            <Typography variant="h2" gutterBottom>
+              A Shark's Fishbowl
+            </Typography>
+
+            <Typography variant="h4" gutterBottom>
+              What's up Sharks!
+            </Typography>
+
+            <Typography variant="overline"  gutterBottom>
+              I am going to be sharing my knowledge of creation soon! Click the links below for more :)
+            </Typography>
+
+            <Typography variant="overline" gutterBottom>
+              <List component="nav" className={classes.list} aria-label="mailbox folders">
+                <ListItem button>
+                  <ListItemText primary="Software Creation from basic link page to full on web app" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Music Creation from mixing to mastering a track" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemText primary="Video and Photo creation from using a camera to editing" />
+                </ListItem>
+              </List>
+            </Typography>
+
+            <Typography variant="h4"  gutterBottom>
+              So let's get creating :)
+            </Typography>
 
           <Typography>
-            <h1>A Shark's Fishbowl</h1>
-            <h2>What's up Sharks!!!!! :)</h2>
-            <p>
-              I am going to be sharing my knowledge of creation soon :)
-            </p>
-            <h3>For Example</h3>
-            <hr />
-            <ul className={classes.list}>
-              <li>Software Creation from basic link page to full on web app</li>
-              <li>Music Creation from mixing to mastering a track</li>
-              <li>Video and Photo creation from using a camera to editing</li>
-            </ul>
-            <h2>So let's get creating :)</h2>
-          </Typography>
 
+          </Typography>
 
           <div className={classes.slider}>
             <Typography id="continuous-slider" gutterBottom>
@@ -197,8 +225,9 @@ function Home() {
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick" />
               <input type="hidden" name="hosted_button_id" value="NMEW6UUZ4RB5L" />
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+              <Button className="App-donate-btn" variant="outlined" name="submit" type="submit" size="large">
+                Donate
+              </Button>
             </form>
             <Typography>
               You don't have to donate but it's big help to keep these projects going :)
@@ -251,9 +280,10 @@ function Home() {
                   height: image.height
                 }}
               >
-                <img
+                <Img
                   className={classes.imageSrc}
                   src={image.src}
+                  alt={image.alt}
                 />
                 <span className={classes.imageBackdrop} />
                 <span className={classes.imageButton}>

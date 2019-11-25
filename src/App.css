@@ -5,6 +5,8 @@
 .App-logo {
   height: 40vmin;
   z-index: 1;
+  border-radius: 21px;
+  margin-top: 10px;
 }
 
 .App-header {
@@ -33,4 +35,10 @@
   opacity: 0.2;
   position: fixed;
   z-index: 0;
+}
+
+.App-donate-btn{
+  width: 60%;
+  border-radius: 100px !important;
+  background: #50c878 !important;
 }

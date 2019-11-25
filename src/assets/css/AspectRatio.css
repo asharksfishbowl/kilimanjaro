@@ -1,0 +1,23 @@
+[style*="--aspect-ratio"] > :first-child {
+  width: 80%;
+}
+[style*="--aspect-ratio"] > img {
+  height: 100%;
+}
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+  [style*="--aspect-ratio"]::before {
+    height: 0;
+    content: "";
+    display: block;
+    padding-bottom: calc(10% / (var(--aspect-ratio)));
+  }
+  [style*="--aspect-ratio"] > :first-child {
+    position: relative;
+    top: 0;
+    left: 10%;
+    height: 100%;
+  }
+}
