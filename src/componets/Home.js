@@ -178,11 +178,7 @@ function Home() {
             </Typography>
 
             <Typography variant="overline"  gutterBottom>
-              I am going to be sharing my knowledge of creation soon!
-            </Typography>
-
-            <Typography variant="overline"  gutterBottom>
-              For Example :)
+              I am going to be sharing my knowledge of creation soon! Click the links below for more :)
             </Typography>
 
             <Typography variant="overline" textAlign="center" gutterBottom>
