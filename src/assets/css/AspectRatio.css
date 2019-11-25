@@ -15,7 +15,7 @@
     padding-bottom: calc(100% / (var(--aspect-ratio)));
   }
   [style*="--aspect-ratio"] > :first-child {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 10%;
     height: 100%;

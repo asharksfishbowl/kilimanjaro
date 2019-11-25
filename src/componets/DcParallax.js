@@ -31,44 +31,44 @@ function DcParallax() {
    };
 
     return(
-      <Parallax pages={12} className={classes.parallax}>
+      <Parallax pages={7} className={classes.parallax}>
 
             <Parallax.Layer
                 offset={0}
                 speed={0.5}
                 style={styles}
             >
-              <AspectRatio ratio="3/4" style={{position: 'fixed',}}>
+              <AspectRatio ratio="1">
                 <Img src={Miguel1} />
               </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
-                offset={2}
-                speed={-0.1}
+                offset={1}
+                speed={0.5}
                 style={styles}
             >
-              <AspectRatio ratio="3/4">
+              <AspectRatio ratio="1">
                 <Img src={Miguel2} />
               </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
-                offset={4}
+                offset={2}
                 speed={0.5}
                 style={styles}
             >
-              <AspectRatio ratio="3/4" style={{position: 'fixed',}}>
+              <AspectRatio ratio="1" >
                 <Img src={Miguel3} />
               </AspectRatio>
             </Parallax.Layer>
 
             <Parallax.Layer
-                offset={6}
+                offset={3}
                 speed={0.5}
                 style={styles}
             >
-              <AspectRatio ratio="3/4">
+              <AspectRatio ratio="1">
                 <Img src={Miguel4} />
               </AspectRatio>
             </Parallax.Layer>
