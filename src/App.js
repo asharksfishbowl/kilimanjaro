@@ -10,6 +10,7 @@ import {
 // Parallax Links
 import Home from './componets/Home.js';
 import DcParallax from './componets/DcParallax.js';
+import SoftwareCreation from './componets/SoftwareCreation.js';
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/NmParallax" >
             <DcParallax />
+          </Route>
+          <Route path="/SoftwareCreation" >
+            <SoftwareCreation />
           </Route>
           <Route path="/">
             <Home />
