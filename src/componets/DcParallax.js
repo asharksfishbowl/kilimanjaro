@@ -7,9 +7,9 @@ import AspectRatio from 'react-aspect-ratio';
 import '../assets/css/AspectRatio.css';
 
 import ColoradoSprings from '../assets/images/ColoradoSprings.jpg';
-import Miguel2 from '../assets/images/Miguel2.jpg';
-import Miguel3 from '../assets/images/Miguel3.jpg';
-import Miguel4 from '../assets/images/Miguel4.jpg';
+import FallTrees from '../assets/images/FallTrees.jpg';
+import SunNSpiderGrass from '../assets/images/SunNSpiderGrass.jpg';
+import LauretzinGardensFlower from '../assets/images/LauretzinGardensFlower.jpg';
 import Percy from '../assets/images/Percy.jpeg';
 
 const useStyles = makeStyles(theme => ({
@@ -50,7 +50,7 @@ function DcParallax() {
                 style={styles}
             >
               <AspectRatio ratio="1">
-                <Img src={Miguel2} />
+                <Img src={FallTrees} />
               </AspectRatio>
             </Parallax.Layer>
 
@@ -60,7 +60,7 @@ function DcParallax() {
                 style={styles}
             >
               <AspectRatio ratio="1" >
-                <Img src={Miguel3} />
+                <Img src={SunNSpiderGrass} />
               </AspectRatio>
             </Parallax.Layer>
 
@@ -70,7 +70,7 @@ function DcParallax() {
                 style={styles}
             >
               <AspectRatio ratio="1">
-                <Img src={Miguel4} />
+                <Img src={LauretzinGardensFlower} />
               </AspectRatio>
             </Parallax.Layer>
 
