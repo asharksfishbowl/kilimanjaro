@@ -28,7 +28,7 @@ import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 
 // Assets
-import BackgroundVideo from '../assets/videos/Vision.mp4';
+import BackgroundVideo from '../assets/videos/ASF.mp4';
 import MiguelDelCampoImg from '../assets/images/MiguelDelCampo.jpg';
 import LeaMeyerRodarteImg from '../assets/images/LeaMeyerRodarte.jpg';
 import NickSharkMarinoImg from '../assets/images/NickSharkMarino.jpg';
@@ -178,11 +178,11 @@ function Home() {
               What's up Sharks!
             </Typography>
 
-            <Typography variant="overline"  gutterBottom>
+            <Typography variant="overline">
               I am going to be sharing my knowledge of creation soon! Click the links below for more :)
             </Typography>
 
-            <Typography variant="overline" gutterBottom>
+            <Typography variant="overline">
               <List component="nav" className={classes.list} aria-label="mailbox folders">
                 <ListItem button>
                   <ListItemText primary="Software Creation from basic link page to full on web app" />
@@ -196,7 +196,7 @@ function Home() {
               </List>
             </Typography>
 
-            <Typography variant="h4"  gutterBottom>
+            <Typography variant="overline" >
               So let's get creating :)
             </Typography>
 
@@ -229,7 +229,7 @@ function Home() {
                 Donate
               </Button>
             </form>
-            <Typography>
+            <Typography variant="overline">
               You don't have to donate but it's big help to keep these projects going :)
             </Typography>
           </div>
