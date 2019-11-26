@@ -8,7 +8,6 @@ import Img from 'react-image';
 import Link from '@material-ui/core/Link';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -16,6 +15,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 
 import IconButton from '@material-ui/core/IconButton';
+
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -23,12 +23,8 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-import Slider from '@material-ui/core/Slider';
-import VolumeDown from '@material-ui/icons/VolumeDown';
-import VolumeUp from '@material-ui/icons/VolumeUp';
-
 // Assets
-import BackgroundVideo from '../assets/videos/Vision.mp4';
+import BackgroundVideo from '../assets/videos/ASF.mp4';
 import MiguelDelCampoImg from '../assets/images/MiguelDelCampo.jpg';
 import LeaMeyerRodarteImg from '../assets/images/LeaMeyerRodarte.jpg';
 import NickSharkMarinoImg from '../assets/images/NickSharkMarino.jpg';
@@ -149,21 +145,6 @@ const useStyles = makeStyles(theme => ({
 
 function Home() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-    const handleChange = (event, newValue) => {
-       var vid = document.getElementById("backgroundVideoDiv");
-       if (vid) {
-         vid.volume = newValue / 100;
-         vid.muted = true;
-         if (newValue > 0) {
-           vid.muted = false;
-         }
-         else {
-           alert(vid);
-         }
-       }
-        setValue(newValue);
-    };
 
     return (
       <div className="App">
@@ -178,48 +159,27 @@ function Home() {
               What's up Sharks!
             </Typography>
 
-            <Typography variant="overline"  gutterBottom>
+            <Typography variant="overline">
               I am going to be sharing my knowledge of creation soon! Click the links below for more :)
             </Typography>
 
-            <Typography variant="overline" gutterBottom>
+            <Typography variant="overline">
               <List component="nav" className={classes.list} aria-label="mailbox folders">
-                <ListItem button>
+                <ListItem button component={Link} href='/SoftwareCreation'>
                   <ListItemText primary="Software Creation from basic link page to full on web app" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} href='/MusicCreation'>
                   <ListItemText primary="Music Creation from mixing to mastering a track" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} href='/VideoCreation'>
                   <ListItemText primary="Video and Photo creation from using a camera to editing" />
                 </ListItem>
               </List>
             </Typography>
 
-            <Typography variant="h4"  gutterBottom>
+            <Typography variant="overline" >
               So let's get creating :)
             </Typography>
-
-          <Typography>
-
-          </Typography>
-
-          <div className={classes.slider}>
-            <Typography id="continuous-slider" gutterBottom>
-              Slide to control Volume
-            </Typography>
-            <Grid container spacing={2}>
-              <Grid item>
-                <VolumeDown />
-              </Grid>
-              <Grid item xs>
-                <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
-              </Grid>
-              <Grid item>
-                <VolumeUp />
-              </Grid>
-            </Grid>
-          </div>
 
           <div className="App-link">
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -229,7 +189,7 @@ function Home() {
                 Donate
               </Button>
             </form>
-            <Typography>
+            <Typography variant="overline">
               You don't have to donate but it's big help to keep these projects going :)
             </Typography>
           </div>

@@ -81,6 +81,7 @@ function DcParallax() {
             >
               <AspectRatio ratio="1">
                 <Img src={Percy} />
+
               </AspectRatio>
             </Parallax.Layer>
 
