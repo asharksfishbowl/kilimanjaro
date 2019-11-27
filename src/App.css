@@ -27,7 +27,8 @@
 }
 
 .App-background-video{
-  width: 100%;
+  width: 2000px !important;
+  height: 2000 !important;
   float: left;
   top: 0;
   padding: none;
