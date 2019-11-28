@@ -12,7 +12,12 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 // Parallax Links
 import Home from './componets/Home.js';
 import DcParallax from './componets/DcParallax.js';
+import LrParallax from './componets/LrParallax.js';
+import NmParallax from './componets/NmParallax.js';
 import SoftwareCreation from './componets/SoftwareCreation.js';
+import MusicCreation from './componets/MusicCreation.js';
+import VideoCreation from './componets/VideoCreation.js';
+import MakerCreation from './componets/MakerCreation.js';
 
 function App() {
 
@@ -27,13 +32,22 @@ function App() {
             <DcParallax />
           </Route>
           <Route path="/LrParallax">
-            <DcParallax />
+            <LrParallax />
           </Route>
           <Route path="/NmParallax" >
-            <DcParallax />
+            <NmParallax />
           </Route>
           <Route path="/SoftwareCreation" >
             <SoftwareCreation />
+          </Route>
+          <Route path="/MusicCreation" >
+            <MusicCreation />
+          </Route>
+          <Route path="/VideoCreation" >
+            <VideoCreation />
+          </Route>
+          <Route path="/MakerCreation" >
+            <MakerCreation />
           </Route>
           <Route path="/">
             <Home />

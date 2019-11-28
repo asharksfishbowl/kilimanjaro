@@ -174,6 +174,9 @@ function Home() {
                 <ListItem button component={Link} href='/VideoCreation'>
                   <ListItemText primary="Video and Photo creation from using a camera to editing" />
                 </ListItem>
+                <ListItem button component={Link} href='/MakerCreation'>
+                  <ListItemText primary="Arts and crafts, plus DIY projects" />
+                </ListItem>
               </List>
             </Typography>
 
