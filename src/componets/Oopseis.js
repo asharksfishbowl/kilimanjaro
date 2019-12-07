@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Img from 'react-image';
-import OopseisImg from '../assets/images/Oopseis.jpg';
+import RandomNumber from './examples/RandomNumber.js';
 
 class Oopseis extends Component {
   render() {
     return(
       <div>
-        <Img src={OopseisImg} />
+        <RandomNumber />
       </div>
     )
   }
