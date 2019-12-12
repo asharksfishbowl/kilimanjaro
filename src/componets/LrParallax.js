@@ -117,7 +117,7 @@ function LrParallax(props) {
               </Parallax.Layer>
 
               <Parallax.Layer
-                  offset={1}
+                  offset={1.25}
                   speed={0.5}
                   style={styles}
               >
