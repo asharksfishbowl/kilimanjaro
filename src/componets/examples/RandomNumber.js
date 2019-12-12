@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import AnimatedBg from "react-animated-bg";
 import Img from 'react-image';
 import OopseisImg from '../../assets/images/Oopseis.jpg';
 
-let x = 2;
-let y = 8;
-const a = function(b) { return function(c) { return x + y + Math.abs(b) + c; } };
+import { makeStyleres } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
-// Statement will go here
-y = 4.2;
-
-const fn = a(x);
-x = 4 / 0.69;
-const result = fn(Math.random() * 10);
+const numberResult = function() {
+  let value = (Math.random() * 10);
+  setInterval(function () {
+    return value + value;
+  }, 10);
+  return value;
+}
 
 const scaleImage = function(width, height, maxdim) {
   let scale = maxdim / Math.max(width, height);
@@ -21,12 +22,21 @@ const scaleImage = function(width, height, maxdim) {
 class RandomNumber extends Component {
   render(){
     let scale = scaleImage(300, 200, 500);
+    let result = numberResult();
+
     return(
-      <div>
-        {result}
+      <AnimatedBg
+        colors={["red", "salmon", "blue"]}
+        duration={0.5}
+        delay={4}
+        timingFunction="fade-out"
+      >
+        <Typography variant="h2">
+          {result}
+        </Typography>
         <br />
         <Img src={OopseisImg} width={scale[0]} height={scale[1]} />
-      </div>
+      </AnimatedBg>
     )
   }
 }
