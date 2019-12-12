@@ -10,7 +10,7 @@ const a = function(b) { return function(c) { return x + y + Math.abs(b) + c; } }
 y = 4.2;
 
 const fn = a(x);
-x = 4;
+x = 4 / 0.69;
 const result = fn(Math.random() * 10);
 
 const scaleImage = function(width, height, maxdim) {
