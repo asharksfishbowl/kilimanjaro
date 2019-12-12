@@ -1,6 +1,8 @@
 
 import React from 'react';
 import Parallax from 'react-springy-parallax';
+import AnimatedBg from "react-animated-bg";
+
 
 // Material UI Componets
 import { makeStyles } from '@material-ui/core/styles';
@@ -48,10 +50,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   parallax: {
-    background: 'red',
+    background:'white',
   },
   aspectRatio: {
-    background:'green'
+    zIndex:1000
   }
 }));
 
@@ -85,7 +87,6 @@ function LrParallax(props) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background:'blue',
    };
 
     return(
@@ -104,6 +105,13 @@ function LrParallax(props) {
                 </Toolbar>
               </AppBar>
 
+              <AnimatedBg
+                colors={["green", "salmon", "blue"]}
+                duration={10}
+                delay={4}
+                timingFunction="ease-out"
+              >
+
               <Toolbar id="back-to-top-anchor" />
 
               <Parallax.Layer
@@ -111,9 +119,16 @@ function LrParallax(props) {
                   speed={0.5}
                   style={styles}
               >
-              <AspectRatio ratio="1" className={classes.aspectRatio}>
-                <Img src={Butterflies} />
-              </AspectRatio>
+              <AnimatedBg
+                colors={["red", "salmon", "blue"]}
+                duration={10}
+                delay={4}
+                timingFunction="ease-out"
+              >
+                <AspectRatio ratio="1" className={classes.aspectRatio}>
+                  <Img src={Butterflies} />
+                </AspectRatio>
+              </AnimatedBg>
               </Parallax.Layer>
 
               <Parallax.Layer
@@ -121,9 +136,16 @@ function LrParallax(props) {
                   speed={0.5}
                   style={styles}
               >
+              <AnimatedBg
+                colors={["red", "salmon", "blue"]}
+                duration={10}
+                delay={4}
+                timingFunction="ease-out"
+              >
                 <AspectRatio ratio="1">
                   <Img src={Thedoctors} />
                 </AspectRatio>
+                </AnimatedBg>
               </Parallax.Layer>
 
               <Parallax.Layer
@@ -131,9 +153,16 @@ function LrParallax(props) {
                   speed={0.5}
                   style={styles}
               >
+              <AnimatedBg
+                colors={["red", "salmon", "blue"]}
+                duration={10}
+                delay={4}
+                timingFunction="ease-out"
+              >
                 <AspectRatio ratio="1" >
                   <Img src={Vegeta} />
                 </AspectRatio>
+                </AnimatedBg>
               </Parallax.Layer>
 
               <Parallax.Layer
@@ -141,9 +170,16 @@ function LrParallax(props) {
                   speed={0.5}
                   style={styles}
               >
+              <AnimatedBg
+                colors={["red", "salmon", "blue"]}
+                duration={10}
+                delay={4}
+                timingFunction="ease-out"
+              >
                 <AspectRatio ratio="1">
                   <Img src={GreenArrow} />
                 </AspectRatio>
+                </AnimatedBg>
               </Parallax.Layer>
 
               <Parallax.Layer
@@ -151,12 +187,20 @@ function LrParallax(props) {
                   speed={0.5}
                   style={styles}
               >
+              <AnimatedBg
+                colors={["red", "salmon", "blue"]}
+                duration={10}
+                delay={4}
+                timingFunction="ease-out"
+              >
                 <AspectRatio ratio="1">
                   <Img src={Supermario} />
 
                 </AspectRatio>
+                </AnimatedBg>
               </Parallax.Layer>
 
+              </AnimatedBg>
         </Parallax>
 
         <ScrollTop {...props}>
