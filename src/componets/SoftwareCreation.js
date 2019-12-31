@@ -1,41 +1,127 @@
 import React, { Component } from 'react';
+
+import { makeStyles } from '@material-ui/core/styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 import Img from 'react-image';
-import {ParallaxMap} from 'react-parallax-map';
 import AspectRatio from 'react-aspect-ratio';
 
 import Shark from '../assets/images/shark.jpg';
 
-let layerTest = [
-    { start: 0, end: 100, beginX: 0, x: 0, beginY: 0, y: 0, radius: 0 },
-    { start: 100, end: 1000, beginX: 0, x: -3500, beginY: 0, y: -3500, radius: 0, },
-    { start: 1000, end: 1300, beginX: -3500, x: -3500, beginY: -3500, y: -3500, radius: 0 },
-    { start: 1300, end: 2500, beginX: -3500, x: -6000, beginY: -3500, y: -6000, radius: 0 },
-    { start: 2500, end: 2800, beginX: -6000, x: -6000, beginY: -6000, y: -6000, radius: 0 },
-    { start: 2800, end: 3500, beginX: -6000, x: -9000, beginY: -6000, y: -3000, radius: 0 },
-    { start: 3500, end: 3800, beginX: -9000, x: -9000, beginY: -3000, y: -3000, radius: 0 },
-    { start: 3800, end: 4200, beginX: -9000, x: -9500, beginY: -3000, y: -6000, radius: 0 },
-    { start: 4200, end: 4500, beginX: -9500, x: -9500, beginY: -6000, y: -6000, radius: 0 },
-    { start: 4500, end: 5000, beginX: -9500, x: -11500, beginY: -6000, y: -9000, radius: 0 },
-    { start: 5200, end: 5500, beginX: -11500, x: -11500, beginY: -9000, y: -9000, radius: 0 },
-];
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0,
+  },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  },
+}));
+
+
 
 class SoftwareCreation extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {scrollTop:1};
+    this.state = {
+      scrollTop:1,
+      classes:useStyles(),
+
+    };
   }
 
   render() {
+
+    const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = panel => (event, isExpanded) => {
+      setExpanded(isExpanded ? panel : false);
+    }
+
     return(
       <div>
-        <ParallaxMap
-          map={layerTest}
-          currentScroll={this.state.scrollTop}
-          layerClassName="test-layer-bg"
-          layerZIndex={0}
-        />
-      <AspectRatio ratio="1/4" style={{ maxWidth: '1000px' }}>
+        <h1>Course Structure</h1>
+
+        <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+         <ExpansionPanelSummary
+           expandIcon={<ExpandMoreIcon />}
+           aria-controls="panel1bh-content"
+           id="panel1bh-header"
+         >
+           <Typography className={classes.heading}>General settings</Typography>
+           <Typography className={classes.secondaryHeading}>I am an expansion panel</Typography>
+         </ExpansionPanelSummary>
+         <ExpansionPanelDetails>
+           <Typography>
+             Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+             maximus est, id dignissim quam.
+           </Typography>
+         </ExpansionPanelDetails>
+       </ExpansionPanel>
+       <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+         <ExpansionPanelSummary
+           expandIcon={<ExpandMoreIcon />}
+           aria-controls="panel2bh-content"
+           id="panel2bh-header"
+         >
+           <Typography className={classes.heading}>Users</Typography>
+           <Typography className={classes.secondaryHeading}>
+             You are currently not an owner
+           </Typography>
+         </ExpansionPanelSummary>
+         <ExpansionPanelDetails>
+           <Typography>
+             Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
+             diam eros in elit. Pellentesque convallis laoreet laoreet.
+           </Typography>
+         </ExpansionPanelDetails>
+       </ExpansionPanel>
+       <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+         <ExpansionPanelSummary
+           expandIcon={<ExpandMoreIcon />}
+           aria-controls="panel3bh-content"
+           id="panel3bh-header"
+         >
+           <Typography className={classes.heading}>Advanced settings</Typography>
+           <Typography className={classes.secondaryHeading}>
+             Filtering has been entirely disabled for whole web server
+           </Typography>
+         </ExpansionPanelSummary>
+         <ExpansionPanelDetails>
+           <Typography>
+             Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
+             vitae egestas augue. Duis vel est augue.
+           </Typography>
+         </ExpansionPanelDetails>
+       </ExpansionPanel>
+       <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+         <ExpansionPanelSummary
+           expandIcon={<ExpandMoreIcon />}
+           aria-controls="panel4bh-content"
+           id="panel4bh-header"
+         >
+           <Typography className={classes.heading}>Personal data</Typography>
+         </ExpansionPanelSummary>
+         <ExpansionPanelDetails>
+           <Typography>
+             Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
+             vitae egestas augue. Duis vel est augue.
+           </Typography>
+         </ExpansionPanelDetails>
+       </ExpansionPanel>
+
+        <AspectRatio ratio="1/4" style={{ maxWidth: '1000px' }}>
           <Img src={Shark} />
         </AspectRatio>
       </div>
