@@ -39,6 +39,10 @@ const useStyles = makeStyles(theme => ({
   appBar:{
     zIndex:1
   },
+  appLink:{
+    color: '#09d3ac',
+    zndex: 1
+  },
   fabButton:{
     position: 'fixed',
     bottom: theme.spacing(2),
@@ -169,7 +173,7 @@ function DcParallax(props) {
           </Fab>
         </ScrollTop>
 
-        <div className="App-link">
+        <div className={classes.appLink}>
           <IconButton className={classes.button} aria-label="YouTube">
             <Link rel="stylesheet" href="https://www.youtube.com/channel/UCMem0Pu1NybZ8FRrvLDGkoA?view_as=subscriber">
               <YouTubeIcon color="secondary" />

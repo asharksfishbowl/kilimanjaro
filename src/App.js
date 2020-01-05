@@ -14,7 +14,7 @@ import Home from './componets/Home.js';
 import DcParallax from './componets/DcParallax.js';
 import LrParallax from './componets/LrParallax.js';
 import NmParallax from './componets/NmParallax.js';
-import SoftwareCreation from './componets/SoftwareCreation.js';
+import SoftwareCreation from './componets/software/SoftwareCreation.js';
 import MusicCreation from './componets/MusicCreation.js';
 import VideoCreation from './componets/VideoCreation.js';
 import MakerCreation from './componets/MakerCreation.js';
