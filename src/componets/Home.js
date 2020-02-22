@@ -147,7 +147,7 @@ function Home() {
     const classes = useStyles();
 
     return (
-      <div className="App">
+      <div className="App" >
         <header className="App-header">
           <Img src={logo} className="App-logo" alt="logo" />
 
@@ -266,10 +266,6 @@ function Home() {
               </ButtonBase>
             ))}
           </div>
-
-          <video id="backgroundVideoDiv" className='App-background-video' autoPlay loop muted>
-              <source src={BackgroundVideo} type='video/mp4' />
-          </video>
 
         </header>
 
