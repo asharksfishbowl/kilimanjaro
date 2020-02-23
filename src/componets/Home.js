@@ -180,6 +180,9 @@ function Home() {
                 <ListItem button component={Link} href='/AdminNavbarLinks'>
                   <ListItemText primary="Admin Full Tilt" />
                 </ListItem>
+                <ListItem button component={Link} href='/PreciousPlastic'>
+                  <ListItemText primary="Precious Plastic Omaha" />
+                </ListItem>
               </List>
             </Typography>
 

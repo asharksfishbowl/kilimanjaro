@@ -18,6 +18,7 @@ import SoftwareCreation from './componets/software/SoftwareCreation.js';
 import MusicCreation from './componets/MusicCreation.js';
 import VideoCreation from './componets/VideoCreation.js';
 import MakerCreation from './componets/MakerCreation.js';
+import PreciousPlastic from './componets/PreciousPlastic.js';
 
 function App() {
 
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route path="/MakerCreation" >
             <MakerCreation />
+          </Route>
+          <Route path="/PreciousPlastic" >
+            <PreciousPlastic />
           </Route>
           <Route path="/">
             <Home />
