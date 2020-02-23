@@ -11,7 +11,7 @@
     "react-aspect-ratio": "^1.0.41",
     "react-atv-parallax": "^1.0.2",
     "react-dom": "^16.12.0",
-    "react-file-viewer": "^1.2.1",
+    "react-file-utils": "^0.3.13",
     "react-image": "^2.2.1",
     "react-lazy-hero": "^2.0.0",
     "react-parallax": "^3.0.0-rc2",
