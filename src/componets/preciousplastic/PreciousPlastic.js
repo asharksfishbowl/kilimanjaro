@@ -38,7 +38,7 @@ class PreciousPlastic extends Component {
         onSourceError={this.onDocumentSourceError}
         error={errorMessage}
       >
-        <Page height={500} width={500} pageNumber={1} />
+        <Page height={600} width={400} pageNumber={1} />
       </Document>
     )
   }
