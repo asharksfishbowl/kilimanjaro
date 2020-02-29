@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Document, Page, pdfjs } from "react-pdf";
+import './PreciousPlastic.css';
 
 
 import Safety from "./Safety.pdf";
@@ -23,7 +24,7 @@ class PreciousPlastic extends Component {
 
   onDocumentSourceError = (error) => {
     let msg = 'Error while retrieving document source! ' + error.message;
-    alert('Error while retrieving document source! ' + error.message);
+    this.setState({ errorMessage:msg });
   }
 
   render() {
@@ -37,8 +38,9 @@ class PreciousPlastic extends Component {
         onLoadError={this.onDocumentLoadError}
         onSourceError={this.onDocumentSourceError}
         error={errorMessage}
+        className='Canvas-center'
       >
-        <Page height={600} width={400} pageNumber={1} />
+        <Page  height={600} width={400} pageNumber={1} />
       </Document>
     )
   }
