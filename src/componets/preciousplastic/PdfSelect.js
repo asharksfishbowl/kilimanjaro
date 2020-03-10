@@ -24,7 +24,7 @@ for (const [index, pdf] of paths.entries()) {
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 300,
+    minWidth: '90%',
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
