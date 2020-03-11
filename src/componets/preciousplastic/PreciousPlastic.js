@@ -4,7 +4,6 @@ import './PreciousPlastic.css';
 import PdfSelect from "./PdfSelect.js";
 
 class PreciousPlastic extends Component {
-
   constructor(props){
     super(props)
     this.preciousPlasticPdf = React.createRef();
@@ -20,6 +19,7 @@ class PreciousPlastic extends Component {
   loadDocument = pdf => {
     let selectValue = pdf.target.value;
     pdf = selectValue;
+    this.state.pageNumber = 1;
     this.setState({ pdf });
   }
 
