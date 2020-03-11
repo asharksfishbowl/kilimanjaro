@@ -3,9 +3,6 @@ import { Document, Page, pdfjs } from "react-pdf";
 import './PreciousPlastic.css';
 import PdfSelect from "./PdfSelect.js";
 
-import Safety from "./Safety.pdf";
-import PlasticTypes from "./starterkit/1. Learn about plastic/Plastic-Types_A1.pdf";
-
 class PreciousPlastic extends Component {
 
   constructor(props){
@@ -40,9 +37,17 @@ class PreciousPlastic extends Component {
     this.setState({ errorMessage:msg });
   }
 
+  changePage = offset => this.setState(prevState => ({
+    pageNumber: prevState.pageNumber + offset,
+  }));
+
+  previousPage = () => this.changePage(-1);
+
+  nextPage = () => this.changePage(1);
+
   render() {
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-    const { pdf, numPages, errorMessage }  = this.state;
+    const { pdf, numPages, pageNumber, errorMessage }  = this.state;
     return(
       <div>
         <PdfSelect action={this.loadDocument}/>
@@ -54,8 +59,27 @@ class PreciousPlastic extends Component {
           error={errorMessage}
           className='Canvas-center'
           >
-          <Page pageNumber={1} />
+          <Page pageNumber={pageNumber} />
         </Document>
+        <div>
+          <p>
+            Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+          </p>
+          <button
+            type="button"
+            disabled={pageNumber <= 1}
+            onClick={this.previousPage}
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            disabled={pageNumber >= numPages}
+            onClick={this.nextPage}
+          >
+            Next
+          </button>
+        </div>
       </div>
     )
   }
