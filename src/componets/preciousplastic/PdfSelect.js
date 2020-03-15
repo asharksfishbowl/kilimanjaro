@@ -79,7 +79,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PdfSelect(props) {
-  const {selection} = props;
   const classes = useStyles();
   const [pdf, setPDF] = React.useState('');
 
@@ -94,7 +93,6 @@ export default function PdfSelect(props) {
   }
 
   return (
-
     <div>
     <FormControl className={classes.formControl}>
       <InputLabel id="pdf-select-autowidth-label">Precious Plastic Omaha</InputLabel>

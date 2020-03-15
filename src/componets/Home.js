@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../logo.jpg';
 import '../App.css';
 import 'typeface-roboto';
@@ -146,9 +146,11 @@ const useStyles = makeStyles(theme => ({
 function Home() {
     const classes = useStyles();
 
+    const [animationClass, setAnimationClass] = useState('test');
+
     return (
       <div className="App" >
-        <header className="App-header">
+        <header className={animationClass}>
           <Img src={logo} className="App-logo" alt="logo" />
 
             <Typography variant="h2" gutterBottom>
@@ -269,11 +271,7 @@ function Home() {
               </ButtonBase>
             ))}
           </div>
-
         </header>
-
-
-
       </div>
     );
 
