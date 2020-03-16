@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   parallax: {
-    background:'white',
+    background:'transparent',
   },
   aspectRatio: {
     zIndex:1000
@@ -87,12 +87,20 @@ function LrParallax(props) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-   };
+        background:'transparent'
+    };
+
+    const images = [
+      {image:Butterflies, offset:0.25},
+      {image:Thedoctors, offset:1.25},
+      {image:Vegeta, offset:2},
+      {image:GreenArrow, offset:3},
+      {image:Supermario, offset:3.95}
+    ];
 
     return(
       <div className={classes.root}>
-        <Parallax pages={13.5} className={classes.parallax}>
-
+        <Parallax pages={images.length} className="background-grad">
               <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
                   <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -106,101 +114,25 @@ function LrParallax(props) {
               </AppBar>
 
               <AnimatedBg
-                colors={["green", "salmon", "blue"]}
+                colors={["red", "purle", "blue"]}
                 duration={10}
                 delay={4}
                 timingFunction="ease-out"
               >
+                {images.map((image, index) => (
+                  <Parallax.Layer
+                      offset={image.offset}
+                      speed={0.5}
+                      style={styles}
+                  >
 
-              <Toolbar id="back-to-top-anchor" />
+                      <AspectRatio ratio="1" className={classes.aspectRatio}>
+                        <Img src={image.image} />
+                      </AspectRatio>
+                  </Parallax.Layer>
+                 ))}
+               </AnimatedBg>
 
-              <Parallax.Layer
-                  offset={0.1}
-                  speed={0.5}
-                  style={styles}
-              >
-              <AnimatedBg
-                colors={["red", "salmon", "blue"]}
-                duration={10}
-                delay={4}
-                timingFunction="ease-out"
-              >
-                <AspectRatio ratio="1" className={classes.aspectRatio}>
-                  <Img src={Butterflies} />
-                </AspectRatio>
-              </AnimatedBg>
-              </Parallax.Layer>
-
-              <Parallax.Layer
-                  offset={1.25}
-                  speed={0.5}
-                  style={styles}
-              >
-              <AnimatedBg
-                colors={["red", "salmon", "blue"]}
-                duration={10}
-                delay={4}
-                timingFunction="ease-out"
-              >
-                <AspectRatio ratio="1">
-                  <Img src={Thedoctors} />
-                </AspectRatio>
-                </AnimatedBg>
-              </Parallax.Layer>
-
-              <Parallax.Layer
-                  offset={2.75}
-                  speed={0.5}
-                  style={styles}
-              >
-              <AnimatedBg
-                colors={["red", "salmon", "blue"]}
-                duration={10}
-                delay={4}
-                timingFunction="ease-out"
-              >
-                <AspectRatio ratio="1" >
-                  <Img src={Vegeta} />
-                </AspectRatio>
-                </AnimatedBg>
-              </Parallax.Layer>
-
-              <Parallax.Layer
-                  offset={4}
-                  speed={0.5}
-                  style={styles}
-              >
-              <AnimatedBg
-                colors={["red", "salmon", "blue"]}
-                duration={10}
-                delay={4}
-                timingFunction="ease-out"
-              >
-                <AspectRatio ratio="1">
-                  <Img src={GreenArrow} />
-                </AspectRatio>
-                </AnimatedBg>
-              </Parallax.Layer>
-
-              <Parallax.Layer
-                  offset={5.25}
-                  speed={0.5}
-                  style={styles}
-              >
-              <AnimatedBg
-                colors={["red", "salmon", "blue"]}
-                duration={10}
-                delay={4}
-                timingFunction="ease-out"
-              >
-                <AspectRatio ratio="1">
-                  <Img src={Supermario} />
-
-                </AspectRatio>
-                </AnimatedBg>
-              </Parallax.Layer>
-
-              </AnimatedBg>
         </Parallax>
 
         <ScrollTop {...props}>

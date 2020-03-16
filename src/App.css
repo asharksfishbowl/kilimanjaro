@@ -54,13 +54,13 @@
   animation: Gradient 15s ease infinite;
   }
 
-  .animated-background {
-    width: 100wh;
-    height: 190vh;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-  }
+.animated-background {
+  width: 100wh;
+  height: 190vh;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
 
 .paused {
   -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
