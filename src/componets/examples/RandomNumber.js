@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import AnimatedBg from "react-animated-bg";
-import Img from 'react-image';
-import OopseisImg from '../../assets/images/Oopseis.jpg';
-
-import { Container, Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 const numberResult = function(number) {
@@ -16,15 +11,6 @@ const scaleImage = function(width, height, maxdim) {
   let scale = maxdim / Math.max(width, height);
   return [scale * width, scale * height];
 }
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    height:'1000px'
-  },
-  image:{
-    position:'relative'
-  }
-}));
 
 class RandomNumber extends Component {
   constructor(props) {
@@ -39,7 +25,6 @@ class RandomNumber extends Component {
   };
 
   render(){
-    const classes = makeStyles();
     let scale = scaleImage(this.state.scaleWidth, this.state.scaleHeight, this.state.maxdim);
     let result = numberResult(this.state.count);
 
@@ -54,32 +39,32 @@ class RandomNumber extends Component {
       ];
 
       if (this.state.scaleWidth > 1000) {
-        this.state.scaleWidth = 250;
+        this.setState({scaleWidth:250});
       }
 
       if (this.state.scaleHeight > 1000) {
-        this.state.scaleHeight = 100;
+        this.setState({scaleHeight:100});
       }
 
       if (this.state.maxdim > 1000) {
-        this.state.maxdim = 300;
+        this.setState({maxdim:300});
       }
 
       this.setState({
-        count: 4.20 + this.state.count++,
+        count: (420 + 69 + this.state.count++) / 100,
         scaleWidth: Math.random() + this.state.scaleWidth++,
         scaleHeight: Math.random() + this.state.scaleHeight++,
         maxdim: Math.random() + this.state.maxdim++,
         fontColor:fontColors[Math.floor(Math.random() * Math.floor(5))]
       });
-    }.bind(this), 350)
+    }.bind(this), 1000)
 
     const imageList = [
-      'url("https://images.dog.ceo/breeds/labrador/n02099712_3503.jpg")',
-      'url("https://images.dog.ceo/breeds/labrador/n02099712_5844.jpg")',
-      'url("https://images.dog.ceo/breeds/labrador/n02099712_5343.jpg")',
-      'url("https://images.dog.ceo/breeds/labrador/n02099712_7481.jpg")',
-      'url("https://images.dog.ceo/breeds/labrador/n02099712_7414.jpg")'
+      'url(https://source.unsplash.com/featured/?animal,shark)',
+      'url(https://source.unsplash.com/featured/?animal,cougar)',
+      'url(https://source.unsplash.com/featured/?animal,wolf)',
+      'url(https://source.unsplash.com/featured/?animal,fox)',
+      'url(https://source.unsplash.com/featured/?animal,bear)'
     ];
 
     return(
@@ -88,12 +73,11 @@ class RandomNumber extends Component {
         duration={10}
         delay={0}
         timingFunction="ease-out"
+        className="background-grad"
         >
-        <Container className={classes.root} fixed>
-          <Typography variant="h2" color={this.state.fontColor}>
-            {result}
-          </Typography>
-        </Container >
+        <Typography color={this.state.fontColor}>
+          {result}
+        </Typography>
       </AnimatedBg>
     )
   }

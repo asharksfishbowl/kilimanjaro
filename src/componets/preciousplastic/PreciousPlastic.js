@@ -19,7 +19,7 @@ class PreciousPlastic extends Component {
   loadDocument = pdf => {
     let selectValue = pdf.target.value;
     pdf = selectValue;
-    this.state.pageNumber = 1;
+    this.setState({ pageNumber:1 });
     this.setState({ pdf });
   }
 

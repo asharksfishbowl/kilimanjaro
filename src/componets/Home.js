@@ -24,7 +24,6 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 // Assets
-import BackgroundVideo from '../assets/videos/ASF.mp4';
 import MiguelDelCampoImg from '../assets/images/MiguelDelCampo.jpg';
 import LeaMeyerRodarteImg from '../assets/images/LeaMeyerRodarte.jpg';
 import NickSharkMarinoImg from '../assets/images/NickSharkMarino.jpg';
@@ -74,6 +73,12 @@ const useStyles = makeStyles(theme => ({
   list:{
     textAlign: 'center',
     'z-index':1,
+  },
+  listCenter:{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     position: 'relative',
@@ -146,7 +151,7 @@ const useStyles = makeStyles(theme => ({
 function Home() {
     const classes = useStyles();
 
-    const [animationClass, setAnimationClass] = useState('test');
+    const [animationClass] = useState('background-grad');
 
     return (
       <div className="App" >
@@ -165,7 +170,7 @@ function Home() {
               I am going to be sharing my knowledge of creation soon! Click the links below for more :)
             </Typography>
 
-            <Typography variant="overline">
+            <Typography variant="overline" className={classes.listCenter}>
               <List component="nav" className={classes.list} aria-label="mailbox folders">
                 <ListItem button component={Link} href='/SoftwareCreation'>
                   <ListItemText primary="Software Creation from basic link page to full on web app" />

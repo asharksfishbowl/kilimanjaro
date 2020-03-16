@@ -89,7 +89,7 @@ export default function PdfSelect(props) {
 
   const items = [];
   for (const [index, pdf] of pdfs.entries()) {
-    items.push(<MenuItem value={pdf.value}>{pdf.key}</MenuItem>);
+    items.push(<MenuItem key={pdf.key} value={pdf.value}>{pdf.key}</MenuItem>);
   }
 
   return (
