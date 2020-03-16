@@ -125,7 +125,6 @@ function LrParallax(props) {
                       speed={0.5}
                       style={styles}
                   >
-
                       <AspectRatio ratio="1" className={classes.aspectRatio}>
                         <Img src={image.image} />
                       </AspectRatio>
