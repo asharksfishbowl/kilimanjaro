@@ -64,16 +64,22 @@ class RandomNumber extends Component {
       'url(https://source.unsplash.com/featured/?animal,cougar)',
       'url(https://source.unsplash.com/featured/?animal,wolf)',
       'url(https://source.unsplash.com/featured/?animal,fox)',
-      'url(https://source.unsplash.com/featured/?animal,bear)'
+      'url(https://source.unsplash.com/featured/?animal,bear)',
+      'url(https://source.unsplash.com/featured/?animal,snake)',
+      'url(https://source.unsplash.com/featured/?animal,snail)',
+      'url(https://source.unsplash.com/featured/?animal,sloth)',
+      'url(https://source.unsplash.com/featured/?animal,dog)',
+      'url(https://source.unsplash.com/featured/?animal,cat)',
     ];
 
     return(
       <AnimatedBg
         colors={imageList}
-        duration={10}
-        delay={0}
+        duration={5}
+        delay={1}
         timingFunction="ease-out"
-        className="background-grad"
+        className="animated-background"
+        randomMode
         >
         <Typography color={this.state.fontColor}>
           {result}

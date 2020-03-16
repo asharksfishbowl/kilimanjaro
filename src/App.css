@@ -54,6 +54,14 @@
   animation: Gradient 15s ease infinite;
   }
 
+  .animated-background {
+    width: 100wh;
+    height: 190vh;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+
 .paused {
   -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
   animation-play-state: paused;
@@ -63,34 +71,34 @@
   0% {
   background-position: 0% 50%
   }
-50% {
-background-position: 100% 50%
-}
-100% {
-background-position: 0% 50%
-}
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
 }
 
 @-moz-keyframes Gradient {
   0% {
   background-position: 0% 50%
   }
-50% {
-background-position: 100% 50%
-}
-100% {
-background-position: 0% 50%
-}
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
 }
 
 @keyframes Gradient {
   0% {
   background-position: 0% 50%
   }
-50% {
-background-position: 100% 50%
-}
-100% {
-background-position: 0% 50%
-}
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
 }
