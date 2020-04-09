@@ -40,25 +40,25 @@ import PresentationBook from './6. Run your Workspace/3. Share/1. Presentation/P
 import PresentationDesk from './6. Run your Workspace/3. Share/1. Presentation/Precious Plastic - Presentation - Deck.pdf';
 
 const pdfs = [
-  {key:'0. Intro Mix Workspace', value:IntroMixWorkspace},
+  {key:'0. Intro Mix Workspace',    value:IntroMixWorkspace},
   {key:'0. License And Disclaimer', value:LicenseAndDisclaimer},
-  {key:'0. Safety', value:Safety},
-  {key:'1. Floating Properties', value:FloatingProperties},
-  {key:'1. Physical Properties', value:PhysicalProperties},
-  {key:'1. Plastic Types', value:PlasticTypes},
-  {key:'1. Visual Properties', value:VisualProperties},
-  {key:'2. Action Plan', value:ActionPlan},
-  {key:'2. Business Plan', value:BusinessPlan},
-  {key:'3. Shredder', value:Shredder},
-  {key:'3. Injection', value:Injection},
-  {key:'3. Compression', value:Compression},
-  {key:'3. Extrusion', value:Extrusion},
-  {key:'4. Floor plan', value:Floorplan},
-  {key:'5. Badge', value:Badge},
-  {key:'5. Logo', value:Logo},
-  {key:'6. Melting Temperatures', value:MeltingTemperatures},
-  {key:'6. Presentation Book', value:PresentationBook},
-  {key:'6. Presentation Desk', value:PresentationDesk}
+  {key:'0. Safety',                 value:Safety},
+  {key:'1. Floating Properties',    value:FloatingProperties},
+  {key:'1. Physical Properties',    value:PhysicalProperties},
+  {key:'1. Plastic Types',          value:PlasticTypes},
+  {key:'1. Visual Properties',      value:VisualProperties},
+  {key:'2. Action Plan',            value:ActionPlan},
+  {key:'2. Business Plan',          value:BusinessPlan},
+  {key:'3. Shredder',               value:Shredder},
+  {key:'3. Injection',              value:Injection},
+  {key:'3. Compression',            value:Compression},
+  {key:'3. Extrusion',              value:Extrusion},
+  {key:'4. Floor plan',             value:Floorplan},
+  {key:'5. Badge',                  value:Badge},
+  {key:'5. Logo',                   value:Logo},
+  {key:'6. Melting Temperatures',   value:MeltingTemperatures},
+  {key:'6. Presentation Book',      value:PresentationBook},
+  {key:'6. Presentation Desk',      value:PresentationDesk}
 ];
 
 const items = [];
