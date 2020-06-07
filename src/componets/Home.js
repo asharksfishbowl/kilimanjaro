@@ -49,8 +49,7 @@ const images = [{
     height: '365px',
     link: 'NmParallax',
     alt: 'Missing NmParallax'
-  },
-];
+}];
 
 const useStyles = makeStyles(theme => ({
   root: {

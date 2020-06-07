@@ -34,7 +34,10 @@ function Course(props) {
           <Typography>
             <ul>
               <li>Install NodeJS</li>
-              <li></li>
+              <li>Setup Reactjs</li>
+              <li>Optional - Setup Material UI</li>
+              <li>Setup Firebase</li>
+              <li>Run npm start</li>
             </ul>
           </Typography>
         </ExpansionPanelDetails>
@@ -45,12 +48,11 @@ function Course(props) {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>Expansion Panel 2</Typography>
+          <Typography className={classes.heading}>Create Login Page</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
+
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -60,7 +62,7 @@ function Course(props) {
           aria-controls="panel3a-content"
           id="panel3a-header"
         >
-          <Typography className={classes.heading}>Disabled Expansion Panel</Typography>
+          <Typography className={classes.heading}>Create a User Profile</Typography>
         </ExpansionPanelSummary>
       </ExpansionPanel>
     </div>

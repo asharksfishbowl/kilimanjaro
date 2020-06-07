@@ -20,6 +20,11 @@ import VideoCreation from './componets/VideoCreation.js';
 import MakerCreation from './componets/MakerCreation.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
+// Login Screens
+import SignInSide from './componets/software/SignInSide.js';
+import SignIn from './componets/software/SignIn.js';
+import SignUp from './componets/software/SignUp.js';
+
 function App() {
 
   return (
@@ -40,6 +45,18 @@ function App() {
           </Route>
           <Route path="/SoftwareCreation" >
             <SoftwareCreation />
+          </Route>
+          <Route path="/SignInSide" >
+            <SignInSide />
+          </Route>
+          <Route path="/SignIn" >
+            <SignIn />
+          </Route>
+          <Route path="/SignUp" >
+            <SignUp />
+          </Route>
+          <Route path="/PreciousPlastic" >
+            <PreciousPlastic />
           </Route>
           <Route path="/MusicCreation" >
             <MusicCreation />
