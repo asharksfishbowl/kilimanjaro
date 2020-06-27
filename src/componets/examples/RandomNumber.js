@@ -6,11 +6,11 @@ const numberResult = function(number) {
   let value = (Math.random() * number + 42);
   return value;
 }
-
-const scaleImage = function(width, height, maxdim) {
-  let scale = maxdim / Math.max(width, height);
-  return [scale * width, scale * height];
-}
+// TODO: Get this to work as example to show peeps how to scale images
+// const scaleImage = function(width, height, maxdim) {
+//   let scale = maxdim / Math.max(width, height);
+//   return [scale * width, scale * height];
+// }
 
 class RandomNumber extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class RandomNumber extends Component {
   };
 
   render(){
-    let scale = scaleImage(this.state.scaleWidth, this.state.scaleHeight, this.state.maxdim);
+    // let scale = scaleImage(this.state.scaleWidth, this.state.scaleHeight, this.state.maxdim);
     let result = numberResult(this.state.count);
 
     setTimeout(function () {
@@ -51,10 +51,10 @@ class RandomNumber extends Component {
       }
 
       this.setState({
-        count: (420 + 69 + this.state.count++) / 100,
-        scaleWidth: Math.random() + this.state.scaleWidth++,
-        scaleHeight: Math.random() + this.state.scaleHeight++,
-        maxdim: Math.random() + this.state.maxdim++,
+        count: (420 + 69 + result / 100),
+        scaleWidth: Math.random() + result,
+        scaleHeight: Math.random() + result,
+        maxdim: Math.random() + result,
         fontColor:fontColors[Math.floor(Math.random() * Math.floor(5))]
       });
     }.bind(this), 1000)

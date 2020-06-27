@@ -6,7 +6,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import PdfLoader from './starterkit/PdfLoader.js';
+// import PdfLoader from './starterkit/PdfLoader.js';
 
 // LV 0 Start
 import IntroMixWorkspace from './starterkit/0. Start/Intro - Mix Workspace.pdf';
@@ -80,16 +80,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function PdfSelect(props) {
   const classes = useStyles();
-  const [pdf, setPDF] = React.useState('');
-
-  const handleChange = event => {
-    let selectedPDF = event.target.value;
-    setPDF(selectedPDF);
-  };
 
   const items = [];
   for (const [index, pdf] of pdfs.entries()) {
-    items.push(<MenuItem key={pdf.key} value={pdf.value}>{pdf.key}</MenuItem>);
+    items.push(
+      <MenuItem id={index + '_' + pdf.key} key={pdf.key} value={pdf.value}>
+        {pdf.key}
+      </MenuItem>
+    );
   }
 
   return (
