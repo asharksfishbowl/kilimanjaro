@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Document, Page, pdfjs } from "react-pdf";
+// import { Document, Page, pdfjs } from "react-pdf";
 import './PreciousPlastic.css';
 import PdfSelect from "./PdfSelect.js";
 
@@ -67,10 +67,11 @@ class PreciousPlastic extends Component {
 
 
   render() {
-    pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-    const { pdf, numPages, pageNumber, errorMessage }  = this.state;
+    // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+    const { numPages, pageNumber } = this.state;
     const classes = useStyles;
     const theme = useTheme;
+
     return(
       <div className={classes.root}>
         <Grid container spacing={3}>
@@ -80,6 +81,7 @@ class PreciousPlastic extends Component {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} className={classes.root}>
+            {/* TODO: fix this when a fix is issued
               <Document
                 file={pdf}
                 onLoadSuccess={this.onDocumentLoadSuccess}
@@ -90,6 +92,7 @@ class PreciousPlastic extends Component {
                 >
                 <Page pageNumber={pageNumber} />
               </Document>
+            */}
           </Grid>
           <Grid container spacing={3}>
             <Grid item xs={12}>
