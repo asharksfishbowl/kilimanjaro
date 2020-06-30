@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import firebase from '../../FirebaseDB.js';
+import App from '../../App.js';
+import { withRouter } from "react-router";
+import { Redirect } from 'react-router-dom';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Img from 'react-image';
 import ASF from '../../assets/images/ASF/ASF2.jpg';
+
 
 function Copyright() {
   return (
@@ -62,8 +68,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function SignInSide(props) {
   const classes = useStyles();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const onPasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
+
+  async function login() {
+    const { history } = props;
+    try {
+      await firebase.login(email, password);
+      history.push('/');
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      // props.history.replace('/home');
+    }
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -77,7 +105,7 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Keep Swimming
             </Typography>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} onSubmit={e => e.preventDefault() && false} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -88,6 +116,8 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={email}
+                onChange={onEmailChange}
               />
               <TextField
                 variant="outlined"
@@ -99,6 +129,8 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password}
+                onChange={onPasswordChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -110,6 +142,7 @@ export default function SignInSide() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={login}
               >
                 Sign In
               </Button>

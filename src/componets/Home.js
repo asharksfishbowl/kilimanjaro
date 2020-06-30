@@ -28,7 +28,7 @@ import MiguelDelCampoImg from '../assets/images/MiguelDelCampo.jpg';
 import LeaMeyerRodarteImg from '../assets/images/LeaMeyerRodarte.jpg';
 import NickSharkMarinoImg from '../assets/images/NickSharkMarino.jpg';
 
-const images = [{
+const images =  [{
     src: MiguelDelCampoImg,
     title: 'Miguel Del Campo Photography',
     width: '33%',
@@ -149,7 +149,6 @@ const useStyles = makeStyles(theme => ({
 
 function Home() {
     const classes = useStyles();
-
     const [animationClass] = useState('background-grad');
 
     return (
