@@ -14,7 +14,7 @@ import {
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 // Parallax Links
-import Home from './componets/Home.js';
+import Home from './componets/home/Home.js';
 import DcParallax from './componets/DcParallax.js';
 import LrParallax from './componets/LrParallax.js';
 import NmParallax from './componets/NmParallax.js';

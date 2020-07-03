@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import logo from '../logo.jpg';
-import '../App.css';
+import logo from '../../logo.jpg';
+import '../../App.css';
 import 'typeface-roboto';
 import Img from 'react-image';
 
 // Material UI Componets
 import Link from '@material-ui/core/Link';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import { makeStyles } from '@material-ui/core/styles';
+import Styles from './Styles.js';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -24,9 +24,9 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 // Assets
-import MiguelDelCampoImg from '../assets/images/MiguelDelCampo.jpg';
-import LeaMeyerRodarteImg from '../assets/images/LeaMeyerRodarte.jpg';
-import NickSharkMarinoImg from '../assets/images/NickSharkMarino.jpg';
+import MiguelDelCampoImg from '../../assets/images/MiguelDelCampo.jpg';
+import LeaMeyerRodarteImg from '../../assets/images/LeaMeyerRodarte.jpg';
+import NickSharkMarinoImg from '../../assets/images/NickSharkMarino.jpg';
 
 const images =  [{
     src: MiguelDelCampoImg,
@@ -51,104 +51,9 @@ const images =  [{
     alt: 'Missing NmParallax'
 }];
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    minWidth: 300,
-    width: '100%',
-    'z-index':1,
-  },
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-  slider:{
-    width:200,
-    'z-index':1,
-  },
-  list:{
-    textAlign: 'center',
-    'z-index':1,
-  },
-  listCenter:{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image: {
-    position: 'relative',
-    height: 150,
-    [theme.breakpoints.down('xs')]: {
-      width: '100% !important', // Overrides inline-style
-      height: 100,
-    },
-    '&:hover, &$focusVisible': {
-      zIndex: 1,
-      '& $imageBackdrop': {
-        opacity: 0.15,
-      },
-      '& $imageMarked': {
-        opacity: 0,
-      },
-      '& $imageTitle': {
-        border: '4px solid currentColor',
-      },
-    },
-  },
-  focusVisible: {},
-  imageButton: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: theme.palette.common.white,
-  },
-  imageSrc: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center 40%',
-    height: '100%',
-    width: '100%'
-  },
-  imageBackdrop: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundColor: theme.palette.common.black,
-    opacity: 0.4,
-    transition: theme.transitions.create('opacity'),
-  },
-  imageTitle: {
-    position: 'relative',
-    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-  },
-  imageMarked: {
-    height: 3,
-    width: 18,
-    backgroundColor: theme.palette.common.white,
-    position: 'absolute',
-    bottom: -2,
-    left: 'calc(50% - 9px)',
-    transition: theme.transitions.create('opacity'),
-  },
-}));
 
 function Home() {
-    const classes = useStyles();
+    const classes = Styles();
     const [animationClass] = useState('background-grad');
 
     return (
@@ -168,8 +73,8 @@ function Home() {
               I am going to be sharing my knowledge of creation soon! Click the links below for more :)
             </Typography>
 
-            <Typography variant="overline" className={classes.listCenter}>
-              <List component="nav" className={classes.list} aria-label="mailbox folders">
+            <Typography variant="overline" className={classes().listCenter}>
+              <List component="nav" className={classes().list} aria-label="mailbox folders">
                 <ListItem button component={Link} href='/SoftwareCreation'>
                   <ListItemText primary="Software Creation from basic link page to full on web app" />
                 </ListItem>
@@ -209,66 +114,66 @@ function Home() {
           </div>
 
           <div className="App-link">
-            <IconButton className={classes.button} aria-label="YouTube">
+            <IconButton className={classes().button} aria-label="YouTube">
               <Link rel="stylesheet" href="https://www.youtube.com/channel/UCMem0Pu1NybZ8FRrvLDGkoA?view_as=subscriber">
                 <YouTubeIcon color="primary" />
               </Link>
             </IconButton>
-            <IconButton className={classes.button} aria-label="Facebook">
+            <IconButton className={classes().button} aria-label="Facebook">
               <Link rel="stylesheet" href="https://www.facebook.com/asharksfishbowl/?fref=gs&dti=462102767518969&hc_location=group_dialog">
                 <FacebookIcon color="primary" />
               </Link>
             </IconButton>
-            <IconButton className={classes.button} aria-label="Instagram">
+            <IconButton className={classes().button} aria-label="Instagram">
               <Link rel="stylesheet" href="https://www.instagram.com/asharksfishbowl/">
                 <InstagramIcon color="primary" />
               </Link>
             </IconButton>
-            <IconButton className={classes.button} aria-label="LinkedIn">
+            <IconButton className={classes().button} aria-label="LinkedIn">
               <Link rel="stylesheet" href="https://www.linkedin.com/in/nick-marino-738861b0/">
                 <LinkedInIcon color="primary" />
               </Link>
             </IconButton>
-            <IconButton className={classes.button} aria-label="Twitter">
+            <IconButton className={classes().button} aria-label="Twitter">
               <Link rel="stylesheet" href="https://twitter.com/asharksfishbowl">
                 <TwitterIcon color="primary" />
               </Link>
             </IconButton>
-            <IconButton className={classes.button} aria-label="GitHub">
+            <IconButton className={classes().button} aria-label="GitHub">
               <Link rel="stylesheet" href="https://github.com/asharksfishbowl">
                 <GitHubIcon color="primary" />
               </Link>
             </IconButton>
           </div>
 
-          <div className={classes.root}>
+          <div className={classes().root}>
             {images.map(image => (
               <ButtonBase
                 focusRipple
                 key={image.title}
                 href={image.link}
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
+                className={classes().image}
+                focusVisibleClassName={classes().focusVisible}
                 style={{
                   width: image.width,
                   height: image.height
                 }}
               >
                 <Img
-                  className={classes.imageSrc}
+                  className={classes().imageSrc}
                   src={image.src}
                   alt={image.alt}
                 />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
+                <span className={classes().imageBackdrop} />
+                <span className={classes().imageButton}>
                   <Typography
                     component="span"
                     variant="subtitle1"
                     color="inherit"
-                    className={classes.imageTitle}
+                    className={classes().imageTitle}
                   >
                     {image.title}
-                    <span className={classes.imageMarked} />
+                    <span className={classes().imageMarked} />
                   </Typography>
                 </span>
               </ButtonBase>
