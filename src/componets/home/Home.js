@@ -3,15 +3,12 @@ import logo from '../../logo.jpg';
 import '../../App.css';
 import 'typeface-roboto';
 import Img from 'react-image';
+import Styles from './Styles.js';
+import Founders from './founders/Founders.js';
 
 // Material UI Componets
 import Link from '@material-ui/core/Link';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Styles from './Styles.js';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -23,34 +20,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-// Assets
-import MiguelDelCampoImg from '../../assets/images/MiguelDelCampo.jpg';
-import LeaMeyerRodarteImg from '../../assets/images/LeaMeyerRodarte.jpg';
-import NickSharkMarinoImg from '../../assets/images/NickSharkMarino.jpg';
-
-const images =  [{
-    src: MiguelDelCampoImg,
-    title: 'Miguel Del Campo Photography',
-    width: '33%',
-    height: '365px',
-    link: 'DcParallax',
-    alt: 'Missing DcParallax'
-  },{
-    src: LeaMeyerRodarteImg,
-    title: 'Lea Meyer Rodarte Photography',
-    width: '33%',
-    height: '365px',
-    link: 'LrParallax',
-    alt: 'Missing LrParallax'
-  },{
-    src: NickSharkMarinoImg,
-    title: 'Nick Shark Marino Photography',
-    width: '33%',
-    height: '365px',
-    link: 'NmParallax',
-    alt: 'Missing NmParallax'
-}];
-
 
 function Home() {
     const classes = Styles();
@@ -61,46 +30,31 @@ function Home() {
         <header className={animationClass}>
           <Img src={logo} className="App-logo" alt="logo" />
 
-            <Typography variant="h2" gutterBottom>
-              A Shark's Fishbowl
-            </Typography>
+          <Typography variant="h2" gutterBottom>
+            A Shark's Fishbowl
+          </Typography>
 
-            <Typography variant="h4" gutterBottom>
-              What's up Sharks!
-            </Typography>
+          <Typography variant="h4" gutterBottom>
+            What's up Sharks!
+          </Typography>
 
-            <Typography variant="overline">
-              I am going to be sharing my knowledge of creation soon! Click the links below for more :)
-            </Typography>
+          <Typography variant="overline">
+            I am going to be sharing my knowledge of creation soon! Click the links below for more :)
+          </Typography>
 
-            <Typography variant="overline" className={classes().listCenter}>
-              <List component="nav" className={classes().list} aria-label="mailbox folders">
-                <ListItem button component={Link} href='/SoftwareCreation'>
-                  <ListItemText primary="Software Creation from basic link page to full on web app" />
-                </ListItem>
-                <ListItem button component={Link} href='/MusicCreation'>
-                  <ListItemText primary="Music Creation from mixing to mastering a track" />
-                </ListItem>
-                <ListItem button component={Link} href='/VideoCreation'>
-                  <ListItemText primary="Video and Photo creation from using a camera to editing" />
-                </ListItem>
-                <ListItem button component={Link} href='/MakerCreation'>
-                  <ListItemText primary="Arts and crafts, plus DIY projects" />
-                </ListItem>
-                <ListItem button component={Link} href='/AdminNavbarLinks'>
-                  <ListItemText primary="Admin Full Tilt" />
-                </ListItem>
-                <ListItem button component={Link} href='/PreciousPlastic'>
-                  <ListItemText primary="Precious Plastic Omaha" />
-                </ListItem>
-              </List>
-            </Typography>
-
-            <Typography variant="overline" >
-              So let's get creating :)
-            </Typography>
+          <div className={classes().listCenter}>
+            <Button variant="contained" className={classes().button} color="primary" size="large" href="/SignInSide">
+              Sign In
+            </Button>
+            <Button variant="contained" className={classes().button} color="primary" size="large" href="/SignUp">
+              Sign Up
+            </Button>
+          </div>
 
           <div className="App-link">
+            <Typography variant="overline">
+              You don't have to donate but it's big help to keep these projects going :)
+            </Typography>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick" />
               <input type="hidden" name="hosted_button_id" value="NMEW6UUZ4RB5L" />
@@ -108,9 +62,6 @@ function Home() {
                 Donate
               </Button>
             </form>
-            <Typography variant="overline">
-              You don't have to donate but it's big help to keep these projects going :)
-            </Typography>
           </div>
 
           <div className="App-link">
@@ -145,40 +96,10 @@ function Home() {
               </Link>
             </IconButton>
           </div>
-
-          <div className={classes().root}>
-            {images.map(image => (
-              <ButtonBase
-                focusRipple
-                key={image.title}
-                href={image.link}
-                className={classes().image}
-                focusVisibleClassName={classes().focusVisible}
-                style={{
-                  width: image.width,
-                  height: image.height
-                }}
-              >
-                <Img
-                  className={classes().imageSrc}
-                  src={image.src}
-                  alt={image.alt}
-                />
-                <span className={classes().imageBackdrop} />
-                <span className={classes().imageButton}>
-                  <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes().imageTitle}
-                  >
-                    {image.title}
-                    <span className={classes().imageMarked} />
-                  </Typography>
-                </span>
-              </ButtonBase>
-            ))}
-          </div>
+          <Typography variant="overline">
+            Founders
+          </Typography>
+          <Founders/>
         </header>
       </div>
     );

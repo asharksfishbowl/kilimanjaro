@@ -25,9 +25,9 @@ import MakerCreation from './componets/MakerCreation.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
 // Login Screens
-import SignInSide from './componets/software/SignInSide.js';
-import SignIn from './componets/software/SignIn.js';
-import SignUp from './componets/software/SignUp.js';
+import SignInSide from './componets/login/SignInSide.js';
+import SignIn from './componets/login/SignIn.js';
+import SignUp from './componets/login/SignUp.js';
 
 // import Material UI
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'

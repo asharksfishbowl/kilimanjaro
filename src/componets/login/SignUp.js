@@ -1,6 +1,8 @@
 import React from 'react';
 import firebase from '../../FirebaseDB.js';
 import { Redirect } from 'react-router-dom';
+import Copyright from '../Copyright.js';
+import Styles from './Styles.js';
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,49 +15,13 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import Img from 'react-image';
 import ASF from '../../assets/images/ASF/ASF2.jpg';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    height: '250px',
-    width:  '250px',
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.secondary,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
 export default function SignUp() {
-  const classes = useStyles();
+  const classes = Styles();
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -92,14 +58,14 @@ export default function SignUp() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+      <div className={classes().paper}>
+        <Avatar className={classes().avatar}>
           <Img src={ASF} className="App-logo" alt="logo" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Join the swim :)
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes().form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -167,7 +133,8 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={classes().submit}
+            onClick={login}
           >
             Sign Up
           </Button>
