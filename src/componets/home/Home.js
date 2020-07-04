@@ -39,7 +39,7 @@ function Home() {
           </Typography>
 
           <Typography variant="overline">
-            I am going to be sharing my knowledge of creation soon! Click the links below for more :)
+            I am going to be sharing my knowledge of creation soon! Sign up or Sign in for more :)
           </Typography>
 
           <div className={classes().listCenter}>
