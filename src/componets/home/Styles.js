@@ -11,6 +11,14 @@ const Styles = () => {
     },
     button: {
       margin: theme.spacing(1),
+      width: '60%',
+      height: '75px',
+      borderRadius: '20px !important',
+      background: '#50c878 !important',
+      fontSize: '30px'
+    },
+    iconButton: {
+      margin: theme.spacing(1)
     },
     input: {
       display: 'none',
