@@ -33,9 +33,10 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: build
+          path: build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
