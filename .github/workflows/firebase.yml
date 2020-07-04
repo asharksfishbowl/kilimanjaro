@@ -12,11 +12,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: npm install
+        run:  npm install
       - name: Install Firebase tools
-        run: npm install firebase-tools
+        run:  npm install -g firebase-tools
       - name: Build Production Artifact
-        run: npm run build production
+        run:  npm run build production
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
