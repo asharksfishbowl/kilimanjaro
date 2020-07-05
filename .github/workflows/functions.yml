@@ -1,5 +1,4 @@
 name: Cloud Functions
-
 on:
   push:
     branches:
