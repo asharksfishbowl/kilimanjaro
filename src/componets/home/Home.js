@@ -49,6 +49,9 @@ function Home() {
             <Button variant="contained" className={classes().button} size="large" href="/SignUp">
               Sign Up
             </Button>
+            <Button variant="contained" className={classes().button} size="large" href="/SignUp">
+              Say Hello World
+            </Button>
           </div>
 
           <div className="App-link">
