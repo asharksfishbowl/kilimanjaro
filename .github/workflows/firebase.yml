@@ -23,9 +23,6 @@ jobs:
         working-directory: ./functions
       - name: Build Production Artifact
         run:  npm run build production
-      - name: Build Functions Production Artifact
-        run:  npm run build production
-        working-directory: ./functions
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
