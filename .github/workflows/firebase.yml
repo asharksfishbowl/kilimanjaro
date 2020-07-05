@@ -13,13 +13,19 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run:  npm ci
+      - name: Install Firebase tools
+        run:  npm install firebase-tools
       - name: Install Function Dependencies
         run:  npm ci
         working-directory: ./functions
-      - name: Install Firebase tools
+      - name: Install Function Firebase tools
         run:  npm install firebase-tools
+        working-directory: ./functions
       - name: Build Production Artifact
         run:  npm run build production
+      - name: Build Function Production Artifact
+        run:  npm run build production
+        working-directory: ./functions  
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
