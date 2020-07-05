@@ -18,14 +18,14 @@ jobs:
       - name: Install Function Dependencies
         run:  npm ci
         working-directory: ./functions
-      - name: Install Function Firebase tools
+      - name: Install Functions Firebase tools
         run:  npm install firebase-tools
         working-directory: ./functions
       - name: Build Production Artifact
         run:  npm run build production
-      - name: Build Function Production Artifact
+      - name: Build Functions Production Artifact
         run:  npm run build production
-        working-directory: ./functions  
+        working-directory: ./functions
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
