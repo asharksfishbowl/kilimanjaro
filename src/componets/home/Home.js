@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import firebase from '../../FirebaseDB.js';
 import logo from '../../logo.jpg';
 import '../../App.css';
 import 'typeface-roboto';
@@ -25,6 +26,16 @@ function Home() {
     const classes = Styles();
     const [animationClass] = useState('background-grad');
 
+    async function helloWorld() {
+      try {
+        await firebase.helloWorld();
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        alert('test hello');
+      }
+    }
+
     return (
       <div className="App" >
         <header className={animationClass}>
@@ -49,7 +60,7 @@ function Home() {
             <Button variant="contained" className={classes().button} size="large" href="/SignUp">
               Sign Up
             </Button>
-            <Button variant="contained" className={classes().button} size="large" href="/SignUp">
+            <Button variant="contained" className={classes().button} onClick={helloWorld} size="large" >
               Say Hello World
             </Button>
           </div>

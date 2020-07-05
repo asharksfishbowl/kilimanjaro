@@ -4,5 +4,14 @@ const functions = require('firebase-functions');
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
+ response.send("Hello World!");
+});
+
+exports.randomNumber = functions.https.onRequest((request, response) => {
+  const number = Math.round(Math.random() * 100);
+  response.send(number.toString());
+});
+
+exports.toTheFishbowl = functions.https.onRequest((request, response) => {
+ response.redirect("asharksfishbowl.com");
 });
