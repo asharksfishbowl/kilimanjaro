@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import firebase from '../../FirebaseDB.js';
 import logo from '../../logo.jpg';
+import controller from './controllers/Home.js';
 import '../../App.css';
 import 'typeface-roboto';
 import Img from 'react-image';
@@ -21,20 +21,9 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-
 function Home() {
     const classes = Styles();
     const [animationClass] = useState('background-grad');
-
-    async function helloWorld() {
-      try {
-        await firebase.helloWorld();
-      } catch (error) {
-        alert(error.message);
-      } finally {
-        alert('test hello');
-      }
-    }
 
     return (
       <div className="App" >
@@ -60,7 +49,7 @@ function Home() {
             <Button variant="contained" className={classes().button} size="large" href="/SignUp">
               Sign Up
             </Button>
-            <Button variant="contained" className={classes().button} onClick={helloWorld} size="large" >
+            <Button variant="contained" className={classes().button} onClick={controller.helloWorld} size="large" >
               Say Hello World
             </Button>
           </div>

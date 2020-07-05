@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from '../../FirebaseDB.js';
+import firebase from '../../firebase.js';
 import { Redirect } from 'react-router-dom';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';

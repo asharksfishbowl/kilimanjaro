@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import firebase from '../../FirebaseDB.js';
+import firebase from '../../firebase.js';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';
 

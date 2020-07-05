@@ -1,8 +1,9 @@
 // Import React
 import React, { useState, useEffect } from 'react';
 
-// Import Firebase DB
-import firebase from './FirebaseDB.js';
+// Import Firebase
+import firebase from './firebase.js';
+import auth from './componets/auth/controllers/Auth.js';
 
 // Import Rounting
 import {
@@ -25,9 +26,9 @@ import MakerCreation from './componets/MakerCreation.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
 // Login Screens
-import SignInSide from './componets/login/SignInSide.js';
-import SignIn from './componets/login/SignIn.js';
-import SignUp from './componets/login/SignUp.js';
+import SignInSide from './componets/auth/SignInSide.js';
+import SignIn from './componets/auth/SignIn.js';
+import SignUp from './componets/auth/SignUp.js';
 
 // import Material UI
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -36,11 +37,11 @@ import { CssBaseline, CircularProgress } from '@material-ui/core'
 const theme = createMuiTheme();
 
 function App() {
-
+  
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
 
   useEffect(() => {
-    firebase.isInitialized().then(value => {
+    auth.isInitialized().then(value => {
       setFirebaseInitialized(value);
     })
   });
