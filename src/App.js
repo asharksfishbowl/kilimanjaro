@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Import Firebase
-import firebase from './firebase.js';
+// import firebase from './firebase.js';
 import auth from './componets/auth/controllers/Auth.js';
 
 // Import Rounting
@@ -37,7 +37,7 @@ import { CssBaseline, CircularProgress } from '@material-ui/core'
 const theme = createMuiTheme();
 
 function App() {
-  
+
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
 
   useEffect(() => {

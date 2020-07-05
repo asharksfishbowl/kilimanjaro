@@ -4,6 +4,8 @@ class Home {
   constructor() {
     this.auth = firebase.auth();
     this.db = firebase.firestore();
+    console.log(this.auth);
+    console.log(this.db);
   }
 
   helloWorld(){
@@ -12,4 +14,4 @@ class Home {
   }
 }
 
-export default new Home;
+export default new Home();
