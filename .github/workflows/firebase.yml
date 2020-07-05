@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run:  npm install
+        run:  npm ci
       - name: Install Firebase tools
         run:  npm install firebase-tools
       - name: Build Production Artifact
@@ -38,5 +38,12 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
+      - name: Install Function Dependencies
+        run: npm ci
+        working-directory: ./functions
+      - name: Deploy to Firebase Functions
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
