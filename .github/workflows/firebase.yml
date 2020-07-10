@@ -26,7 +26,7 @@ jobs:
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
-          name: build
+          name: app
           path: build
   deploy:
     name: Deploy
@@ -38,11 +38,11 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: build
+          name: app
           path: build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: firebase deploy --token "1//0fw8zPzYrqE6SCgYIARAAGA8SNwF-L9IrUaOMArfYJBk__NYVmULlAw6btEMoHGyRdJYJEHZ8aw1XMRGI-614hTYvWme1s5FNX-o"
+          args: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
