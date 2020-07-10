@@ -13,7 +13,7 @@
   }],
   "functions": {
     "predeploy": [
-      "npm --prefix functions run lint"
+      "npm run lint"
     ],
     "source": "functions"
   },
