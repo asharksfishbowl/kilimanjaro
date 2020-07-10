@@ -27,6 +27,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: build
+          path: build
   deploy:
     name: Deploy
     needs: build
