@@ -29,10 +29,10 @@ jobs:
     - name: Check out code
       uses: actions/checkout@master
     - name: Download Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: build
-          path: build
+      uses: actions/download-artifact@master
+      with:
+        name: build
+        path: build
     - name: Deploy to Firebase
       uses: lowply/deploy-firebase@v0.0.3
       env:
