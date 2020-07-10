@@ -1,15 +1,16 @@
-name: CLI Deploy
+name: Firebase Deploy
 on:
   push:
     branches:
     - master
 jobs:
   main:
-    name: Build and Deploy
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
+    - name: Check out code
+      uses: actions/checkout@master
     - name: Deploy to Firebase
-      uses: doonstore/firebase-deploy@v1
+      uses: wib-wub/deploy-firebase-functions@1.0.1
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
