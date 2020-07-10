@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@master
+    - name: Install Dependencies
+      run:  npm ci
     - name: Deploy to Firebase
       uses: doonstore/firebase-deploy@v1
       env:
