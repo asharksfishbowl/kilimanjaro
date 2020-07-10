@@ -12,11 +12,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run:  npm ci
+        run:  npm install
       - name: Install Firebase tools
         run:  npm install firebase-tools
       - name: Install Function Dependencies
-        run:  npm ci
+        run:  npm install
         working-directory: ./functions
       - name: Install Functions Firebase tools
         run:  npm install firebase-tools
