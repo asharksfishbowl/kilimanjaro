@@ -4,14 +4,35 @@ on:
     branches:
     - master
 jobs:
-  main:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run:  npm install
+      - name: Install Firebase tools
+        run:  npm install firebase-tools
+      - name: Build Production Artifact
+        run:  npm run build production
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: build
+          path: build
+  deploy:
     name: Deploy
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
       uses: actions/checkout@master
-    - name: Build React
-      run:  npm run build production
+    - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build
     - name: Deploy to Firebase
       uses: lowply/deploy-firebase@v0.0.3
       env:
