@@ -13,7 +13,7 @@ jobs:
     - name: Install Dependencies
       run:  npm ci
     - name: Install Firebase tools
-      run:  npm install -g firebase-tools
+      run:  npm install firebase-tools
     - name: Deploy to Firebase
       uses: doonstore/firebase-deploy@v1
       env:
