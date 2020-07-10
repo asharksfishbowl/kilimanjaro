@@ -12,9 +12,6 @@
     "destination": "index.html"
   }],
   "functions": {
-    "predeploy": [
-      "npm run lint"
-    ],
     "source": "functions"
   },
   "database": {
