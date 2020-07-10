@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 // Import Firebase
 // import firebase from './firebase.js';
-import auth from './componets/auth/controllers/Auth.js';
+import Auth from './componets/auth/controllers/Auth.js';
 
 // Import Rounting
 import {
@@ -15,11 +15,13 @@ import {
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 // Parallax Links
-import Home from './componets/home/Home.js';
-import Dashboard from './componets/dashboard/Dashboard.js';
 import DcParallax from './componets/DcParallax.js';
 import LrParallax from './componets/LrParallax.js';
 import NmParallax from './componets/NmParallax.js';
+
+// Componet Links
+import Home from './componets/home/Home.js';
+import Dashboard from './componets/dashboard/Dashboard.js';
 import SoftwareCreation from './componets/software/SoftwareCreation.js';
 import MusicCreation from './componets/MusicCreation.js';
 import VideoCreation from './componets/VideoCreation.js';
@@ -39,16 +41,17 @@ const theme = createMuiTheme();
 
 function App() {
 
+  const [animationClass] = useState('background-grad');
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
 
   useEffect(() => {
-    auth.isInitialized().then(value => {
+    Auth.isInitialized().then(value => {
       setFirebaseInitialized(value);
     })
   });
 
   return firebaseInitialized !== false ? (
-    <ParallaxProvider>
+    <ParallaxProvider className={animationClass}>
       <MuiThemeProvider theme={theme}>
   		<CssBaseline />
         <Router>
@@ -103,7 +106,10 @@ function App() {
         </Router>
       </MuiThemeProvider>
     </ParallaxProvider>
-  ) : <div id="loader"><CircularProgress /></div>
+  ) :
+  <div id="loader">
+    <CircularProgress />
+  </div>
 }
 
 export default App;

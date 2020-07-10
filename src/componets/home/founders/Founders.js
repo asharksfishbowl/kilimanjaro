@@ -13,29 +13,29 @@ import EvanHerringImg from '../assets/EvanHerring.jpg';
 const images =  [{
     src: MiguelDelCampoImg,
     title: 'Miguel Del Campo',
-    width: '33%',
-    height: '365px',
+    width: '23%',
+    height: '265px',
     link: 'DcParallax',
     alt: 'Missing DcParallax'
   },{
     src: LeaMeyerRodarteImg,
     title: 'Lea Meyer Rodarte',
-    width: '33%',
-    height: '365px',
+    width: '23%',
+    height: '265px',
     link: 'LrParallax',
     alt: 'Missing LrParallax'
   },{
     src: NickSharkMarinoImg,
     title: 'Nick Shark Marino',
-    width: '33%',
-    height: '365px',
+    width: '23%',
+    height: '265px',
     link: 'NmParallax',
     alt: 'Missing NmParallax'
   },{
     src: EvanHerringImg,
     title: 'Evan Herring',
-    width: '33%',
-    height: '365px',
+    width: '23%',
+    height: '265px',
     link: 'EhParallax',
     alt: 'Missing EhParallax'
 }];

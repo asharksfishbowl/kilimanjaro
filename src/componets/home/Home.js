@@ -30,12 +30,12 @@ function Home() {
         <header className={animationClass}>
           <Img src={logo} className="App-logo" alt="logo" />
 
-          <Typography variant="h2" gutterBottom>
-            A Shark's Fishbowl
+          <Typography variant="h4" gutterBottom>
+            Welcome to
           </Typography>
 
-          <Typography variant="h4" gutterBottom>
-            What's up Sharks!
+          <Typography variant="h2" gutterBottom>
+            A Shark's Fishbowl!!!
           </Typography>
 
           <Typography variant="overline">

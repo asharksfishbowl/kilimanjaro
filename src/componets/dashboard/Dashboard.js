@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styles from './Styles.js';
 
 // Material UI
@@ -11,8 +11,10 @@ import Button from '@material-ui/core/Button';
 
 function Dashboard(){
   const classes = Styles();
+  const [animationClass] = useState('background-grad');
 
   return(
+    <div className={animationClass}>
     <Typography variant="overline" className={classes().listCenter}>
       <h1>Dashboard</h1>
       <List component="nav" className={classes().list} aria-label="mailbox folders">
@@ -39,6 +41,8 @@ function Dashboard(){
         Back
       </Button>
     </Typography>
+
+    </div>
   );
 }
 
