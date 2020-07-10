@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import firebase from '../../firebase.js';
+import { useHistory } from "react-router-dom";
+import Auth from './controllers/Auth.js';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';
 
@@ -22,6 +23,7 @@ export default function SignInSide(props) {
   const classes = Styles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  let history = useHistory();
 
   const onEmailChange = (event) => {
     setEmail(event.target.value);
@@ -32,12 +34,12 @@ export default function SignInSide(props) {
   }
 
   async function login() {
-    const { history } = props;
     try {
-      await firebase.login(email, password);
-      history.push('/');
+      await Auth.login(email, password);
+      history.push('/dashboard');
     } catch (error) {
       alert(error.message);
+      history.push('/SignInSide');
     } finally {
       // props.history.replace('/home');
     }

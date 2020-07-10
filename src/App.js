@@ -16,6 +16,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 
 // Parallax Links
 import Home from './componets/home/Home.js';
+import Dashboard from './componets/dashboard/Dashboard.js';
 import DcParallax from './componets/DcParallax.js';
 import LrParallax from './componets/LrParallax.js';
 import NmParallax from './componets/NmParallax.js';
@@ -75,6 +76,9 @@ function App() {
               </Route>
               <Route path="/SignUp" >
                 <SignUp />
+              </Route>
+              <Route path="/Dashboard" >
+                <Dashboard />
               </Route>
               <Route path="/PreciousPlastic" >
                 <PreciousPlastic />
