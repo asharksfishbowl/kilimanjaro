@@ -5,8 +5,9 @@ admin.initializeApp(functions.config().firebase)
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
-exports.helloWorld = functions.https.onCall((request, response) => {
+exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello World!");
+  return 'hello';
 });
 
 exports.randomNumber = functions.https.onRequest((request, response) => {
@@ -19,7 +20,7 @@ exports.toTheFishbowl = functions.https.onRequest((request, response) => {
 });
 
 const createRecord = (record => {
-  return admin.firestore().collection('record')
+  return admin.firestore().collection('records')
     .add(record)
     .then(doc => console.log('record added', doc));
 })
