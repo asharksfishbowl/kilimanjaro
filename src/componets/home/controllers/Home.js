@@ -1,16 +1,17 @@
 import firebase from '../../../firebase.js';
 
 class Home {
-  constructor() {
-    this.auth = firebase.auth();
-    this.db = firebase.firestore();
-    console.log(this.auth);
-    console.log(this.db);
+  showMsg(message){
+    alert(message);
   }
 
   helloWorld(){
-    const helloWorld = firebase.functions().httpsCallable('helloWorld');
-    alert(helloWorld);
+    const helloWorld = firebase.functions.httpsCallable('helloWorld');
+    helloWorld()
+      .then()
+      .catch((err) => {
+          alert(err.message);
+      })
   }
 }
 

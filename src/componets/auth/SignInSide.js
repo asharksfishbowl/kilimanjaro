@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import Auth from './controllers/Auth.js';
+import AuthController from './controllers/Auth.js';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';
 
@@ -35,7 +35,7 @@ export default function SignInSide(props) {
 
   async function login() {
     try {
-      await Auth.login(email, password);
+      await AuthController.login(email, password);
       history.push('/dashboard');
     } catch (error) {
       alert(error.message);

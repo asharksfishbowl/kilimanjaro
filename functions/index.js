@@ -3,15 +3,15 @@ const functions = require('firebase-functions');
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
-exports.helloWorld = functions.https.onRequest((data, context) => {
+exports.helloWorld = functions.https.onRequest((data, response) => {
   response.send("Hello World!");
 });
 
-exports.randomNumber = functions.https.onRequest((data, context) => {
+exports.randomNumber = functions.https.onRequest((data, response) => {
   const number = Math.round(Math.random() * 100);
   response.send(number.toString());
 });
 
-exports.toTheFishbowl = functions.https.onRequest((data, context) => {
+exports.toTheFishbowl = functions.https.onRequest((data, response) => {
   response.redirect("asharksfishbowl.com");
 });

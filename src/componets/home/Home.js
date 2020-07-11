@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../logo.jpg';
-import controller from './controllers/Home.js';
+import HomeController from './controllers/Home.js';
 import '../../App.css';
 import 'typeface-roboto';
 import Img from 'react-image';
@@ -49,7 +49,7 @@ function Home() {
             <Button variant="contained" className={classes().button} size="large" href="/SignUp">
               Sign Up
             </Button>
-            <Button variant="contained" className={classes().button} onClick={controller.helloWorld} size="large" >
+            <Button variant="contained" className={classes().button} onClick={HomeController.helloWorld} size="large" >
               Say Hello World
             </Button>
           </div>
