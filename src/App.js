@@ -21,6 +21,7 @@ import NmParallax from './componets/NmParallax.js';
 
 // Componet Links
 import Home from './componets/home/Home.js';
+import Founders from './componets/founders/Founders.js';
 import Dashboard from './componets/dashboard/Dashboard.js';
 import SoftwareCreation from './componets/software/SoftwareCreation.js';
 import MusicCreation from './componets/MusicCreation.js';
@@ -59,6 +60,9 @@ function App() {
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
             <Switch>
+              <Route path="/Founders">
+                <Founders />
+              </Route>
               <Route path="/DcParallax">
                 <DcParallax />
               </Route>

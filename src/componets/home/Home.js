@@ -5,7 +5,6 @@ import '../../App.css';
 import 'typeface-roboto';
 import Img from 'react-image';
 import Styles from './Styles.js';
-import Founders from './founders/Founders.js';
 
 // Material UI Componets
 import Link from '@material-ui/core/Link';
@@ -51,6 +50,9 @@ function Home() {
             </Button>
             <Button variant="contained" className={classes().button} onClick={HomeController.helloWorld} size="large" >
               Say Hello World
+            </Button>
+            <Button variant="contained" className={classes().button} size="large" href="/Founders">
+              Founders
             </Button>
           </div>
 
@@ -99,10 +101,6 @@ function Home() {
               </Link>
             </IconButton>
           </div>
-          <Typography variant="overline">
-            Founders
-          </Typography>
-          <Founders/>
         </header>
       </div>
     );

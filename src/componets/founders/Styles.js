@@ -6,38 +6,17 @@ const Styles = () => {
       display: 'flex',
       flexWrap: 'wrap',
       flexDirection: 'column',
-      padding: 50,
-      minWidth: 300,
-      width: '100%',
+      padding: 10,
       'z-index':1,
     },
     button: {
       margin: theme.spacing(1),
       width: '60%',
       height: '75px',
-      borderRadius: '20px !important',
-      background: '#50c878 !important',
       fontSize: '30px'
-    },
-    iconButton: {
-      margin: theme.spacing(1)
     },
     input: {
       display: 'none',
-    },
-    slider:{
-      width:200,
-      'z-index':1,
-    },
-    list:{
-      textAlign: 'center',
-      'z-index':1,
-    },
-    listCenter:{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
     },
     image: {
       position: 'relative',
