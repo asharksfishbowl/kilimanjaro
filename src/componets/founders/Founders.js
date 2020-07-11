@@ -46,10 +46,11 @@ function Founders() {
   const [animationClass] = useState('background-grad');
 
   return (
-    <div className={classes().root, animationClass}>
-      {
-        images.map(image => (
-          <ButtonBase
+    <div className={animationClass}>
+      <div className={classes().root}>
+        {
+          images.map(image => (
+            <ButtonBase
             focusRipple
             key={image.title}
             href={image.link}
@@ -59,30 +60,31 @@ function Founders() {
               width: image.width,
               height: image.height
             }}
-          >
+            >
             <Img
-              className={classes().imageSrc}
-              src={image.src}
-              alt={image.alt}
+            className={classes().imageSrc}
+            src={image.src}
+            alt={image.alt}
             />
             <span className={classes().imageBackdrop} />
             <span className={classes().imageButton}>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
-                className={classes().imageTitle}
-              >
-                {image.title}
-                <span className={classes().imageMarked} />
-              </Typography>
+            <Typography
+            component="span"
+            variant="subtitle1"
+            color="inherit"
+            className={classes().imageTitle}
+            >
+            {image.title}
+            <span className={classes().imageMarked} />
+            </Typography>
             </span>
-          </ButtonBase>
-        ))
-      }
-      <Button variant="contained" className={classes().button} size="small" href="/">
-        Back
-      </Button>
+            </ButtonBase>
+          ))
+        }
+        <Button variant="contained" className={classes().button} size="small" href="/">
+          Back
+        </Button>
+      </div>
     </div>
   );
 }

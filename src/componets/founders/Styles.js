@@ -4,9 +4,9 @@ const Styles = () => {
   const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
-      flexWrap: 'wrap',
       flexDirection: 'column',
-      padding: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
       'z-index':1,
     },
     button: {
