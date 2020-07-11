@@ -17,7 +17,7 @@ const Styles = () => {
       height: '75px',
       borderRadius: '20px !important',
       background: '#50c878 !important',
-      fontSize: '30px'
+      fontSize: '18px'
     },
     iconButton: {
       margin: theme.spacing(1)
