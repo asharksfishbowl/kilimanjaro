@@ -31,13 +31,13 @@ class Auth {
       return alert('Not authorized')
     }
 
-    return firebase.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).set({
+    return firebase.database.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).set({
       quote
     })
   }
 
   async getCurrentUserQuote() {
-    const quote = await firebase.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).get()
+    const quote = await firebase.database.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).get()
     return quote.get('quote')
   }
 }

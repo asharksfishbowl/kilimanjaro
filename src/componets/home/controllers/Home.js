@@ -11,7 +11,7 @@ class Home {
       .then()
       .catch((err) => {
           alert(err.message);
-      })
+      });
   }
 }
 
