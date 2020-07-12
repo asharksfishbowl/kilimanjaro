@@ -75,7 +75,7 @@ function App() {
               <Route path="/SoftwareCreation" >
                 <SoftwareCreation />
               </Route>
-              <Route exact path="/SignInSide" >
+              <Route path="/SignInSide" >
                 <SignInSide />
               </Route>
               <Route path="/SignIn" >
