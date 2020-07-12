@@ -51,33 +51,33 @@ function Founders() {
         {
           images.map(image => (
             <ButtonBase
-            focusRipple
-            key={image.title}
-            href={image.link}
-            className={classes().image}
-            focusVisibleClassName={classes().focusVisible}
-            style={{
-              width: image.width,
-              height: image.height
-            }}
+              focusRipple
+              key={image.title}
+              href={image.link}
+              className={classes().image}
+              focusVisibleClassName={classes().focusVisible}
+              style={{
+                width: image.width,
+                height: image.height
+              }}
             >
             <Img
-            className={classes().imageSrc}
-            src={image.src}
-            alt={image.alt}
+              className={classes().imageSrc}
+              src={image.src}
+              alt={image.alt}
             />
             <span className={classes().imageBackdrop} />
             <span className={classes().imageButton}>
             <Typography
-            component="span"
-            variant="subtitle1"
-            color="inherit"
-            className={classes().imageTitle}
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes().imageTitle}
             >
-            {image.title}
+              {image.title}
             <span className={classes().imageMarked} />
             </Typography>
-            </span>
+              </span>
             </ButtonBase>
           ))
         }
