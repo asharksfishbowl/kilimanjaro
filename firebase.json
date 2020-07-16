@@ -10,7 +10,7 @@
   "rewrites": [
     {
       "source": "**",
-      "destination": "/index.html"
+      "destination": "https://asharksfishbowl.com/index.html"
     }
   ],
   "functions": {
