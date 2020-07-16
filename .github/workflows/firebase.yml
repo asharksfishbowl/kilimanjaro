@@ -15,7 +15,7 @@ jobs:
       - name: Install Firebase tools
         run:  npm install firebase-tools
       - name: Install Firebase Functions
-        run:  npm install --save firebase-functions@latest
+        run:  npm install firebase-functions@latest
       - name: Build Production Artifact
         run:  npm run build production
       - name: Archive Production Artifact
