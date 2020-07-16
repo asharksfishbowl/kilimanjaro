@@ -29,7 +29,7 @@ function Home() {
       <div className="App" >
         <header className={animationClass}>
 
-          <div>
+          <div className="App-center">
             <Img src={Logo} className="App-logo" alt="logo" />
             <Img src={Welcome} className="App-welcome" alt="welcome" />
           </div>
