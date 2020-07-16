@@ -9,6 +9,11 @@
   margin-top: 10px;
 }
 
+.App-welcome {
+  height: 50vmin;
+  z-index: 1;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

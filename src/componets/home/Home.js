@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../../logo.jpg';
+import Logo from '../../logo.jpg';
+import Welcome from './assets/Welcome.png';
 import HomeController from './controllers/Home.js';
 import '../../App.css';
 import 'typeface-roboto';
@@ -27,15 +28,11 @@ function Home() {
     return (
       <div className="App" >
         <header className={animationClass}>
-          <Img src={logo} className="App-logo" alt="logo" />
 
-          <Typography variant="h4" gutterBottom>
-            Welcome to
-          </Typography>
-
-          <Typography variant="h2" gutterBottom>
-            A Shark's Fishbowl!!!
-          </Typography>
+          <div>
+            <Img src={Logo} className="App-logo" alt="logo" />
+            <Img src={Welcome} className="App-welcome" alt="welcome" />
+          </div>
 
           <Typography variant="overline">
             I am going to be sharing my knowledge of creation soon! Sign up or Sign in for more :)
