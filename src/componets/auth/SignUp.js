@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import AuthController from './controllers/Auth.js';
 import { Redirect } from 'react-router-dom';
 import Copyright from '../Copyright.js';
@@ -25,6 +26,7 @@ export default function SignUp() {
   const [lastName, setLastName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  let history = useHistory();
 
   const onFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -45,9 +47,8 @@ export default function SignUp() {
   async function login() {
     try {
       await AuthController.register(firstName, lastName, email, password);
-      return (<Redirect to="/" />);
+      history.push('/dashboard');
     } catch (error) {
-      debugger;
       alert(error.message);
     }
   }

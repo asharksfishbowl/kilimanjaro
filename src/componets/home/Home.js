@@ -26,9 +26,8 @@ function Home() {
     const [animationClass] = useState('background-grad');
 
     return (
-      <div className="App" >
-        <div className={animationClass}>
-
+      <div className={animationClass}>
+        <div className="App">
           <div className="App-center">
             <Img src={Logo} className="App-logo" alt="logo" />
             <Img src={Welcome} className="App-welcome" alt="welcome" />
@@ -98,6 +97,7 @@ function Home() {
               </Link>
             </IconButton>
           </div>
+
         </div>
       </div>
     );
