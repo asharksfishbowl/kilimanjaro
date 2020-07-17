@@ -19,6 +19,7 @@
     "react-file-utils": "^0.3.14",
     "react-image": "^2.4.0",
     "react-lazy-hero": "^2.0.0",
+    "react-loading": "^2.0.3",
     "react-parallax": "^3.0.3",
     "react-parallax-map": "^2.0.1",
     "react-pdf": "^4.1.0",

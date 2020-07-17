@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import AuthController from './controllers/Auth.js';
-import { Redirect } from 'react-router-dom';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';
 
