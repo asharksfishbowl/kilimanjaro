@@ -36,7 +36,10 @@ import SignUp from './componets/auth/SignUp.js';
 
 // import Material UI
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { CssBaseline, CircularProgress } from '@material-ui/core'
+import { CssBaseline } from '@material-ui/core'
+
+import { easings } from 'react-animation'
+import { CoffeeLoading } from 'react-loadingg';
 
 const theme = createMuiTheme();
 
@@ -111,8 +114,8 @@ function App() {
       </MuiThemeProvider>
     </ParallaxProvider>
   ) :
-  <div id="loader">
-    <CircularProgress />
+  <div id="loader" className={animationClass} style={{animation: easings.easeInSine}}>
+      <CoffeeLoading />
   </div>
 }
 

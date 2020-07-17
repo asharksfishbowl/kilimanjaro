@@ -12,6 +12,8 @@ import IconBar from './IconBar.js';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import { animations } from 'react-animation';
+
 function Home() {
     const classes = Styles();
     const [animationClass] = useState('background-grad');
@@ -21,7 +23,7 @@ function Home() {
         <div className="App">
           <div className="App-center">
             <Img src={Logo} className="App-logo" alt="logo" />
-            <Img src={Welcome} className="App-welcome" alt="welcome" />
+            <Img src={Welcome} className="App-welcome" alt="welcome" style={{animation: animations.slideDown}}/>
           </div>
 
           <Typography variant="overline">
