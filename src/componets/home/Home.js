@@ -27,7 +27,7 @@ function Home() {
 
     return (
       <div className="App" >
-        <header className={animationClass}>
+        <div className={animationClass}>
 
           <div className="App-center">
             <Img src={Logo} className="App-logo" alt="logo" />
@@ -98,7 +98,7 @@ function Home() {
               </Link>
             </IconButton>
           </div>
-        </header>
+        </div>
       </div>
     );
 

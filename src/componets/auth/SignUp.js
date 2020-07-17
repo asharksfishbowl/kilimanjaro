@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from '../../firebase.js';
+import AuthController from './controllers/Auth.js';
 import { Redirect } from 'react-router-dom';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';
@@ -45,7 +45,7 @@ export default function SignUp() {
 
   async function login() {
     try {
-      await firebase.register(firstName, lastName, email, password);
+      await AuthController.register(firstName, lastName, email, password);
       return (<Redirect to="/" />);
     } catch (error) {
       debugger;
