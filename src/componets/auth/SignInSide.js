@@ -40,8 +40,6 @@ export default function SignInSide(props) {
     } catch (error) {
       alert(error.message);
       history.push('/SignInSide');
-    } finally {
-      // props.history.replace('/home');
     }
   }
 
