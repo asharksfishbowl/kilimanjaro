@@ -1,6 +1,4 @@
-import React from 'react';
 import firebase from '../../../firebase.js';
-import SweetAlert from 'react-bootstrap-sweetalert';
 
 class Dashboard {
   helloWorld(){
