@@ -6,7 +6,7 @@ admin.initializeApp(functions.config().firebase)
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.helloWorld = functions.https.onCall((data, response) => {
-  let message = data + 'World';
+  let message = data + ' ' + 'World';
   return message;
 });
 
