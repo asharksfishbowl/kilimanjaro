@@ -7,7 +7,6 @@ admin.initializeApp(functions.config().firebase)
 //
 exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello World!");
-  return 'hello';
 });
 
 exports.randomNumber = functions.https.onRequest((request, response) => {

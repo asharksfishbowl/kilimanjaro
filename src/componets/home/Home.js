@@ -7,12 +7,11 @@ import 'typeface-roboto';
 import Img from 'react-image';
 import Styles from './Styles.js';
 import IconBar from './IconBar.js';
+import Copyright from '../Copyright.js';
 
 // Material UI Componets
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
-import { animations } from 'react-animation';
 
 function Home() {
     const classes = Styles();
@@ -23,7 +22,7 @@ function Home() {
         <div className="App">
           <div className="App-center">
             <Img src={Logo} className="App-logo" alt="logo" />
-            <Img src={Welcome} className="App-welcome" alt="welcome" style={{animation: animations.slideDown}}/>
+            <Img src={Welcome} className="App-welcome" alt="welcome" />
           </div>
 
           <Typography variant="overline">
@@ -58,6 +57,7 @@ function Home() {
             </form>
           </div>
           <IconBar/>
+          <Copyright/>
         </div>
       </div>
     );

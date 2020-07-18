@@ -6,8 +6,8 @@ class Home {
   }
 
   helloWorld(){
-    const helloWorld = firebase.functions.httpsCallable('helloWorld');
-    helloWorld()
+    const callHelloWorld = firebase.functions.httpsCallable('helloWorld');
+    callHelloWorld()
       .then()
       .catch((err) => {
           alert(err.message);
