@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Styles from './Styles.js';
+import DashboardController from './controllers/Dashboard.js';
 
 // Material UI
 import Link from '@material-ui/core/Link';
@@ -37,6 +38,9 @@ function Dashboard(){
           <ListItemText primary="Precious Plastic Omaha" />
         </ListItem>
       </List>
+      <Button variant="contained" className={classes().button} onClick={DashboardController.helloWorld} size="large" >
+        Say Hello World
+      </Button>
       <Button variant="contained" className={classes().button} size="small" href="/">
         Back
       </Button>

@@ -5,8 +5,10 @@ admin.initializeApp(functions.config().firebase)
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello World!");
+exports.helloWorld = functions.https.onCall((request, response) => {
+  console.log(request);
+  console.log(response);
+  return response;
 });
 
 exports.randomNumber = functions.https.onRequest((request, response) => {

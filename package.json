@@ -17,6 +17,7 @@
     "react-animation": "^1.2.2",
     "react-aspect-ratio": "^1.0.42",
     "react-atv-parallax": "^1.0.2",
+    "react-bootstrap-sweetalert": "^5.1.15",
     "react-dom": "^16.13.1",
     "react-file-utils": "^0.3.14",
     "react-image": "^2.4.0",
