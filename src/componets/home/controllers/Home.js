@@ -1,12 +1,13 @@
+import React from 'react';
 import firebase from '../../../firebase.js';
-import swal from 'sweetalert';
+import swal from '@sweetalert/with-react';
 
 class Home {
   helloWorld(){
     const callHelloWorld = firebase.functions.httpsCallable('helloWorld');
     callHelloWorld('Hello')
       .then(
-        (result) => {swal(result.data, "We connected!", "success")}
+        (result) => {swal(result.data, "We connected :)", "success")}
       )
       .catch(
         (error) => {swal(error.message, "We're still lost :(", "error")}
