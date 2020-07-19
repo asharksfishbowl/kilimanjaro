@@ -1,4 +1,3 @@
-import React from 'react';
 import firebase from '../../../firebase.js';
 import swal from '@sweetalert/with-react';
 

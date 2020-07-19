@@ -31,9 +31,6 @@ function Dashboard(){
         <ListItem button component={Link} href='/MakerCreation'>
           <ListItemText primary="Arts and crafts, plus DIY projects" />
         </ListItem>
-        <ListItem button component={Link} href='/AdminNavbarLinks'>
-          <ListItemText primary="Admin Full Tilt" />
-        </ListItem>
         <ListItem button component={Link} href='/PreciousPlastic'>
           <ListItemText primary="Precious Plastic Omaha" />
         </ListItem>

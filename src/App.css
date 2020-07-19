@@ -55,6 +55,16 @@
   background: #50c878 !important;
 }
 
+.App-underconstruction{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
 .background-grad {
   width: 100wh;
   height: 190vh;

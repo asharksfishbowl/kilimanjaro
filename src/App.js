@@ -24,10 +24,13 @@ import Home from './componets/home/Home.js';
 import Founders from './componets/founders/Founders.js';
 import Dashboard from './componets/dashboard/Dashboard.js';
 import SoftwareCreation from './componets/software/SoftwareCreation.js';
-import MusicCreation from './componets/MusicCreation.js';
-import VideoCreation from './componets/VideoCreation.js';
-import MakerCreation from './componets/MakerCreation.js';
+// import MusicCreation from './componets/MusicCreation.js';
+// import VideoCreation from './componets/VideoCreation.js';
+// import MakerCreation from './componets/MakerCreation.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
+
+// Helper Componets
+import Underconstruction from './componets/Underconstruction.js';
 
 // Login Screens
 import SignInSide from './componets/auth/SignInSide.js';
@@ -94,16 +97,13 @@ function App() {
                 <PreciousPlastic />
               </Route>
               <Route path="/MusicCreation" >
-                <MusicCreation />
+                <Underconstruction />
               </Route>
               <Route path="/VideoCreation" >
-                <VideoCreation />
+                <Underconstruction />
               </Route>
               <Route path="/MakerCreation" >
-                <MakerCreation />
-              </Route>
-              <Route path="/PreciousPlastic" >
-                <PreciousPlastic />
+                <Underconstruction />
               </Route>
               <Route path="/">
                 <Home />
