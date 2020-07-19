@@ -13,14 +13,10 @@ import AppStyles from './AppStyles.js';
 
 function Appbar(props) {
     const classes = AppStyles();
-    const [auth, setAuth] = useState(AuthController.isLoggedIn());
-    const [username, setUsername] = useState(AuthController.getCurrentUsername());
+    const [auth] = useState(AuthController.isLoggedIn());
+    const [username] = useState(AuthController.getCurrentUsername());
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-
-    const handleChange = (event) => {
-      setAuth(event.target.checked);
-    };
 
     const handleMenu = (event) => {
       setAnchorEl(event.currentTarget);
