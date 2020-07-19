@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import AuthController from './auth/controllers/Auth.js';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -21,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 function Appbar(props) {
     const classes = useStyles();
-
+    const user = AuthController.getCurrentUsername();
     return(
       <div className={classes.root}>
         <AppBar position="static">
@@ -30,7 +32,10 @@ function Appbar(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Software Creation
+              {props.title}
+            </Typography>
+            <Typography variant="h6" className={classes.title}>
+              Welcome {user}
             </Typography>
             <Button color="inherit" href="SignInSide">Login</Button>
           </Toolbar>

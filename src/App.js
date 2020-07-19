@@ -105,6 +105,10 @@ function App() {
               <Route path="/MakerCreation" >
                 <Underconstruction />
               </Route>
+              <Route path='/trololo' component={() => {
+                   window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY'; 
+                   return null;
+              }}/>
               <Route path="/">
                 <Home />
               </Route>
