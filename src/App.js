@@ -12,8 +12,6 @@ import {
   Route
 } from "react-router-dom";
 
-import { ParallaxProvider } from 'react-scroll-parallax';
-
 // Parallax Links
 import DcParallax from './componets/DcParallax.js';
 import LrParallax from './componets/LrParallax.js';
@@ -58,10 +56,9 @@ function App() {
   });
 
   return firebaseInitialized !== false ? (
-    <ParallaxProvider className={animationClass}>
-      <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme} >
   		<CssBaseline />
-        <Router>
+        <Router className={animationClass}>
           <div>
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
@@ -106,7 +103,7 @@ function App() {
                 <Underconstruction />
               </Route>
               <Route path='/trololo' component={() => {
-                   window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY'; 
+                   window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
                    return null;
               }}/>
               <Route path="/">
@@ -116,7 +113,6 @@ function App() {
           </div>
         </Router>
       </MuiThemeProvider>
-    </ParallaxProvider>
   ) :
   <div id="loader" className={animationClass} style={{animation: easings.easeInSine}}>
       <CoffeeLoading />

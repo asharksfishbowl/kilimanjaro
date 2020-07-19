@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Styles from './Styles.js';
 // import DashboardController from './controllers/Dashboard.js';
 import AppBar from '../AppBar.js';
+import AppBottomBar from '../AppBottomBar.js';
+import Copyright from '../Copyright.js';
 
 // Material UI
 import Link from '@material-ui/core/Link';
@@ -40,6 +42,7 @@ function Dashboard(){
           Back
         </Button>
       </Typography>
+      <AppBottomBar title=<Copyright /> />
     </div>
   );
 }
