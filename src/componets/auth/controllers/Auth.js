@@ -1,3 +1,4 @@
+
 import firebase from '../../../firebase.js';
 
 class Auth {
@@ -23,7 +24,19 @@ class Auth {
 	}
 
 	getCurrentUsername() {
-		return firebase.auth.currentUser && firebase.auth.currentUser.displayName
+    if (firebase.auth.currentUser) {
+      return firebase.auth.currentUser.email;
+    } else {
+      return false;
+    }
+	}
+
+  isLoggedIn() {
+    if (firebase.auth.currentUser) {
+      return true;
+    } else {
+      return false;
+    }
 	}
 
   addQuote(quote) {
