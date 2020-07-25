@@ -22,6 +22,7 @@ import MusicCourseImg from './assets/music.jpg';
 import PhotoCourseImg from './assets/photos.jpg';
 import ArtCourseImg from './assets/art.jpg';
 import CookingCourseImg from './assets/cooking.jpg';
+import RecycleCourseImg from './assets/recycle.jpg';
 import UnderconstructionImg from '../../assets/images/ASF/Underconstruction.jpg';
 
 function Dashboard(){
@@ -54,9 +55,9 @@ function Dashboard(){
     description: 'Here we dive into how to create fun, creative and most of all, delicious meals :)'
   },{
     key: 6,
-    image: UnderconstructionImg,
+    image: RecycleCourseImg,
     link: '/PreciousPlastic',
-    description: 'Still need to create a image here, but this will be how to recycle :)'
+    description: 'Here we will dive into how recycle material into something new and awesome! :)'
   }];
 
   return(
