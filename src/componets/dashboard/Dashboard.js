@@ -21,6 +21,7 @@ import SoftwareCourseImg from './assets/software.png';
 import MusicCourseImg from './assets/music.jpg';
 import PhotoCourseImg from './assets/photos.jpg';
 import ArtCourseImg from './assets/art.jpg';
+import CookingCourseImg from './assets/cooking.jpg';
 import UnderconstructionImg from '../../assets/images/ASF/Underconstruction.jpg';
 
 function Dashboard(){
@@ -48,6 +49,11 @@ function Dashboard(){
     description: 'Here we will dive into ways I like to relax by creating art, all kinds to! :)'
   },{
     key: 5,
+    image: CookingCourseImg,
+    link: '/MakerCreation',
+    description: 'Here we dive into how to create fun, creative and most of delicious meals :)'
+  },{
+    key: 6,
     image: UnderconstructionImg,
     link: '/PreciousPlastic',
     description: 'Still need to create a image here, but this will be how to recycle :)'
