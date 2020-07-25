@@ -6,7 +6,6 @@ import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
 
 // Material UI
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
