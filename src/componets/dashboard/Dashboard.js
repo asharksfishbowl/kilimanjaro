@@ -51,7 +51,7 @@ function Dashboard(){
     key: 5,
     image: CookingCourseImg,
     link: '/MakerCreation',
-    description: 'Here we dive into how to create fun, creative and most of delicious meals :)'
+    description: 'Here we dive into how to create fun, creative and most of all, delicious meals :)'
   },{
     key: 6,
     image: UnderconstructionImg,
@@ -63,7 +63,7 @@ function Dashboard(){
     <div className={animationClass}>
       <CssBaseline />
       <AppBar title="Dashboard"/>
-      <main>
+      <main className={animationClass}>
         {/* Hero unit */}
         <div className={classes().heroContent}>
           <Container maxWidth="sm">
