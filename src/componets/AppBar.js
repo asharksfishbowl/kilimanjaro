@@ -33,7 +33,7 @@ function Appbar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes().title}>
-            {props.title} Welcome {username}
+            {props.title} {username}
           </Typography>
           {auth && (
           <div>
