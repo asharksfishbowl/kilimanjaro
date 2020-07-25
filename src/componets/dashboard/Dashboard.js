@@ -23,7 +23,6 @@ import PhotoCourseImg from './assets/photos.jpg';
 import ArtCourseImg from './assets/art.jpg';
 import CookingCourseImg from './assets/cooking.jpg';
 import RecycleCourseImg from './assets/recycle.jpg';
-import UnderconstructionImg from '../../assets/images/ASF/Underconstruction.jpg';
 
 function Dashboard(){
   const classes = Styles();
