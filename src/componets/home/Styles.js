@@ -27,6 +27,10 @@ const Styles = () => {
       margin: theme.spacing(1)
     },
     focusVisible: {},
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
   }))
   return useStyles;
 };

@@ -6,7 +6,7 @@ class Home {
     const callHelloWorld = firebase.functions.httpsCallable('helloWorld');
     callHelloWorld('Hello')
       .then(
-        (result) => {swal(result.data, "We connected :)", "success")}
+        (result) => {swal(result.data, "Thanks for saying hello shark :)", "success")}
       )
       .catch(
         (error) => {swal(error.message, "We're still lost :(", "error")}
