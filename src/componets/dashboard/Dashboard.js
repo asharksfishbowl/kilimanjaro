@@ -90,7 +90,7 @@ function Dashboard(){
           </Grid>
         </Container>
       </main>
-      <AppBottomBar title=<Copyright /> />
+      <AppBottomBar title=<Copyright color='secondary'/> />
     </div>
   );
 }

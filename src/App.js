@@ -36,13 +36,22 @@ import SignIn from './componets/auth/SignIn.js';
 import SignUp from './componets/auth/SignUp.js';
 
 // import Material UI
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { CssBaseline } from '@material-ui/core'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
 
-import { easings } from 'react-animation'
+import { easings } from 'react-animation';
 import { CoffeeLoading } from 'react-loadingg';
 
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#f8bbd0',
+    },
+    secondary: {
+      main: '#ba68c8',
+    },
+  },
+});
 
 function App() {
 
