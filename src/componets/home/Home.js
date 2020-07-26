@@ -24,8 +24,8 @@ function Home() {
       setOpen(false);
     };
     const handleToggle = () => {
-      setOpen(!open);
       try {
+        setOpen(!open);
         HomeController.helloWorld();
       } catch (e) {
 
