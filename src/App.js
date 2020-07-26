@@ -65,9 +65,9 @@ function App() {
   });
 
   return firebaseInitialized !== false ? (
-      <MuiThemeProvider theme={theme} className={animationClass}>
+      <MuiThemeProvider theme={theme}>
   		<CssBaseline />
-        <Router className={animationClass}>
+        <Router>
           <div>
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}

@@ -13,10 +13,15 @@ const Styles = () => {
     button: {
       margin: theme.spacing(1),
       width: '60%',
-      height: '75px',
+      height: '80px',
       borderRadius: '20px !important',
-      background: '#50c878 !important',
-      fontSize: '18px'
+      background: 'linear-gradient(45deg, #24cba0, #0bccff, #0b4aff, #c115ed)',
+      backgroundSize: '600% 600%',
+      webkitAnimation: 'Gradient 25s ease infinite',
+      mozAnimation: 'Gradient 25s ease infinite',
+      animation: 'Gradient 25s ease infinite',
+      fontSize: '18px',
+      color: 'white'
     },
     iconButton: {
       margin: theme.spacing(1)
