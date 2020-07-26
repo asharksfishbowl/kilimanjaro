@@ -30,7 +30,7 @@ function Home() {
       } catch (e) {
 
       } finally {
-        setOpen(false);
+        handleClose();
       }
     };
 
