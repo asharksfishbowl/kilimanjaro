@@ -56,7 +56,7 @@ function App() {
   });
 
   return firebaseInitialized !== false ? (
-      <MuiThemeProvider theme={theme} >
+      <MuiThemeProvider theme={theme} className={animationClass}>
   		<CssBaseline />
         <Router className={animationClass}>
           <div>
