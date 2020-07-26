@@ -24,14 +24,8 @@ function Home() {
       setOpen(false);
     };
     const handleToggle = () => {
-      try {
-        setOpen(!open);
-        HomeController.helloWorld();
-      } catch (e) {
-
-      } finally {
-        handleClose();
-      }
+      setOpen(true);
+      HomeController.helloWorld(handleClose);
     };
 
     return (
@@ -46,7 +40,7 @@ function Home() {
           </div>
 
           <Typography variant="overline">
-            I am going to be sharing my knowledge of creation soon! Sign up or Sign in for more :)
+            Here in the Fishbowl is knowledge, join in the swim if ya like :)
           </Typography>
 
           <div className={classes().listCenter}>
