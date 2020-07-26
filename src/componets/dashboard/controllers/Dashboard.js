@@ -1,4 +1,5 @@
 import firebase from '../../../firebase.js';
+import swal from '@sweetalert/with-react';
 
 // Course Images
 import SoftwareCourseImg from '../assets/software.png';
@@ -44,7 +45,7 @@ const courses = [{
 class Dashboard {
   getCourses(){
     return courses;
-  }
+  };
 
   helloWorld(){
     const callHelloWorld = firebase.functions.httpsCallable('helloWorld');
@@ -53,7 +54,17 @@ class Dashboard {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
+
+  // TODO: tie this to socials
+  like(){
+    swal('Thanks for Liking', "Sorry the feature isn't ready yet but we are workiong on it :)", "success");
+  };
+
+  // TODO: tie this to socials
+  share(){
+    swal('Thanks for Sharing', "Sorry the feature isn't ready yet but we are workiong on it :)", "success");
+  };
 }
 
 export default new Dashboard();

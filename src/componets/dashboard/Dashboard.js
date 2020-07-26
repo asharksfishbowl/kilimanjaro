@@ -75,12 +75,12 @@ function Dashboard(){
                   </CardContent>
                   <CardActions>
                     <IconButton aria-label="add to favorites">
-                      <FavoriteIcon />
+                      <FavoriteIcon onClick={() => { DashboardController.like() }}/>
                     </IconButton>
                     <IconButton aria-label="share">
-                      <ShareIcon />
+                      <ShareIcon onClick={() => { DashboardController.share() }}/>
                     </IconButton>
-                    <Button size="medium" color="primary" edge="end" href={course.link}>
+                    <Button size="medium" color="primary" href={course.link}>
                       Learn More
                     </Button>
                   </CardActions>
