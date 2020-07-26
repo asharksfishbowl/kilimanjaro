@@ -6,7 +6,6 @@ import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
 
 // Material UI
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -22,7 +21,8 @@ import SoftwareCourseImg from './assets/software.png';
 import MusicCourseImg from './assets/music.jpg';
 import PhotoCourseImg from './assets/photos.jpg';
 import ArtCourseImg from './assets/art.jpg';
-import UnderconstructionImg from '../../assets/images/ASF/Underconstruction.jpg';
+import CookingCourseImg from './assets/cooking.jpg';
+import RecycleCourseImg from './assets/recycle.jpg';
 
 function Dashboard(){
   const classes = Styles();
@@ -49,16 +49,21 @@ function Dashboard(){
     description: 'Here we will dive into ways I like to relax by creating art, all kinds to! :)'
   },{
     key: 5,
-    image: UnderconstructionImg,
+    image: CookingCourseImg,
+    link: '/MakerCreation',
+    description: 'Here we dive into how to create fun, creative and most of all, delicious meals :)'
+  },{
+    key: 6,
+    image: RecycleCourseImg,
     link: '/PreciousPlastic',
-    description: 'Still need to create a image here, but this will be how to recycle :)'
+    description: 'Here we will dive into how recycle material into something new and awesome! :)'
   }];
 
   return(
     <div className={animationClass}>
       <CssBaseline />
       <AppBar title="Dashboard"/>
-      <main>
+      <main className={animationClass}>
         {/* Hero unit */}
         <div className={classes().heroContent}>
           <Container maxWidth="sm">
@@ -86,7 +91,7 @@ function Dashboard(){
         </div>
         <Container className={classes().cardGrid} maxWidth="md">
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing={4} className={animationClass}>
             {courses.map((course) => (
               <Grid item key={course.key} xs={12} sm={6} md={4}>
                 <Card className={classes().card}>
