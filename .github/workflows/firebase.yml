@@ -11,7 +11,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          ref: 'master'
+          ref: 'main'
       - name: Install Dependencies
         run:  npm ci
       - name: Install Firebase tools
