@@ -5,7 +5,7 @@ import Link from '@material-ui/core/Link';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="textSecondary" align="center" color={props.color}>
+    <Typography variant="body1" color={props.color} align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://asharksfishbowl.com/">
         A Shark's Fishbowl

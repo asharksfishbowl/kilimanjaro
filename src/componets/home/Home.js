@@ -8,6 +8,7 @@ import Img from 'react-image';
 import Styles from './Styles.js';
 import IconBar from './IconBar.js';
 import Copyright from '../Copyright.js';
+import Paypal from '../donations/PayPal.js';
 
 // Material UI Componets
 import Typography from '@material-ui/core/Typography';
@@ -48,13 +49,7 @@ function Home() {
             <Typography variant="overline">
               You don't have to donate but it's big help to keep these projects going :)
             </Typography>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick" />
-              <input type="hidden" name="hosted_button_id" value="NMEW6UUZ4RB5L" />
-              <Button className="App-donate-btn" variant="outlined" name="submit" type="submit" size="large">
-                Donate
-              </Button>
-            </form>
+            <Paypal className="App-donate-btn"/>
           </div>
           <IconBar/>
           <Copyright/>

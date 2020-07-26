@@ -4,6 +4,7 @@ import DashboardController from './controllers/Dashboard.js';
 import AppBar from '../AppBar.js';
 import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
+import Paypal from '../donations/PayPal.js';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
@@ -42,13 +43,11 @@ function Dashboard(){
             <div className={classes().heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
+                  <Paypal variant="contained" color="primary"/>
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Secondary action
+                    Feedback
                   </Button>
                 </Grid>
               </Grid>

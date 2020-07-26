@@ -13,38 +13,39 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
+// TODO: Make likes database driven
 function IconBar() {
     const classes = Styles();
     return (
       <div className="App-link">
         <IconButton className={classes().iconButton} aria-label="YouTube">
           <Link rel="stylesheet" href="https://www.youtube.com/channel/UCMem0Pu1NybZ8FRrvLDGkoA?view_as=subscriber">
-            <YouTubeIcon color="primary" />
+            <YouTubeIcon color="primary" fontSize='large'/>
           </Link>
         </IconButton>
         <IconButton className={classes().iconButton} aria-label="Facebook">
           <Link rel="stylesheet" href="https://www.facebook.com/asharksfishbowl/?fref=gs&dti=462102767518969&hc_location=group_dialog">
-            <FacebookIcon color="primary" />
+            <FacebookIcon color="primary" fontSize='large'/>
           </Link>
         </IconButton>
         <IconButton className={classes().iconButton} aria-label="Instagram">
           <Link rel="stylesheet" href="https://www.instagram.com/asharksfishbowl/">
-            <InstagramIcon color="primary" />
+            <InstagramIcon color="primary" fontSize='large'/>
           </Link>
         </IconButton>
         <IconButton className={classes().iconButton} aria-label="LinkedIn">
           <Link rel="stylesheet" href="https://www.linkedin.com/in/nick-marino-738861b0/">
-            <LinkedInIcon color="primary" />
+            <LinkedInIcon color="primary" fontSize='large'/>
           </Link>
         </IconButton>
         <IconButton className={classes().iconButton} aria-label="Twitter">
           <Link rel="stylesheet" href="https://twitter.com/asharksfishbowl">
-            <TwitterIcon color="primary" />
+            <TwitterIcon color="primary" fontSize='large'/>
           </Link>
         </IconButton>
         <IconButton className={classes().iconButton} aria-label="GitHub">
           <Link rel="stylesheet" href="https://github.com/asharksfishbowl">
-            <GitHubIcon color="primary" />
+            <GitHubIcon color="primary" fontSize='large'/>
           </Link>
         </IconButton>
       </div>
