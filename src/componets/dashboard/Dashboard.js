@@ -40,7 +40,7 @@ function Dashboard(){
     <div className={animationClass}>
       <CssBaseline />
       <AppBar title="Dashboard"/>
-      <Feedback open={open} onClose={() => { handleClose()}} onClick={() => { handleClose()}}/>
+      <Feedback open={open} onClose={handleClose} onCancel={handleClose} />
       <main>
         {/* Hero unit */}
         <div className={classes().heroContent}>
