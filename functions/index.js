@@ -45,7 +45,7 @@ const createFeedback = (feedback => {
     .then(doc => console.log('some feedback was added', doc));
 });
 
-exports.create = functions.firestore
+exports.createFeedback = functions.firestore
   .document('feedbacks/{feedbackId}')
   .onCreate(doc => {
     const data = doc.data();
