@@ -19,43 +19,43 @@ exports.toTheFishbowl = functions.https.onRequest((request, response) => {
   response.redirect("asharksfishbowl.com");
 });
 
-const createRecord = (record => {
-  return admin.firestore().collection('records')
-    .add(record)
-    .then(doc => console.log('record added', doc));
-});
+exports.addFeedback = functions.https.onCall((data, context) => {
+  const feedback = data.feedback;
 
-exports.create = functions.firestore
-  .document('records/{recordId}')
-  .onCreate(doc => {
-    const data = doc.data();
-    const record = {
-      content: 'Added a new Record',
-      user: `${record.authorFirstName} ${record.authorLastName}`,
-      time: admin.firestore.FieldValue.serverTimestamp()
-    };
-
-    return createRecord(record);
+  // Checking attribute.
+  if (!(typeof feedback === 'string') || feedback.length === 0) {
+    throw new functions.https.HttpsError(
+      'invalid-argument',
+      'The function must be called with ' +
+      'one arguments "text" containing the message text to add.'
+    );
   }
-);
 
-const createFeedback = (feedback => {
-  return admin.firestore().collection('feedbacks')
-    .add(feedback)
-    .then(doc => console.log('some feedback was added', doc));
-});
-
-exports.createFeedback = functions.firestore
-  .document('feedbacks/{feedbackId}')
-  .onCreate(doc => {
-    const data = doc.data();
-    const feedback = {
-      content: 'Thanks for your feedback! :)',
-      user: `${data.authorFirstName} ${data.authorLastName}`,
-      time: admin.firestore.FieldValue.serverTimestamp(),
-      feedback: `${data.feedback}`
-    };
-
-    return createFeedback(feedback);
+  // Checking that the user is authenticated.
+  if (!context.auth) {
+    throw new functions.https.HttpsError(
+      'failed-precondition',
+      'The function must be called ' +
+      'while authenticated.'
+    );
   }
-);
+
+  // Authentication / user information is automatically added to the request.
+  const uid = context.auth.uid;
+  const name = context.auth.token.name || null;
+  const picture = context.auth.token.picture || null;
+  const email = context.auth.token.email || null;
+
+  // Saving the new message to the Realtime Database.
+  const sanitizedFeedback = sanitizer.sanitizeText(feedback); // Sanitize the message.
+  return admin.database().ref('/feedbacks').push({
+    text: sanitizedFeedback,
+    author: { uid, name, picture, email },
+  }).then(() => {
+    console.log('New Message written');
+    return { text: sanitizedFeedback };
+  })
+    .catch((error) => {
+      throw new functions.https.HttpsError('unknown', error.message, error);
+    });
+});
