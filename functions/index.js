@@ -53,7 +53,7 @@ exports.create = functions.firestore
       content: 'Thanks for your feedback! :)',
       user: `${data.authorFirstName} ${data.authorLastName}`,
       time: admin.firestore.FieldValue.serverTimestamp(),
-      feedback: {data.feedback}
+      feedback: `${data.feedback}`
     };
 
     return createFeedback(feedback);
