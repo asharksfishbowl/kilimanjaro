@@ -2,7 +2,7 @@ import firebase from '../../../firebase.js';
 import swal from '@sweetalert/with-react';
 
 class Feedback {
-  async createFeedback(feedback) {
+  async create(feedback) {
     if(!firebase.auth.currentUser) {
       return swal('Sorry Shark', "You need to sign in first :)", "error");
     }

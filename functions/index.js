@@ -49,10 +49,10 @@ exports.addFeedback = functions.https.onCall((data, context) => {
   // Saving the new message to the Realtime Database.
   const sanitizedFeedback = sanitizer.sanitizeText(feedback); // Sanitize the message.
   return admin.database().ref('/feedbacks').push({
-    text: sanitizedFeedback,
+    feedback: sanitizedFeedback,
     author: { uid, name, picture, email },
   }).then(() => {
-    console.log('New Message written');
+    console.log('New Record Created');
     return { text: sanitizedFeedback };
   })
     .catch((error) => {
