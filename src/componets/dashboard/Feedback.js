@@ -1,0 +1,41 @@
+import React from 'react';
+
+// Material UI
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+function Feedback(props){
+  return(
+    <Dialog aria-labelledby="form-dialog-title" {...props}>
+      <DialogTitle id="form-dialog-title">Feedback</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          What's up Shark! Please leave any feedback ya like :)
+        </DialogContentText>
+        <TextField
+          autoFocus
+          margin="dense"
+          id="feedback"
+          label="Feedback"
+          type="text"
+          fullWidth
+        />
+      </DialogContent>
+      <DialogActions>
+        <Button color="primary">
+          Cancel
+        </Button>
+        <Button color="primary">
+          Save
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+
+export default Feedback;

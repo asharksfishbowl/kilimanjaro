@@ -5,6 +5,7 @@ import AppBar from '../AppBar.js';
 import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
 import Paypal from '../donations/PayPal.js';
+import Feedback from './Feedback.js';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
@@ -24,12 +25,22 @@ import ShareIcon from '@material-ui/icons/Share';
 function Dashboard(){
   const classes = Styles();
   const [animationClass] = useState('background-grad');
+  const [open, setOpen] = useState(false);
   const courses = DashboardController.getCourses();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return(
     <div className={animationClass}>
       <CssBaseline />
       <AppBar title="Dashboard"/>
+      <Feedback open={open} onClose={() => { handleClose()}} onClick={() => { handleClose()}}/>
       <main>
         {/* Hero unit */}
         <div className={classes().heroContent}>
@@ -46,7 +57,7 @@ function Dashboard(){
                   <Paypal variant="contained" color="primary"/>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
+                  <Button variant="outlined" color="primary" onClick={() => { handleClickOpen()}}>
                     Feedback
                   </Button>
                 </Grid>
@@ -73,11 +84,11 @@ function Dashboard(){
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <IconButton aria-label="add to favorites">
-                      <FavoriteIcon onClick={() => { DashboardController.like() }}/>
+                    <IconButton aria-label="add to favorites" onClick={() => { DashboardController.like()}}>
+                      <FavoriteIcon />
                     </IconButton>
-                    <IconButton aria-label="share">
-                      <ShareIcon onClick={() => { DashboardController.share() }}/>
+                    <IconButton aria-label="share" onClick={() => { DashboardController.share()}}>
+                      <ShareIcon />
                     </IconButton>
                     <Button size="medium" color="primary" href={course.link}>
                       Learn More

@@ -23,7 +23,7 @@ const createRecord = (record => {
   return admin.firestore().collection('records')
     .add(record)
     .then(doc => console.log('record added', doc));
-})
+});
 
 exports.create = functions.firestore
   .document('records/{recordId}')
@@ -36,5 +36,26 @@ exports.create = functions.firestore
     };
 
     return createRecord(record);
+  }
+);
+
+const createFeedback = (feedback => {
+  return admin.firestore().collection('feedbacks')
+    .add(feedback)
+    .then(doc => console.log('some feedback was added', doc));
+});
+
+exports.create = functions.firestore
+  .document('feedbacks/{feedbackId}')
+  .onCreate(doc => {
+    const data = doc.data();
+    const feedback = {
+      content: 'Thanks for your feedback! :)',
+      user: `${data.authorFirstName} ${data.authorLastName}`,
+      time: admin.firestore.FieldValue.serverTimestamp(),
+      feedback: {data.feedback}
+    };
+
+    return createFeedback(feedback);
   }
 );
