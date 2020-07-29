@@ -19,7 +19,7 @@ function Feedback(props){
 
   async function create() {
     try {
-      await FeedbackController.create(feedback);
+      await FeedbackController.addFeedback(feedback);
     } catch (error) {
       console.log(error.message);
     }

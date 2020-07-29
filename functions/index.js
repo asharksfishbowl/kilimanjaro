@@ -53,7 +53,7 @@ exports.addFeedback = functions.https.onCall((data, context) => {
     author: { uid, name, picture, email },
   }).then(() => {
     console.log('New Record Created');
-    return { text: sanitizedFeedback };
+    return { feedback: sanitizedFeedback };
   })
     .catch((error) => {
       throw new functions.https.HttpsError('unknown', error.message, error);
