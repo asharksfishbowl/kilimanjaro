@@ -48,7 +48,12 @@ class Dashboard {
   };
 
   getFeedbacks(){
-
+    const callGetFeedbacks = firebase.functions.httpsCallable('helloWorld');
+    callGetFeedbacks()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   helloWorld(){
