@@ -58,12 +58,12 @@ class Dashboard {
 
   // TODO: tie this to socials
   like(){
-    swal('Thanks for Liking', "Sorry the feature isn't ready yet but we are workiong on it :)", "success");
+    swal('Thanks for Liking', "Sorry the feature isn't ready yet but we are working on it :)", "success");
   };
 
   // TODO: tie this to socials
   share(){
-    swal('Thanks for Sharing', "Sorry the feature isn't ready yet but we are workiong on it :)", "success");
+    swal('Thanks for Sharing', "Sorry the feature isn't ready yet but we are working on it :)", "success");
   };
 }
 
