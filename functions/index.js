@@ -62,13 +62,3 @@ exports.addFeedback = functions.https.onCall((data, context) => {
     throw new functions.https.HttpsError('unknown', error.message, error);
   });
 });
-
-exports.getFeedbacks = functions.https.onCall((data, context) => {
-  const feedback = admin.database().ref('feedbacks').on("value", function(snapshot) {
-    console.log(snapshot.val());
-    return snapshot.val();
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-  });
-  return feedbacks;
-});

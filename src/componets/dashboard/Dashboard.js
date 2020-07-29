@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Styles from './Styles.js';
 import DashboardController from './controllers/Dashboard.js';
 import FeedbackController from './controllers/Feedback.js';
@@ -27,8 +27,18 @@ function Dashboard(){
   const classes = Styles();
   const [animationClass] = useState('background-grad');
   const [open, setOpen] = useState(false);
+  const [feedbacks, setFeedbacks] = useState();
   const courses = DashboardController.getCourses();
-  const feedbacks = FeedbackController.getFeedbacks();
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await FeedbackController.getFeedbacks();
+      console.log(data);
+      setFeedbacks(data);
+    }
+    fetchData();
+  }, []);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -69,8 +79,14 @@ function Dashboard(){
               </Grid>
             </div>
             <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
-              Here our some of your suggestions
+              Here are some of your suggestions
             </Typography>
+            {
+              feedbacks && feedbacks.map((feedback) => (
+              <Typography variant="subtitle2" align="center" color="textSecondary">
+                Here {feedback}
+              </Typography>
+            ))}
           </Container>
         </div>
         <Container className={classes().cardGrid} maxWidth="md">

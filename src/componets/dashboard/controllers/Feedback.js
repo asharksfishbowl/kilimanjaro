@@ -13,7 +13,7 @@ class Feedback {
         return record;
       } catch (e) {
         console.log(e.message);
-      } 
+      }
     }
   };
 
@@ -23,9 +23,16 @@ class Feedback {
     }
     else {
       try {
-        const callGetFeedback = firebase.functions.httpsCallable('getFeedbacks');
-        const feedbacks = await callGetFeedback();
-        return feedbacks;
+        firebase.database.ref('feedbacks')
+          .once('value')
+          .then(function(snapshot) {
+            const result = [];
+            snapshot.forEach(function(data) {
+              let record = data.val();
+              result.push({key:data.key, value:record.feedback})
+            });
+            return result;
+        });
       } catch (e) {
         console.log(e.message);
       }
