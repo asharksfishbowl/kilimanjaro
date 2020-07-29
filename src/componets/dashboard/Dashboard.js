@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Styles from './Styles.js';
 import DashboardController from './controllers/Dashboard.js';
+import FeedbackController from './controllers/Feedback.js';
 import AppBar from '../AppBar.js';
 import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
@@ -27,6 +28,7 @@ function Dashboard(){
   const [animationClass] = useState('background-grad');
   const [open, setOpen] = useState(false);
   const courses = DashboardController.getCourses();
+  const feedbacks = FeedbackController.getFeedbacks();
 
   const handleClickOpen = () => {
     setOpen(true);
