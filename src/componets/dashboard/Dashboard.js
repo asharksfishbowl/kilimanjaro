@@ -46,10 +46,13 @@ function Dashboard(){
         <div className={classes().heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Welcome
+              Welcome Sharks
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Here is a portal to all the different knowledge bases I have been working on, treat it like your public library :)
+              Here is a digital library for us all to learn
+            </Typography>
+            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+              Please leave any feedback and we do our best to add it
             </Typography>
             <div className={classes().heroButtons}>
               <Grid container spacing={2} justify="center">
