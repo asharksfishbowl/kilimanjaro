@@ -9,7 +9,8 @@ class Feedback {
     else {
       try {
         const callAddFeedback = firebase.functions.httpsCallable('addFeedback');
-        await callAddFeedback({'feedback':feedback});
+        const record = await callAddFeedback({'feedback':feedback});
+        return record;
       } catch (e) {
         console.log(e.message);
       } finally {
