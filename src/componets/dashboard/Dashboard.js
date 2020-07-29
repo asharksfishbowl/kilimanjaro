@@ -30,12 +30,20 @@ function Dashboard(){
   const [feedbacks, setFeedbacks] = useState();
   const courses = DashboardController.getCourses();
 
-
   useEffect(() => {
     const fetchData = async () => {
-      const data = await FeedbackController.getFeedbacks();
+      const data = await FeedbackController.getFeedbacks(setFeedbacks);
       console.log(data);
-      setFeedbacks(data);
+      if (data) {
+        setFeedbacks(data);
+      }
+      else {
+        setFeedbacks([
+          'Control is not convinced',
+          'But the computer has the evidence',
+          'No need to abort'
+        ]);
+      }
     }
     fetchData();
   }, []);
@@ -81,10 +89,9 @@ function Dashboard(){
             <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
               Here are some of your suggestions
             </Typography>
-            {
-              feedbacks && feedbacks.map((feedback) => (
+            {feedbacks && feedbacks.map((feedback) => (
               <Typography variant="subtitle2" align="center" color="textSecondary">
-                Here {feedback}
+                {feedback}
               </Typography>
             ))}
           </Container>

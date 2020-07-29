@@ -31,6 +31,7 @@ class Feedback {
               let record = data.val();
               result.push({key:data.key, value:record.feedback})
             });
+
             return result;
         });
       } catch (e) {
