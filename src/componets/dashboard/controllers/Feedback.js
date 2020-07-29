@@ -13,7 +13,7 @@ class Feedback {
       } catch (e) {
         console.log(e.message);
       } finally {
-        return console.log('Final Feedback :)');
+        console.log('Final Feedback :)');
       }
     }
   }

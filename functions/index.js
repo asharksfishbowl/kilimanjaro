@@ -3,9 +3,9 @@ const admin = require('firebase-admin');
 const sanitizer = require('./sanitizer.js');
 admin.initializeApp(functions.config().firebase);
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
+// Create and Deploy Your First Cloud Functions
+// https://firebase.google.com/docs/functions/write-firebase-functions
+
 exports.helloWorld = functions.https.onCall((data, response) => {
   let message = data + ' ' + 'World';
   return message;
@@ -22,8 +22,6 @@ exports.toTheFishbowl = functions.https.onRequest((request, response) => {
 
 exports.addFeedback = functions.https.onCall((data, context) => {
   const feedback = data.feedback;
-  console.log(data);
-  console.log(feedback);
   // Checking attribute.
   if (!(typeof feedback === 'string') || feedback.length === 0) {
     throw new functions.https.HttpsError(
@@ -53,11 +51,11 @@ exports.addFeedback = functions.https.onCall((data, context) => {
   return admin.database().ref('/feedbacks').push({
     feedback: sanitizedFeedback,
     author: { uid, name, picture, email },
+    timestamp: admin.database.ServerValue.TIMESTAMP,
   }).then(() => {
-    console.log('New Record Created');
-    return { feedback: sanitizedFeedback };
+    return { feedback: sanitizedFeedback, success:true };
   })
-    .catch((error) => {
-      throw new functions.https.HttpsError('unknown', error.message, error);
-    });
+  .catch((error) => {
+    throw new functions.https.HttpsError('unknown', error.message, error);
+  });
 });
