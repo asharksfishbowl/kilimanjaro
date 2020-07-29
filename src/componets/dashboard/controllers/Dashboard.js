@@ -47,6 +47,10 @@ class Dashboard {
     return courses;
   };
 
+  getFeedbacks(){
+
+  };
+
   helloWorld(){
     const callHelloWorld = firebase.functions.httpsCallable('helloWorld');
     callHelloWorld()

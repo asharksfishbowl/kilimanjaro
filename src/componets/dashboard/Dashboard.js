@@ -51,7 +51,7 @@ function Dashboard(){
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Here is a digital library for us all to learn
             </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
               Please leave any feedback and we do our best to add it
             </Typography>
             <div className={classes().heroButtons}>
@@ -66,6 +66,9 @@ function Dashboard(){
                 </Grid>
               </Grid>
             </div>
+            <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
+              Here our some of your suggestions
+            </Typography>
           </Container>
         </div>
         <Container className={classes().cardGrid} maxWidth="md">

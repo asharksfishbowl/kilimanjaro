@@ -110,6 +110,7 @@ const Styles = () => {
     },
     heroButtons: {
       marginTop: theme.spacing(4),
+      marginBottom: theme.spacing(2),
     },
     cardGrid: {
       paddingTop: theme.spacing(8),

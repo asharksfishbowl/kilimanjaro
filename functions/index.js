@@ -5,7 +5,7 @@ admin.initializeApp(functions.config().firebase);
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
-
+// Example Functions
 exports.helloWorld = functions.https.onCall((data, response) => {
   let message = data + ' ' + 'World';
   return message;
@@ -19,6 +19,9 @@ exports.randomNumber = functions.https.onRequest((request, response) => {
 exports.toTheFishbowl = functions.https.onRequest((request, response) => {
   response.redirect("asharksfishbowl.com");
 });
+
+// Add new functions below this line
+// TODO: Figure out how to load these functions in a seperate file
 
 exports.addFeedback = functions.https.onCall((data, context) => {
   const feedback = data.feedback;
@@ -58,4 +61,9 @@ exports.addFeedback = functions.https.onCall((data, context) => {
   .catch((error) => {
     throw new functions.https.HttpsError('unknown', error.message, error);
   });
+});
+
+exports.getFeedbacks = functions.https.onCall((data, context) => {
+  const feedback = admin.database().ref('/feedbacks');
+  return feedbacks;
 });
