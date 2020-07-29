@@ -9,11 +9,11 @@ class Feedback {
     else {
       try {
         const callAddFeedback = firebase.functions.httpsCallable('addFeedback');
-        await callAddFeedback(feedback);
+        await callAddFeedback({'feedback':feedback});
       } catch (e) {
         console.log(e.message);
       } finally {
-        return console.log('here');
+        return console.log('Final Feedback :)');
       }
     }
   }
