@@ -17,7 +17,7 @@ function Feedback(props){
     setFeedback(event.target.value);
   };
 
-  async function create() {
+  async function save() {
     try {
       await FeedbackController.addFeedback(feedback);
     } catch (error) {
@@ -48,7 +48,7 @@ function Feedback(props){
         <Button color="primary" onClick={props.onCancel}>
           Cancel
         </Button>
-        <Button color="primary" onClick={create}>
+        <Button color="primary" onClick={save}>
           Save
         </Button>
       </DialogActions>

@@ -21,13 +21,14 @@ exports.toTheFishbowl = functions.https.onRequest((request, response) => {
 
 exports.addFeedback = functions.https.onCall((data, context) => {
   const feedback = data.feedback;
-
+  console.log(data);
+  console.log(feedback);
   // Checking attribute.
   if (!(typeof feedback === 'string') || feedback.length === 0) {
     throw new functions.https.HttpsError(
       'invalid-argument',
       'The function must be called with ' +
-      'one arguments "text" containing the message text to add.'
+      'one arguments "feedback" containing the message text to add.'
     );
   }
 
