@@ -17,21 +17,21 @@ class Feedback {
     }
   };
 
+  // TODO: Get this this to pass data back
   async getFeedbacks() {
-    if(!firebase.auth.currentUser) {
+     if(!firebase.auth.currentUser) {
       return swal('Sorry Shark', "You need to sign in first :)", "error");
     }
     else {
       try {
         firebase.database.ref('feedbacks')
-          .once('value')
-          .then(function(snapshot) {
-            const result = [];
-            snapshot.forEach(function(data) {
+          .on('value', function(snapshot){
+            let result = [];
+            snapshot.forEach(data => {
               let record = data.val();
-              result.push({key:data.key, value:record.feedback})
+              result.push(record.feedback);
             });
-
+            // console.log(result);
             return result;
         });
       } catch (e) {

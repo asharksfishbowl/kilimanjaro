@@ -7,6 +7,7 @@ import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
 import Paypal from '../donations/PayPal.js';
 import Feedback from './Feedback.js';
+import firebase from '../../firebase.js';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
@@ -32,18 +33,30 @@ function Dashboard(){
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await FeedbackController.getFeedbacks(setFeedbacks);
+      // TODO: Dang got to figure out how to get this in the controller
+      firebase.database.ref('feedbacks')
+        .on('value', function(snapshot){
+          let result = [];
+          snapshot.forEach(data => {
+            let record = data.val();
+            result.push(record.feedback);
+          });
+          if (result && result.length > 0) {
+            setFeedbacks(result);
+          }
+          else {
+            setFeedbacks([
+              'Control is not convinced',
+              'But the computer has the evidence',
+              'No need to abort'
+            ]);
+          }
+          return result;
+      });
+
+      const data = await FeedbackController.getFeedbacks();
       console.log(data);
-      if (data) {
-        setFeedbacks(data);
-      }
-      else {
-        setFeedbacks([
-          'Control is not convinced',
-          'But the computer has the evidence',
-          'No need to abort'
-        ]);
-      }
+
     }
     fetchData();
   }, []);
@@ -86,11 +99,11 @@ function Dashboard(){
                 </Grid>
               </Grid>
             </div>
-            <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
+            <Typography variant="caption" align="center" color="textSecondary" paragraph>
               Here are some of your suggestions
             </Typography>
-            {feedbacks && feedbacks.map((feedback) => (
-              <Typography variant="subtitle2" align="center" color="textSecondary">
+            {feedbacks && feedbacks.map((feedback, key) => (
+              <Typography key={key} variant="subtitle2" align="center" color="textSecondary">
                 {feedback}
               </Typography>
             ))}
