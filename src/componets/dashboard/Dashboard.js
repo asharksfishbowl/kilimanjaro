@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Styles.js';
 import DashboardController from './controllers/Dashboard.js';
-import FeedbackController from './controllers/Feedback.js';
 import AppBar from '../AppBar.js';
 import AppBottomBar from '../AppBottomBar.js';
 import Copyright from '../Copyright.js';
 import Paypal from '../donations/PayPal.js';
-import Feedback from './Feedback.js';
+import Feedback from '../feedback/Feedback.js';
 import firebase from '../../firebase.js';
 
 // Material UI
@@ -33,7 +32,8 @@ function Dashboard(){
 
   useEffect(() => {
     const fetchData = async () => {
-      // TODO: Dang got to figure out how to get this in the controller
+      // TODO: Dang got to figure out how to get this in the controller,
+      // might be easier just in the componet for loading but I would like it cleaner
       firebase.database.ref('feedbacks')
         .on('value', function(snapshot){
           let result = [];
@@ -53,9 +53,6 @@ function Dashboard(){
           }
           return result;
       });
-
-      const data = await FeedbackController.getFeedbacks();
-      console.log(data);
 
     }
     fetchData();
