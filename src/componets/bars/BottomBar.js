@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import AppBottomStyles from './AppBottomStyles.js';
+import BottomStyles from './BottomStyles.js';
 
-function AppBottomBar(props) {
-    const classes = AppBottomStyles();
+function BottomBar(props) {
+    const classes = BottomStyles();
 
     return(
       <AppBar position="fixed" color="primary" className={classes().appBar}>
@@ -24,4 +24,4 @@ function AppBottomBar(props) {
     )
   }
 
-export default AppBottomBar;
+export default BottomBar;

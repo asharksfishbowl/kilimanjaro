@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Styles.js';
 import DashboardController from './controllers/Dashboard.js';
-import AppBar from '../AppBar.js';
-import AppBottomBar from '../AppBottomBar.js';
+import TopBar from '../bars/TopBar.js';
+import BottomBar from '../bars/BottomBar.js';
 import Copyright from '../Copyright.js';
 import Paypal from '../donations/PayPal.js';
 import Feedback from '../feedback/Feedback.js';
@@ -69,7 +69,7 @@ function Dashboard(){
   return(
     <div className={animationClass}>
       <CssBaseline />
-      <AppBar title="Dashboard"/>
+      <TopBar title="Dashboard"/>
       <Feedback open={open} onClose={handleClose} onCancel={handleClose} />
       <main>
         {/* Hero unit */}
@@ -141,7 +141,7 @@ function Dashboard(){
           </Grid>
         </Container>
       </main>
-      <AppBottomBar title=<Copyright color='secondary'/> />
+      <BottomBar title=<Copyright color='secondary'/> />
     </div>
   );
 }

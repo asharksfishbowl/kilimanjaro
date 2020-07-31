@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const AppBottomStyles = () => {
+const BottomStyles = () => {
   const useStyles = makeStyles(theme => ({
     text: {
       padding: theme.spacing(2, 2, 0),
@@ -33,4 +33,4 @@ const AppBottomStyles = () => {
   return useStyles;
 };
 
-export default AppBottomStyles;
+export default BottomStyles;

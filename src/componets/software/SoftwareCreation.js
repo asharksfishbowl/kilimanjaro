@@ -3,7 +3,7 @@ import Img from 'react-image';
 import AspectRatio from 'react-aspect-ratio';
 
 import Typography from '@material-ui/core/Typography';
-import AppBar from '../AppBar.js';
+import TopBar from '../bars/TopBar.js';
 
 
 import Shark from '../../assets/images/shark.jpg';
@@ -22,7 +22,7 @@ class SoftwareCreation extends Component {
 
     return(
       <div>
-        <AppBar />
+        <TopBar />
         <Typography variant="h2" gutterBottom>
           Course Structure
         </Typography>

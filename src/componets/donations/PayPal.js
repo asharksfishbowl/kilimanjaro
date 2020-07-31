@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Styles from './Styles.js';
 import Button from '@material-ui/core/Button';
 import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { CoffeeLoading } from 'react-loadingg';
 

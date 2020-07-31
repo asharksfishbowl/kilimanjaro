@@ -8,11 +8,11 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
-import AuthController from './auth/controllers/Auth.js';
-import AppStyles from './AppStyles.js';
+import AuthController from '../auth/controllers/Auth.js';
+import TopStyles from './TopStyles.js';
 
-function Appbar(props) {
-    const classes = AppStyles();
+function TopBar(props) {
+    const classes = TopStyles();
     const [auth] = useState(AuthController.isLoggedIn());
     const [username] = useState(AuthController.getCurrentUsername());
     const [anchorEl, setAnchorEl] = useState(null);
@@ -39,7 +39,7 @@ function Appbar(props) {
           <div>
             <IconButton
               aria-label="account of current user"
-              aria-controls="menu-appbar"
+              aria-controls="menu-TopBar"
               aria-haspopup="true"
               onClick={handleMenu}
               color="inherit"
@@ -47,7 +47,7 @@ function Appbar(props) {
               <AccountCircle />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id="menu-TopBar"
               anchorEl={anchorEl}
               anchorOrigin={{
                 vertical: 'top',
@@ -72,4 +72,4 @@ function Appbar(props) {
     )
   }
 
-export default Appbar;
+export default TopBar;
