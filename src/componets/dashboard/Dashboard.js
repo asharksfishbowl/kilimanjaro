@@ -69,7 +69,7 @@ function Dashboard(){
   return(
     <div className={animationClass}>
       <CssBaseline />
-      <TopBar title="Dashboard"/>
+      <TopBar title="Learning Center"/>
       <Feedback open={open} onClose={handleClose} onCancel={handleClose} />
       <main>
         {/* Hero unit */}

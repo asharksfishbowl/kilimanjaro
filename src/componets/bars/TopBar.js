@@ -14,7 +14,7 @@ import TopStyles from './TopStyles.js';
 function TopBar(props) {
     const classes = TopStyles();
     const [auth] = useState(AuthController.isLoggedIn());
-    const [username] = useState(AuthController.getCurrentUsername());
+    const [username] = useState(AuthController.getCurrentDisplayName());
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -33,10 +33,11 @@ function TopBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes().title}>
-            {props.title} {username}
+            {props.title}
           </Typography>
           {auth && (
           <div>
+            {username}
             <IconButton
               aria-label="account of current user"
               aria-controls="menu-TopBar"
