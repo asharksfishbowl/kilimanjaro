@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
+import swal from '@sweetalert/with-react';
 import AuthController from './controllers/Auth.js';
 import Copyright from '../Copyright.js';
 import Styles from './Styles.js';
@@ -45,10 +46,10 @@ export default function SignUp() {
 
   async function login() {
     try {
-      await AuthController.register(firstName, lastName, email, password);
+      AuthController.register(firstName, lastName, email, password);
       history.push('/dashboard');
     } catch (error) {
-      alert(error.message);
+      swal(error.message, 'error');
     }
   }
 
