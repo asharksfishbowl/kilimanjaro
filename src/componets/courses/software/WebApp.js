@@ -10,7 +10,7 @@ import Copyright from '../Copyright.js';
 import Shark from '../../assets/images/shark.jpg';
 import Course from './Course.js';
 
-class SoftwareCreation extends Component {
+class WebApp extends Component {
 
   constructor(props) {
     super(props);
@@ -37,4 +37,4 @@ class SoftwareCreation extends Component {
   }
 }
 
-export default SoftwareCreation;
+export default WebApp;

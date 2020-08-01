@@ -22,10 +22,7 @@ import NmParallax from './componets/NmParallax.js';
 import Home from './componets/home/Home.js';
 import Founders from './componets/founders/Founders.js';
 import Dashboard from './componets/dashboard/Dashboard.js';
-import SoftwareCreation from './componets/courses/SoftwareCreation.js';
-// import MusicCreation from './componets/MusicCreation.js';
-// import VideoCreation from './componets/VideoCreation.js';
-// import MakerCreation from './componets/MakerCreation.js';
+import Courses from './componets/courses/Course.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
 // Helper Componets
@@ -82,15 +79,16 @@ function App() {
               <Route path="/DcParallax" component={DcParallax} />
               <Route path="/LrParallax" component={LrParallax} />
               <Route path="/NmParallax" component={NmParallax} />
-              <Route path="/SoftwareCreation" component={SoftwareCreation} />
+              <Route path="/Courses" component={Courses} />
               <Route path="/SignInSide" component={SignInSide} />
               <Route path="/SignIn" component={SignIn} />
               <Route path="/SignUp" component={SignUp} />
               <Route path="/Dashboard" component={Dashboard} />
               <Route path="/PreciousPlastic" component={PreciousPlastic} />
-              <Route path="/MusicCreation" component={Underconstruction} />
+              <Route path="/Music" component={Underconstruction} />
               <Route path="/VideoCreation" component={Underconstruction} />
-              <Route path="/MakerCreation" component={Underconstruction} />
+              <Route path="/DIY" component={Underconstruction} />
+              <Route path="/Cooking" component={Underconstruction} />
               <Route path='/trololo' component={() => {
                    window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
                    return null;

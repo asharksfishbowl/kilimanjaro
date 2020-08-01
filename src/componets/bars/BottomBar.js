@@ -19,6 +19,7 @@ function BottomBar(props) {
           <Typography variant="h6" className={classes().title}>
             {props.title}
           </Typography>
+          {props.rightSide}
         </Toolbar>
       </AppBar>
     )
