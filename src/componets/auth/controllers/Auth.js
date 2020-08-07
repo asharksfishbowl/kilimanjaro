@@ -23,9 +23,9 @@ class Auth {
 		})
 	}
 
-	getCurrentUsername() {
+	getCurrentDisplayName() {
     if (firebase.auth.currentUser) {
-      return firebase.auth.currentUser.email;
+      return firebase.auth.currentUser.displayName;
     } else {
       return false;
     }

@@ -9,7 +9,8 @@ import Auth from './componets/auth/controllers/Auth.js';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
 // Parallax Links
@@ -21,10 +22,7 @@ import NmParallax from './componets/NmParallax.js';
 import Home from './componets/home/Home.js';
 import Founders from './componets/founders/Founders.js';
 import Dashboard from './componets/dashboard/Dashboard.js';
-import SoftwareCreation from './componets/software/SoftwareCreation.js';
-// import MusicCreation from './componets/MusicCreation.js';
-// import VideoCreation from './componets/VideoCreation.js';
-// import MakerCreation from './componets/MakerCreation.js';
+import Courses from './componets/courses/Course.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
 // Helper Componets
@@ -54,7 +52,6 @@ const theme = createMuiTheme({
 });
 
 function App() {
-
   const [animationClass] = useState('background-grad');
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
 
@@ -64,6 +61,12 @@ function App() {
     })
   });
 
+  const checkIfLoggedIn = () => {
+    if (Auth.isLoggedIn()) {
+      return <Redirect to="/dashboard" />
+    }
+  }
+
   return firebaseInitialized !== false ? (
       <MuiThemeProvider theme={theme}>
   		<CssBaseline />
@@ -72,52 +75,25 @@ function App() {
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
             <Switch>
-              <Route path="/Founders">
-                <Founders />
-              </Route>
-              <Route path="/DcParallax">
-                <DcParallax />
-              </Route>
-              <Route path="/LrParallax">
-                <LrParallax />
-              </Route>
-              <Route path="/NmParallax" >
-                <NmParallax />
-              </Route>
-              <Route path="/SoftwareCreation" >
-                <SoftwareCreation />
-              </Route>
-              <Route path="/SignInSide" >
-                <SignInSide />
-              </Route>
-              <Route path="/SignIn" >
-                <SignIn />
-              </Route>
-              <Route path="/SignUp" >
-                <SignUp />
-              </Route>
-              <Route path="/Dashboard" >
-                <Dashboard />
-              </Route>
-              <Route path="/PreciousPlastic" >
-                <PreciousPlastic />
-              </Route>
-              <Route path="/MusicCreation" >
-                <Underconstruction />
-              </Route>
-              <Route path="/VideoCreation" >
-                <Underconstruction />
-              </Route>
-              <Route path="/MakerCreation" >
-                <Underconstruction />
-              </Route>
+              <Route path="/Founders" component={Founders} />
+              <Route path="/DcParallax" component={DcParallax} />
+              <Route path="/LrParallax" component={LrParallax} />
+              <Route path="/NmParallax" component={NmParallax} />
+              <Route path="/Courses" component={Courses} />
+              <Route path="/SignInSide" component={SignInSide} />
+              <Route path="/SignIn" component={SignIn} />
+              <Route path="/SignUp" component={SignUp} />
+              <Route path="/Dashboard" component={Dashboard} />
+              <Route path="/PreciousPlastic" component={PreciousPlastic} />
+              <Route path="/Music" component={Underconstruction} />
+              <Route path="/VideoCreation" component={Underconstruction} />
+              <Route path="/DIY" component={Underconstruction} />
+              <Route path="/Cooking" component={Underconstruction} />
               <Route path='/trololo' component={() => {
                    window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
                    return null;
               }}/>
-              <Route path="/">
-                <Home />
-              </Route>
+              <Route path="/" component={Home} onEnter={checkIfLoggedIn()}/>
             </Switch>
           </div>
         </Router>

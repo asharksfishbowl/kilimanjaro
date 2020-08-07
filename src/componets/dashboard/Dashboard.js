@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Styles from './Styles.js';
 import DashboardController from './controllers/Dashboard.js';
-import AppBar from '../AppBar.js';
-import AppBottomBar from '../AppBottomBar.js';
+import TopBar from '../bars/TopBar.js';
+import BottomBar from '../bars/BottomBar.js';
 import Copyright from '../Copyright.js';
 import Paypal from '../donations/PayPal.js';
-import Feedback from './Feedback.js';
+import Feedback from '../feedback/Feedback.js';
+import firebase from '../../firebase.js';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
@@ -26,7 +27,36 @@ function Dashboard(){
   const classes = Styles();
   const [animationClass] = useState('background-grad');
   const [open, setOpen] = useState(false);
+  const [feedbacks, setFeedbacks] = useState();
   const courses = DashboardController.getCourses();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // TODO: Dang got to figure out how to get this in the controller,
+      // might be easier just in the componet for loading but I would like it cleaner
+      firebase.database.ref('feedbacks')
+        .on('value', function(snapshot){
+          let result = [];
+          snapshot.forEach(data => {
+            let record = data.val();
+            result.push(record.feedback);
+          });
+          if (result && result.length > 0) {
+            setFeedbacks(result);
+          }
+          else {
+            setFeedbacks([
+              'Control is not convinced',
+              'But the computer has the evidence',
+              'No need to abort'
+            ]);
+          }
+          return result;
+      });
+
+    }
+    fetchData();
+  }, []);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -39,17 +69,20 @@ function Dashboard(){
   return(
     <div className={animationClass}>
       <CssBaseline />
-      <AppBar title="Dashboard"/>
+      <TopBar title="Learning Center"/>
       <Feedback open={open} onClose={handleClose} onCancel={handleClose} />
       <main>
         {/* Hero unit */}
         <div className={classes().heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Welcome
+              Welcome Sharks
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Here is a portal to all the different knowledge bases I have been working on, treat it like your public library :)
+              Here is a digital library for us all to learn
+            </Typography>
+            <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
+              Please leave any feedback and we do our best to add it
             </Typography>
             <div className={classes().heroButtons}>
               <Grid container spacing={2} justify="center">
@@ -63,6 +96,14 @@ function Dashboard(){
                 </Grid>
               </Grid>
             </div>
+            <Typography variant="caption" align="center" color="textSecondary" paragraph>
+              Here are some of your suggestions
+            </Typography>
+            {feedbacks && feedbacks.map((feedback, key) => (
+              <Typography key={key} variant="subtitle2" align="center" color="textSecondary">
+                {feedback}
+              </Typography>
+            ))}
           </Container>
         </div>
         <Container className={classes().cardGrid} maxWidth="md">
@@ -100,7 +141,7 @@ function Dashboard(){
           </Grid>
         </Container>
       </main>
-      <AppBottomBar title=<Copyright color='secondary'/> />
+      <BottomBar title=<Copyright color='secondary'/> />
     </div>
   );
 }

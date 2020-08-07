@@ -1,10 +1,11 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase)
+const sanitizer = require('./sanitizer.js');
+admin.initializeApp(functions.config().firebase);
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
+// Create and Deploy Your First Cloud Functions
+// https://firebase.google.com/docs/functions/write-firebase-functions
+// Example Functions
 exports.helloWorld = functions.https.onCall((data, response) => {
   let message = data + ' ' + 'World';
   return message;
@@ -19,15 +20,17 @@ exports.toTheFishbowl = functions.https.onRequest((request, response) => {
   response.redirect("asharksfishbowl.com");
 });
 
+// Add new functions below this line
+// TODO: Figure out how to load these functions in a seperate file
+
 exports.addFeedback = functions.https.onCall((data, context) => {
   const feedback = data.feedback;
-
   // Checking attribute.
   if (!(typeof feedback === 'string') || feedback.length === 0) {
     throw new functions.https.HttpsError(
       'invalid-argument',
       'The function must be called with ' +
-      'one arguments "text" containing the message text to add.'
+      'one arguments "feedback" containing the message text to add.'
     );
   }
 
@@ -51,11 +54,11 @@ exports.addFeedback = functions.https.onCall((data, context) => {
   return admin.database().ref('/feedbacks').push({
     feedback: sanitizedFeedback,
     author: { uid, name, picture, email },
+    timestamp: admin.database.ServerValue.TIMESTAMP,
   }).then(() => {
-    console.log('New Record Created');
-    return { text: sanitizedFeedback };
+    return { feedback: sanitizedFeedback, success:true };
   })
-    .catch((error) => {
-      throw new functions.https.HttpsError('unknown', error.message, error);
-    });
+  .catch((error) => {
+    throw new functions.https.HttpsError('unknown', error.message, error);
+  });
 });
