@@ -21,7 +21,6 @@ import NmParallax from './componets/NmParallax.js';
 import Home from './componets/home/Home.js';
 import Founders from './componets/founders/Founders.js';
 import Dashboard from './componets/dashboard/Dashboard.js';
-import UserProfile from './componets/profile/UserProfile.js';
 import SoftwareCreation from './componets/software/SoftwareCreation.js';
 // import MusicCreation from './componets/MusicCreation.js';
 // import VideoCreation from './componets/VideoCreation.js';
@@ -84,9 +83,6 @@ function App() {
               </Route>
               <Route path="/NmParallax" >
                 <NmParallax />
-              </Route>
-              <Route path="/UserProfile" >
-                <UserProfile />
               </Route>
               <Route path="/SoftwareCreation" >
                 <SoftwareCreation />
