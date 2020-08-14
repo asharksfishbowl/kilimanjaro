@@ -2,11 +2,23 @@ import React, { useState, useEffect } from 'react';
 import CourseController from './controllers/Course.js';
 import Styles from './Styles.js';
 
+import SoftwareImg from './assets/software.png';
+
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
@@ -17,7 +29,7 @@ function Course(props) {
   const [name, setName] = useState('');
   const [visible, setVisible] = useState('');
   const [order, setOrder] = useState('');
-  const [lessons, setLessons] = useState([]);
+  const [lessons, setLessons] = useState('');
 
   useEffect(() => {
     const fetchData = async () => CourseController.getLessons(setLessons);
@@ -58,50 +70,86 @@ function Course(props) {
 
   return(
 
-    <div className={classes().root}>
-      {lessons && lessons.map((lesson, key) => (
-        <FormGroup key={key} row>
-          <Typography variant="subtitle2" align="left" color="textSecondary">
-            {lesson.name}
-          </Typography>
-          <IconButton aria-label="delete" align="right" onClick={() => { deleteLesson(lesson.name)}}>
-            <DeleteIcon />
-          </IconButton>
-        </FormGroup>
-      ))}
-      <form className={classes().root} noValidate autoComplete="off">
-        <TextField
-          id="name"
-          label="Name"
-          value={name}
-          onChange={onNameChange}
-          required
-        />
-        <TextField
-          id="order"
-          label="Order"
-          type="number"
-          value={order}
-          onChange={onOrderChange}
-        />
-        <FormGroup row>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={visible.checked}
-                onChange={onVisibleChange}
-                name="visible"
-                color="primary"
-              />
-            }
-            label="Visible"
-            labelPlacement="end"
-          />
-        </FormGroup>
-        <Button color="primary" onClick={save}>
-          Save
-        </Button>
-      </form>
+    <div className={classes.root}>
+      <Container className={classes.cardGrid} maxWidth="md">
+        <Grid container spacing={4}>
+          {lessons.length ? lessons.map((lesson, key) => (
+            <Grid item key={key} xs={12} sm={6} md={4}>
+              <Card className={classes.card}>
+                <CardActionArea href="/Courses">
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={SoftwareImg}
+                    title={lesson.name}
+                  />
+                </CardActionArea>
+                <CardContent className={classes.cardContent}>
+                  <Typography>
+                    {lesson.name}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="medium" color="primary" href="/Courses">
+                    Learn More
+                  </Button>
+                  <IconButton aria-label="delete" onClick={() => { deleteLesson(lesson.name)}}>
+                    <DeleteIcon />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </Grid>
+          )) : <Grid item xs={12} sm={6} md={4} /> }
+        </Grid>
+
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Card className={classes.card}>
+              <CardContent className={classes.cardContent}>
+                <form noValidate autoComplete="off">
+                  <TextField
+                    id="name"
+                    label="Name"
+                    value={name}
+                    onChange={onNameChange}
+                    required
+                    fullWidth
+                  />
+                  <TextField
+                    id="order"
+                    label="Order"
+                    type="number"
+                    value={order}
+                    onChange={onOrderChange}
+                    fullWidth
+                  />
+                  <FormGroup row>
+                    <FormControlLabel
+                      control={
+                        <Switch
+                          checked={visible.checked}
+                          onChange={onVisibleChange}
+                          name="visible"
+                          color="primary"
+                        />
+                      }
+                      label="Visible"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </form>
+              </CardContent>
+              <CardActions>
+                <Button color="primary" onClick={save} fullWidth>
+                  Save
+                </Button>
+              </CardActions>
+
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+
+
     </div>
   )
 }
