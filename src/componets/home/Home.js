@@ -16,7 +16,6 @@ import Button from '@material-ui/core/Button';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { emojify } from 'react-emojione';
 import { Emojione } from 'react-emoji-render';
 
 function Home() {
