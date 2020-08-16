@@ -12,7 +12,7 @@ import Paypal from './donations/PayPal.js';
 function Underconstruction(props) {
   let history = useHistory();
   const [animationClass] = useState('background-grad');
-  const [taps, setTaps] = useState(0);
+  const [taps, setTaps] = useState(1);
 
   async function trololo() {
     try {
@@ -20,7 +20,8 @@ function Underconstruction(props) {
       let title = "Careful tapping him will wake him"
       let message = "You don't want him to sing to you " + displayName + "?";
       let type = "warning";
-      setTaps(taps + 1);
+      let youDoneDidit = Math.round(Math.random() * (10 - 1) + 2);
+      setTaps(youDoneDidit);
       console.log(taps);
       if (taps === 2) {
         title = "That's Okay " + displayName
@@ -30,17 +31,29 @@ function Underconstruction(props) {
         title = "Okay Now"
         message = "Come on now, please stop " + displayName + " I'm telling you he will sing and we will have to listen";
       }
+      else if (taps === 4) {
+        title = "Like Stop"
+        message = displayName + " Stop........stop";
+      }
       else if (taps === 5) {
         title = "Like Stop"
         message = displayName + " This is like two seconds for you too just turn away";
       }
-      else if (taps === 7) {
+      else if (taps === 6) {
         title = "Seriously Stop"
         message = displayName + " I'm surprized you even got this far";
       }
+      else if (taps === 7) {
+        title = "STOP"
+        message = "!!!!REPEAT STOP!!!!";
+      }
+      else if (taps === 8) {
+        title = "Stop!!!"
+        message = displayName + " You are gonna do it and regret it, I bet you won't make it the whole song";
+      }
       else if (taps === 9) {
         title = "SERIOUSLY STOP"
-        message = displayName + " He is going to SING!!!!";
+        message = "He is going to SING!!!!";
       }
       else if (taps === 10 || taps > 10) {
         title = "Ya done did it now!"
@@ -51,7 +64,7 @@ function Underconstruction(props) {
         buttons: {
           cancel: "Run away!",
           catch: {
-            text: "Keep Staying",
+            text: "Keep Tapping",
             value: "tap",
           }
         },
@@ -59,7 +72,7 @@ function Underconstruction(props) {
         switch (value) {
           case "tap":
             console.log(taps);
-            if (taps === 10 || taps > 10) {
+            if (taps >= 10) {
               history.push('/trololo');
             }
             break;
