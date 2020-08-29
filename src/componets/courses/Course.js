@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CourseController from './controllers/Course.js';
+import CRUD from '../../server/CRUD.js';
 import Styles from './Styles.js';
 
 import SoftwareImg from './assets/software.png';
@@ -17,6 +18,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 
@@ -24,7 +26,7 @@ function Course(props) {
   const classes = Styles();
   const [backdrop, setShowBackdrop] = useState(false);
   const [name, setName] = useState('');
-  const [visible, setVisible] = useState('');
+  const [visible, setVisible] = useState(false);
   const [order, setOrder] = useState('');
   const [lessons, setLessons] = useState('');
 
@@ -37,12 +39,12 @@ function Course(props) {
     setName(event.target.value);
   };
 
-  const onVisibleChange = (event) => {
-    setVisible(event.target.checked);
-  };
-
   const onOrderChange = (event) => {
     setOrder(event.target.value);
+  };
+
+  const onVisibleChange = (event) => {
+    setVisible(event.target.checked);
   };
 
   const hideBackdrop = () => {
@@ -53,15 +55,30 @@ function Course(props) {
     setShowBackdrop(!backdrop);
   };
 
-  async function save() {
+  async function saveRecord() {
     showBackdrop();
-    await CourseController.create({name, visible, order});
+    let record = {name, visible, order};
+    await CRUD.create('lessons', record, record.name);
     hideBackdrop();
   };
 
-  async function deleteLesson(lesson) {
+  async function editRecord(key) {
     showBackdrop();
-    await CourseController.delete(lesson);
+    const record = await CRUD.read('lessons', key);
+    setName(record.name);
+    setOrder(record.order);
+    if (record.visible) {
+      setVisible(true);
+    }
+    else {
+      setVisible(false);
+    }
+    hideBackdrop();
+  };
+
+  async function deleteRecord(record) {
+    showBackdrop();
+    await CRUD.delete('lessons', record);
     hideBackdrop();
   };
 
@@ -89,7 +106,10 @@ function Course(props) {
                   <Button size="medium" color="primary" href="/Courses">
                     Learn More
                   </Button>
-                  <IconButton aria-label="delete" onClick={() => { deleteLesson(lesson.name)}}>
+                  <IconButton aria-label="delete" onClick={() => { editRecord(lesson.name)}}>
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton aria-label="delete" onClick={() => { deleteRecord(lesson.name)}}>
                     <DeleteIcon />
                   </IconButton>
                 </CardActions>
@@ -136,7 +156,7 @@ function Course(props) {
                 </form>
               </CardContent>
               <CardActions>
-                <Button color="primary" onClick={save} fullWidth>
+                <Button color="primary" onClick={saveRecord} fullWidth>
                   Save
                 </Button>
               </CardActions>

@@ -1,5 +1,4 @@
 import firebase from '../../../firebase.js';
-import swal from '@sweetalert/with-react';
 
 class Course {
   getLessons(setLessons){
@@ -18,27 +17,6 @@ class Course {
         setLessons([]);
         return ['Nothing Yet'];
       }
-
-    });
-  };
-
-  create(lesson){
-    firebase.database.ref('lessons/' + lesson.name).set(lesson, function(error) {
-      if (error) {
-        console.log(error);
-      } else {
-        swal('Data saved successfully Shark!!!', "Thanks :)", "success");
-        return lesson;
-      }
-    });
-  };
-
-  delete(lesson){
-    firebase.database.ref('lessons/' + lesson).remove().then(function() {
-      console.log("Remove succeeded.")
-    })
-    .catch(function(error) {
-      console.log("Remove failed: " + error.message)
     });
   };
 }
