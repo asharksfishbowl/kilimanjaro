@@ -140,9 +140,12 @@ function Course(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="medium" color="primary" href="/Courses">
-                  Learn More
-                </Button>
+                <IconButton aria-label="add to favorites" onClick={() => { CourseController.like()}}>
+                  <FavoriteIcon />
+                </IconButton>
+                <IconButton aria-label="share" onClick={() => { CourseController.share()}}>
+                  <ShareIcon />
+                </IconButton>
                 <IconButton aria-label="delete" onClick={() => { editRecord(lesson.name)}}>
                   <EditIcon />
                 </IconButton>
