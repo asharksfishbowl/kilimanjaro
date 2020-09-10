@@ -59,7 +59,7 @@ function Course(props) {
   };
 
   const onVisibleChange = (event) => {
-    setVisible(event.target.value);
+    setVisible(event.target.checked);
   };
 
   const hideBackdrop = () => {
@@ -80,7 +80,7 @@ function Course(props) {
 
   async function saveRecord() {
     showBackdrop();
-    let record = {name, visible, order};
+    let record = {name, date, description, visible, order};
     await CRUD.create('lessons', record, record.name);
     hideBackdrop();
   };
@@ -89,6 +89,8 @@ function Course(props) {
     showBackdrop();
     const record = await CRUD.read('lessons', key);
     setName(record.name);
+    setDate(record.date);
+    setDescription(record.description);
     setOrder(record.order);
     if (record.visible) {
       setVisible(true);
@@ -195,7 +197,7 @@ function Course(props) {
                   onChange={onOrderChange}
                   fullWidth
                 />
-                <FormGroup row>
+                <FormGroup row className={classes.visibleField}>
                   <FormControlLabel
                     control={
                       <Switch

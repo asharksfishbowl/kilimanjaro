@@ -32,6 +32,9 @@ const Styles = () => {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(0.5),
     },
+    visibleField: {
+      marginTop: theme.spacing(2),
+    },
   }))
   return useStyles();
 };
