@@ -7,7 +7,9 @@ import SoftwareImg from './assets/software.png';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -19,6 +21,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 
@@ -26,6 +31,8 @@ function Course(props) {
   const classes = Styles();
   const [backdrop, setShowBackdrop] = useState(false);
   const [name, setName] = useState('');
+  const [date, setDate] = useState('');
+  const [description, setDescription] = useState('');
   const [visible, setVisible] = useState(false);
   const [order, setOrder] = useState('');
   const [lessons, setLessons] = useState('');
@@ -39,12 +46,20 @@ function Course(props) {
     setName(event.target.value);
   };
 
+  const onDateChange = (event) => {
+    setDate(event.target.value);
+  };
+
+  const onDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
   const onOrderChange = (event) => {
     setOrder(event.target.value);
   };
 
   const onVisibleChange = (event) => {
-    setVisible(event.target.checked);
+    setVisible(event.target.value);
   };
 
   const hideBackdrop = () => {
@@ -54,6 +69,14 @@ function Course(props) {
   const showBackdrop = () => {
     setShowBackdrop(!backdrop);
   };
+
+  function resetForm(){
+    setName('');
+    setDate('');
+    setDescription('');
+    setVisible(false);
+    setOrder('');
+  }
 
   async function saveRecord() {
     showBackdrop();
@@ -83,91 +106,124 @@ function Course(props) {
   };
 
   return(
-
-    <div className={classes.root}>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Grid container spacing={4}>
-          {lessons.length ? lessons.map((lesson, key) => (
-            <Grid item key={key} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <CardActionArea href="/Courses">
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={SoftwareImg}
-                    title={lesson.name}
-                  />
-                </CardActionArea>
-                <CardContent className={classes.cardContent}>
-                  <Typography>
-                    {lesson.name}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="medium" color="primary" href="/Courses">
-                    Learn More
-                  </Button>
-                  <IconButton aria-label="delete" onClick={() => { editRecord(lesson.name)}}>
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton aria-label="delete" onClick={() => { deleteRecord(lesson.name)}}>
-                    <DeleteIcon />
-                  </IconButton>
-                </CardActions>
-              </Card>
-            </Grid>
-          )) : <Grid item xs={12} sm={6} md={4} /> }
-        </Grid>
-
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
+    <Container className={classes.root} maxWidth="md">
+      <Grid container className={classes.cardGrid} spacing={4}>
+        {lessons.length ? lessons.map((lesson, key) => (
+          <Grid item key={key} xs={12} sm={6} md={4}>
             <Card className={classes.card}>
+              <CardHeader
+                avatar={
+                  <Avatar aria-label="recipe" className={classes.avatar}>
+                    ASF
+                  </Avatar>
+                }
+                action={
+                  <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                  </IconButton>
+                }
+                title={lesson.name}
+                subheader={lesson.date}
+              />
+              <CardActionArea href="/Courses">
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={SoftwareImg}
+                  title={lesson.name}
+                />
+              </CardActionArea>
               <CardContent className={classes.cardContent}>
-                <form noValidate autoComplete="off">
-                  <TextField
-                    id="name"
-                    label="Name"
-                    value={name}
-                    onChange={onNameChange}
-                    required
-                    fullWidth
-                  />
-                  <TextField
-                    id="order"
-                    label="Order"
-                    type="number"
-                    value={order}
-                    onChange={onOrderChange}
-                    fullWidth
-                  />
-                  <FormGroup row>
-                    <FormControlLabel
-                      control={
-                        <Switch
-                          checked={visible.checked}
-                          onChange={onVisibleChange}
-                          name="visible"
-                          color="primary"
-                        />
-                      }
-                      label="Visible"
-                      labelPlacement="end"
-                    />
-                  </FormGroup>
-                </form>
+                <Typography>
+                  {lesson.description}
+                </Typography>
               </CardContent>
               <CardActions>
-                <Button color="primary" onClick={saveRecord} fullWidth>
-                  Save
+                <Button size="medium" color="primary" href="/Courses">
+                  Learn More
                 </Button>
+                <IconButton aria-label="delete" onClick={() => { editRecord(lesson.name)}}>
+                  <EditIcon />
+                </IconButton>
+                <IconButton aria-label="delete" onClick={() => { deleteRecord(lesson.name)}}>
+                  <DeleteIcon />
+                </IconButton>
               </CardActions>
-
             </Card>
           </Grid>
+        )) : <Grid item xs={12} sm={6} md={4} /> }
+      </Grid>
+
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Card className={classes.card}>
+            <CardContent className={classes.cardContent}>
+              <form noValidate autoComplete="off">
+                <TextField
+                  id="name"
+                  label="Name"
+                  value={name}
+                  onChange={onNameChange}
+                  required
+                  fullWidth
+                />
+                <TextField
+                  id="date"
+                  label="Live Date"
+                  type="datetime-local"
+                  className={classes.dateField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={date}
+                  onChange={onDateChange}
+                  fullWidth
+                />
+                <TextField
+                  id="description"
+                  label="Description"
+                  multiline
+                  rowsMax={4}
+                  value={description}
+                  onChange={onDescriptionChange}
+                  fullWidth
+                />
+                <TextField
+                  id="order"
+                  label="Order"
+                  type="number"
+                  value={order}
+                  onChange={onOrderChange}
+                  fullWidth
+                />
+                <FormGroup row>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        checked={visible.checked}
+                        onChange={onVisibleChange}
+                        name="visible"
+                        color="primary"
+                      />
+                    }
+                    label="Visible"
+                    labelPlacement="end"
+                  />
+                </FormGroup>
+              </form>
+            </CardContent>
+            <CardActions>
+              <Button color="primary" onClick={resetForm} fullWidth>
+                Clear
+              </Button>
+              <Button color="primary" onClick={saveRecord} fullWidth>
+                Save
+              </Button>
+            </CardActions>
+
+          </Card>
         </Grid>
-      </Container>
-
-
-    </div>
+      </Grid>
+    </Container>
   )
 }
 export default Course;
