@@ -1,75 +1,104 @@
 import React, { useState } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import clsx from 'clsx';
+
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  MenuItem,
+  Menu,
+  CssBaseline,
+  useScrollTrigger,
+  Slide,
+} from '@material-ui/core';
+
+import {
+  AccountCircle,
+} from '@material-ui/icons';
+
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 
 import AuthController from '../auth/controllers/Auth.js';
+import LeftDrawer from '../drawers/LeftDrawer.js';
 import TopStyles from './TopStyles.js';
 
 function TopBar(props) {
     const classes = TopStyles();
     const [auth] = useState(AuthController.isLoggedIn());
     const [username] = useState(AuthController.getCurrentDisplayName());
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
+    const [rightMenu, setRightMenu] = useState(null);
+    const [leftDrawer, setLeftDrawer] = useState(null);
+    const openMenu = Boolean(rightMenu);
+    const openDrawer = Boolean(leftDrawer);
 
     const handleMenu = (event) => {
-      setAnchorEl(event.currentTarget);
+      setRightMenu(event.currentTarget);
+    };
+
+    const handleDrawer = (event) => {
+      setLeftDrawer(event.currentTarget);
     };
 
     const handleClose = () => {
-      setAnchorEl(null);
+      setRightMenu(null);
+      setLeftDrawer(null);
     };
 
     return(
-      <AppBar className={classes().root} position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes().menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes().title}>
-            {props.title}
-          </Typography>
-          {auth && (
-          <div>
-            {username}
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-TopBar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-TopBar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={open}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
-            </Menu>
-          </div>
-        )}
-        </Toolbar>
-      </AppBar>
+      <div className={classes.root}>
+        <CssBaseline />
+          <AppBar position="fixed">
+            <Toolbar className={classes.toolbar}>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={handleDrawer}
+                className={clsx(classes.menuButton, openDrawer && classes.menuButtonHidden)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                {props.title}
+              </Typography>
+              {auth && (
+              <div>
+                {username}
+                <IconButton
+                  aria-label="account of current user"
+                  aria-controls="menu-TopBar"
+                  aria-haspopup="true"
+                  onClick={handleMenu}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <Menu
+                  id="menu-TopBar"
+                  anchorEl={rightMenu}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={openMenu}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
+              </div>
+            )}
+            </Toolbar>
+          </AppBar>
+        <LeftDrawer open={openDrawer} handleDrawerClose={handleClose}/>
+      </div>
     )
   }
 

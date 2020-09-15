@@ -22,6 +22,7 @@ import NmParallax from './componets/NmParallax.js';
 import Home from './componets/home/Home.js';
 import Founders from './componets/founders/Founders.js';
 import Dashboard from './componets/dashboard/Dashboard.js';
+import Admin from './componets/admin/Admin.js';
 import Courses from './componets/courses/Course.js';
 import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
@@ -84,6 +85,7 @@ function App() {
               <Route path="/SignIn" component={SignIn} />
               <Route path="/SignUp" component={SignUp} />
               <Route path="/Dashboard" component={Dashboard} />
+              <Route path="/Admin" component={Admin} />
               <Route path="/PreciousPlastic" component={PreciousPlastic} />
               <Route path="/Music" component={Underconstruction} />
               <Route path="/VideoCreation" component={Underconstruction} />

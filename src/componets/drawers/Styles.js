@@ -1,13 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const TopStyles = () => {
+const Styles = () => {
   const drawerWidth = 240;
   const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
-    },
-    title: {
-      flexGrow: 1,
     },
     toolbar: {
       paddingRight: 24, // keep right padding when drawer closed
@@ -40,9 +37,10 @@ const TopStyles = () => {
     menuButtonHidden: {
       display: 'none',
     },
+    title: {
+      flexGrow: 1,
+    },
     drawerPaper: {
-      position: 'relative',
-      whiteSpace: 'nowrap',
       width: drawerWidth,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -50,19 +48,37 @@ const TopStyles = () => {
       }),
     },
     drawerPaperClose: {
-      overflowX: 'hidden',
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      width: theme.spacing(7),
+      overflowX: 'hidden',
+      width: theme.spacing(7) + 1,
       [theme.breakpoints.up('sm')]: {
-        width: theme.spacing(9),
+        width: theme.spacing(9) + 1,
       },
     },
     appBarSpacer: theme.mixins.toolbar,
+    content: {
+      flexGrow: 1,
+      height: '100vh',
+      overflow: 'auto',
+    },
+    container: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+    },
+    paper: {
+      padding: theme.spacing(2),
+      display: 'flex',
+      overflow: 'auto',
+      flexDirection: 'column',
+    },
+    fixedHeight: {
+      height: 240,
+    },
   }))
   return useStyles();
 };
 
-export default TopStyles;
+export default Styles;
