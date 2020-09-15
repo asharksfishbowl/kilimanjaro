@@ -16,6 +16,8 @@ import Button from '@material-ui/core/Button';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import { Emojione } from 'react-emoji-render';
+
 function Home() {
     const classes = Styles();
     const [animationClass] = useState('background-grad');
@@ -40,7 +42,8 @@ function Home() {
           </div>
 
           <Typography variant="overline">
-            Here in the Fishbowl is knowledge, join in the swim if ya like :)
+            Here in the Fishbowl is knowledge <br />
+            Join in the swim if ya like <Emojione text=":shark:s"/>
           </Typography>
 
           <div className={classes().listCenter}>
@@ -60,7 +63,8 @@ function Home() {
 
           <div className="App-link">
             <Typography variant="overline">
-              You don't have to donate but it's big help to keep these projects going :)
+              Donate if ya can <Emojione text=":shark:"/> <br />
+              It's big help to keep these projects going <Emojione text=":shark:"/>
             </Typography>
             <Paypal className="App-donate-btn"/>
           </div>

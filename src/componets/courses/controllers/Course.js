@@ -1,30 +1,24 @@
 import firebase from '../../../firebase.js';
 import swal from '@sweetalert/with-react';
 
-// Course Images
-import SoftwareImg from '../assets/software.png';
-
-// TODO: Make this firbase driven
-const courses = [{
-  key: 1,
-  image: SoftwareImg,
-  link: '/courses',
-  description: 'Here we will dive into code and start with Web Apps and then Android & IOS Next :)'
-},{
-  key: 2,
-  image: MusicImg,
-  link: '/MusicCreation',
-  description: 'Here we will dive into my 25 year madness and passion for sound, creating a full song from the ground up'
-},{
-  key: 3,
-  image: PhotoImg,
-  link: '/VideoCreation',
-  description: 'Here we will dive into how to create cool photos, everthing from neat editing tricks to everything I have learned with a camera'
-}];
-
 class Course {
-  getCourses(){
-    return courses;
+  getLessons(setLessons){
+    firebase.database.ref('lessons').on('value', function(snapshot){
+      let result = [];
+      snapshot.forEach(data => {
+        let record = data.val();
+        result.push(record);
+      });
+      if (result && result.length > 0) {
+        console.log(result);
+        setLessons(result);
+        return result;
+      }
+      else {
+        setLessons([]);
+        return ['Nothing Yet'];
+      }
+    });
   };
 
   // TODO: tie this to socials
@@ -38,4 +32,4 @@ class Course {
   };
 }
 
-export default new Dashboard();
+export default new Course();
