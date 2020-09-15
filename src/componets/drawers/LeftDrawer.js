@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import Styles from './Styles.js';
 import { mainListItems, secondaryListItems } from './ListItems.js';
 

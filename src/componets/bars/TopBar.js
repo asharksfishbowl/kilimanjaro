@@ -9,8 +9,6 @@ import {
   MenuItem,
   Menu,
   CssBaseline,
-  useScrollTrigger,
-  Slide,
 } from '@material-ui/core';
 
 import {
