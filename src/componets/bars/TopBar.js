@@ -57,18 +57,18 @@ function TopBar(props) {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" className={classes.title}>
-                {props.title}
+              <Typography variant="h6" color="inherit" className={classes.title}>
+                {auth ? username : props.title}
               </Typography>
               {auth && (
               <div>
-                {username}
                 <IconButton
                   aria-label="account of current user"
                   aria-controls="menu-TopBar"
                   aria-haspopup="true"
                   onClick={handleMenu}
                   color="inherit"
+                  className={classes.username}
                 >
                   <AccountCircle />
                 </IconButton>
