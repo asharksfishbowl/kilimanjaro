@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AuthController from '../auth/controllers/Auth.js';
 import DashboardController from './controllers/Dashboard.js';
 import Styles from './Styles.js';
 import TopBar from '../bars/TopBar.js';
@@ -6,7 +7,7 @@ import BottomBar from '../bars/BottomBar.js';
 import Copyright from '../Copyright.js';
 import Paypal from '../donations/PayPal.js';
 import Feedback from '../feedback/Feedback.js';
-import firebase from '../../firebase.js';
+import { Emojione } from 'react-emoji-render';
 
 // Material UI
 import {
@@ -31,37 +32,18 @@ import {
 
 function Dashboard(props){
   const classes = Styles();
+  const [auth] = useState(AuthController.isLoggedIn());
+  const [username] = useState(AuthController.getCurrentDisplayName());
   const [animationClass] = useState('background-grad');
   const [open, setOpen] = useState(false);
   const [feedbacks, setFeedbacks] = useState();
   const courses = DashboardController.getCourses();
 
   useEffect(() => {
-    const fetchData = async () => {
-      // TODO: Dang got to figure out how to get this in the controller,
-      // might be easier just in the componet for loading but I would like it cleaner
-      firebase.database.ref('feedbacks')
-        .on('value', function(snapshot){
-          let result = [];
-          snapshot.forEach(data => {
-            let record = data.val();
-            result.push(record.feedback);
-          });
-          if (result && result.length > 0) {
-            setFeedbacks(result);
-          }
-          else {
-            setFeedbacks([
-              'Control is not convinced',
-              'But the computer has the evidence',
-              'No need to abort'
-            ]);
-          }
-          return result;
-      });
-
-    }
-    fetchData();
+    const fetchFeedBacks = async () => {
+      return DashboardController.getFeedbacks(setFeedbacks);
+    };
+    fetchFeedBacks();
   }, []);
 
   const handleOpen = () => {
@@ -83,13 +65,16 @@ function Dashboard(props){
           <div className={classes.heroContent}>
             <Container maxWidth="lg" className={classes.container}>
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                Welcome Sharks
+                Welcome
               </Typography>
-              <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Here is a digital library for us all to learn
+              <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                {auth ? username : "Sharks"} <Emojione text=":shark:"/>
+              </Typography>
+              <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                This is a digital library for you to learn <Emojione text="🏫"/>
               </Typography>
               <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
-                Please leave any feedback and we do our best to add it
+                Please leave any feedback
               </Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
@@ -104,13 +89,13 @@ function Dashboard(props){
                 </Grid>
               </div>
             <Typography variant="caption" align="center" color="textSecondary" paragraph>
-            Here are some of your suggestions
+              Here are some of your suggestions
             </Typography>
-            {feedbacks && feedbacks.map((feedback, key) => (
-              <Typography key={key} variant="subtitle2" align="center" color="textSecondary">
-              {feedback}
-              </Typography>
-            ))}
+              {feedbacks && feedbacks.map((feedback, key) => (
+                <Typography key={key} variant="subtitle2" align="center" color="textSecondary">
+                {feedback}
+                </Typography>
+              ))}
             </Container>
           </div>
         <Container className={classes.cardGrid} maxWidth="md">

@@ -1,5 +1,4 @@
-// TODO: import firebase when courses are dynamic
-// import firebase from '../../../firebase.js';
+import firebase from '../../../firebase.js';
 
 import swal from '@sweetalert/with-react';
 
@@ -48,6 +47,28 @@ const courses = [{
 class Dashboard {
   getCourses(){
     return courses;
+  };
+
+  getFeedbacks(setFeedbacks){
+    firebase.database.ref('feedbacks')
+      .on('value', function(snapshot){
+        let result = [];
+        snapshot.forEach(data => {
+          let record = data.val();
+          result.push(record.feedback);
+        });
+        if (result && result.length > 0) {
+          setFeedbacks(result);
+        }
+        else {
+          setFeedbacks([
+            'Control is not convinced',
+            'But the computer has the evidence',
+            'No need to abort'
+          ]);
+        }
+        return result;
+    });
   };
 
   // TODO: tie this to socials
