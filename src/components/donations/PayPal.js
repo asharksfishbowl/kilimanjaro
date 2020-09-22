@@ -25,7 +25,7 @@ function PayPal(props) {
           Donate
         </Button>
       </form>
-      <Backdrop className={classes().backdrop} open={backdrop} onClick={hideBackdrop}>
+      <Backdrop className={classes.backdrop} open={backdrop} onClick={hideBackdrop}>
         <CoffeeLoading />
       </Backdrop>
     </div>
