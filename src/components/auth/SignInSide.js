@@ -37,8 +37,10 @@ export default function SignInSide(props) {
   async function login(type) {
     console.log(type);
     try {
-      await AuthController.login(email, password);
-      history.push('/dashboard');
+      if (type == 'email') {
+        await AuthController.login(email, password);
+        history.push('/dashboard');
+      }
     } catch (error) {
       swal(error.message, 'error');
       history.push('/SignInSide');
