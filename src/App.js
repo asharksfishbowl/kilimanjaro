@@ -1,38 +1,13 @@
 // Import React
 import React, { useState, useEffect } from 'react';
-
-// Import Firebase
-// import firebase from './firebase.js';
-import Auth from './componets/auth/controllers/Auth.js';
+import Auth from './components/auth/controllers/Auth.js';
 
 // Import Rounting
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Redirect
 } from "react-router-dom";
-
-// Parallax Links
-import DcParallax from './componets/DcParallax.js';
-import LrParallax from './componets/LrParallax.js';
-import NmParallax from './componets/NmParallax.js';
-
-// Componet Links
-import Home from './componets/home/Home.js';
-import Founders from './componets/founders/Founders.js';
-import Dashboard from './componets/dashboard/Dashboard.js';
-import Admin from './componets/admin/Admin.js';
-import Courses from './componets/courses/Course.js';
-import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
-
-// Helper Componets
-import Underconstruction from './componets/Underconstruction.js';
-
-// Login Screens
-import SignInSide from './componets/auth/SignInSide.js';
-import SignIn from './componets/auth/SignIn.js';
-import SignUp from './componets/auth/SignUp.js';
+import Routes from './routes/Routes.js';
 
 // import Material UI
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -73,30 +48,7 @@ function App() {
   		<CssBaseline />
         <Router>
           <div>
-            {/* A <Switch> looks through its children <Route>s and
-                renders the first one that matches the current URL. */}
-            <Switch>
-              <Route path="/Founders" component={Founders} />
-              <Route path="/DcParallax" component={DcParallax} />
-              <Route path="/LrParallax" component={LrParallax} />
-              <Route path="/NmParallax" component={NmParallax} />
-              <Route path="/Courses" component={Courses} />
-              <Route path="/SignInSide" component={SignInSide} />
-              <Route path="/SignIn" component={SignIn} />
-              <Route path="/SignUp" component={SignUp} />
-              <Route path="/Dashboard" component={Dashboard} />
-              <Route path="/Admin" component={Admin} />
-              <Route path="/PreciousPlastic" component={PreciousPlastic} />
-              <Route path="/Music" component={Underconstruction} />
-              <Route path="/VideoCreation" component={Underconstruction} />
-              <Route path="/DIY" component={Underconstruction} />
-              <Route path="/Cooking" component={Underconstruction} />
-              <Route path='/trololo' component={() => {
-                   window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
-                   return null;
-              }}/>
-              <Route path="/" component={Home} onEnter={checkIfLoggedIn()}/>
-            </Switch>
+            <Routes checkIfLoggedIn={checkIfLoggedIn}/>
           </div>
         </Router>
       </MuiThemeProvider>
