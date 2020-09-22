@@ -28,6 +28,7 @@ import PreciousPlastic from './componets/preciousplastic/PreciousPlastic.js';
 
 // Helper Componets
 import Underconstruction from './componets/Underconstruction.js';
+import FacebookAuthentication from './componets/auth/facebook_auth/FacebookAuthentication.js';
 
 // Login Screens
 import SignInSide from './componets/auth/SignInSide.js';
@@ -91,6 +92,7 @@ function App() {
               <Route path="/VideoCreation" component={Underconstruction} />
               <Route path="/DIY" component={Underconstruction} />
               <Route path="/Cooking" component={Underconstruction} />
+              <Route path="/facebook" component={FacebookAuthentication} />
               <Route path='/trololo' component={() => {
                    window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
                    return null;
