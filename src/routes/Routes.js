@@ -6,6 +6,9 @@ import DcParallax from '../components/DcParallax.js';
 import LrParallax from '../components/LrParallax.js';
 import NmParallax from '../components/NmParallax.js';
 
+// Pages Links
+import Landing from '../components/pages/Landing.js';
+
 // Componet Links
 import Home from '../components/home/Home.js';
 import Founders from '../components/founders/Founders.js';
@@ -44,6 +47,7 @@ function Routes(props) {
            window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
            return null;
       }}/>
+      <Route path="/landing" component={Landing} />
       <Route path="/" component={Home} onEnter={props.checkIfLoggedIn()}/>
     </Switch>
   )

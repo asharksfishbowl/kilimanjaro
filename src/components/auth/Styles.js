@@ -33,7 +33,7 @@ const Styles = () => {
       margin: theme.spacing(3, 0, 2),
     },
   }));
-  return useStyles;
+  return useStyles();
 };
 
 export default Styles;

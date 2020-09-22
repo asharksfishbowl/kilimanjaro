@@ -30,7 +30,7 @@ const BottomStyles = () => {
       margin: '0 auto',
     },
   }))
-  return useStyles;
+  return useStyles();
 };
 
 export default BottomStyles;

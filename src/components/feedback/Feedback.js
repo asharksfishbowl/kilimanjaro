@@ -77,7 +77,7 @@ function Feedback(props){
           Save
         </Button>
       </DialogActions>
-      <Backdrop className={classes().backdrop} open={backdrop} onClick={hideBackdrop}>
+      <Backdrop className={classes.backdrop} open={backdrop} onClick={hideBackdrop}>
         <CircularProgress color="inherit" />
       </Backdrop>
     </Dialog>

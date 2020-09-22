@@ -47,41 +47,41 @@ function Founders() {
 
   return (
     <div className={animationClass}>
-      <div className={classes().root}>
+      <div className={classes.root}>
         {
           images.map(image => (
             <ButtonBase
               focusRipple
               key={image.title}
               href={image.link}
-              className={classes().image}
-              focusVisibleClassName={classes().focusVisible}
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
               style={{
                 width: image.width,
                 height: image.height
               }}
             >
             <Img
-              className={classes().imageSrc}
+              className={classes.imageSrc}
               src={image.src}
               alt={image.alt}
             />
-            <span className={classes().imageBackdrop} />
-            <span className={classes().imageButton}>
+            <span className={classes.imageBackdrop} />
+            <span className={classes.imageButton}>
             <Typography
               component="span"
               variant="subtitle1"
               color="inherit"
-              className={classes().imageTitle}
+              className={classes.imageTitle}
             >
               {image.title}
-            <span className={classes().imageMarked} />
+            <span className={classes.imageMarked} />
             </Typography>
               </span>
             </ButtonBase>
           ))
         }
-        <Button variant="contained" className={classes().button} size="small" href="/">
+        <Button variant="contained" className={classes.button} size="small" href="/">
           Back
         </Button>
       </div>

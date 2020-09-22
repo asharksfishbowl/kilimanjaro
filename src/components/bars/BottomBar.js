@@ -11,12 +11,12 @@ function BottomBar(props) {
     const classes = BottomStyles();
 
     return(
-      <AppBar position="fixed" color="primary" className={classes().appBar}>
+      <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" className={classes().menuButton} color="inherit" aria-label="menu" href="/">
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href="/">
             <HomeIcon />
           </IconButton>
-          <Typography variant="h6" className={classes().title}>
+          <Typography variant="h6" className={classes.title}>
             {props.title}
           </Typography>
           {props.rightSide}

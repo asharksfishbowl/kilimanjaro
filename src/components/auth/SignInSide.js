@@ -34,7 +34,8 @@ export default function SignInSide(props) {
     setPassword(event.target.value);
   }
 
-  async function login() {
+  async function login(type) {
+    console.log(type);
     try {
       await AuthController.login(email, password);
       history.push('/dashboard');
@@ -45,18 +46,18 @@ export default function SignInSide(props) {
   }
 
   return (
-    <Grid container component="main" className={classes().root}>
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes().image} />
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <div className={classes().paper}>
-            <Avatar className={classes().avatar}>
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
               <Img src={ASF} className="App-logo" alt="logo" />
             </Avatar>
             <Typography component="h1" variant="h5">
               Keep Swimming
             </Typography>
-            <form className={classes().form} onSubmit={e => e.preventDefault() && false} noValidate>
+            <form className={classes.form} onSubmit={e => e.preventDefault() && false} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -92,8 +93,8 @@ export default function SignInSide(props) {
                 fullWidth
                 variant="contained"
                 color="primary"
-                className={classes().submit}
-                onClick={login}
+                className={classes.submit}
+                onClick={() => {login('email')}}
               >
                 Sign In
               </Button>

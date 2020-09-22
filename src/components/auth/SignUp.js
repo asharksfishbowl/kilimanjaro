@@ -56,14 +56,14 @@ export default function SignUp() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes().paper}>
-        <Avatar className={classes().avatar}>
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
           <Img src={ASF} className="App-logo" alt="logo" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Join the swim :)
         </Typography>
-        <form className={classes().form} noValidate>
+        <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -131,7 +131,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes().submit}
+            className={classes.submit}
             onClick={login}
           >
             Sign Up

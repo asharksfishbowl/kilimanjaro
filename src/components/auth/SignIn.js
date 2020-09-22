@@ -44,14 +44,14 @@ export default function SignIn() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes().paper}>
-        <Avatar className={classes().avatar}>
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes().form} onSubmit={e => e.preventDefault() && false} noValidate>
+        <form className={classes.form} onSubmit={e => e.preventDefault() && false} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -87,7 +87,7 @@ export default function SignIn() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes().submit}
+            className={classes.submit}
             onClick={login}
           >
             Sign In

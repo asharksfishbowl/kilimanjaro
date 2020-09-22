@@ -85,7 +85,7 @@ const Styles = () => {
       transition: theme.transitions.create('opacity'),
     }
   }))
-  return useStyles;
+  return useStyles();
 };
 
 export default Styles;

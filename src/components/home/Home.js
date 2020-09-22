@@ -32,7 +32,7 @@ function Home() {
 
     return (
       <div className={animationClass}>
-        <Backdrop className={classes().backdrop} open={open}>
+        <Backdrop className={classes.backdrop} open={open}>
           <CircularProgress color="inherit" />
         </Backdrop>
         <div className="App">
@@ -46,17 +46,17 @@ function Home() {
             Join in the swim if ya like <Emojione text=":shark:s"/>
           </Typography>
 
-          <div className={classes().listCenter}>
-            <Button variant="contained" className={classes().button} size="large" href="/SignInSide">
+          <div className={classes.listCenter}>
+            <Button variant="contained" className={classes.button} size="large" href="/SignInSide">
               Sign In
             </Button>
-            <Button variant="contained" className={classes().button} size="large" href="/SignUp">
+            <Button variant="contained" className={classes.button} size="large" href="/SignUp">
               Sign Up
             </Button>
-            <Button variant="contained" className={classes().button} onClick={handleToggle} size="large" >
+            <Button variant="contained" className={classes.button} onClick={handleToggle} size="large" >
               Say Hello World
             </Button>
-            <Button variant="contained" className={classes().button} size="large" href="/Founders">
+            <Button variant="contained" className={classes.button} size="large" href="/Founders">
               Founders
             </Button>
           </div>

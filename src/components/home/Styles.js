@@ -32,7 +32,7 @@ const Styles = () => {
       color: '#fff',
     },
   }))
-  return useStyles;
+  return useStyles();
 };
 
 export default Styles;
