@@ -37,7 +37,7 @@ export default function SignInSide(props) {
   async function login(type) {
     console.log(type);
     try {
-      if (type == 'email') {
+      if (type === 'email') {
         await AuthController.login(email, password);
         history.push('/dashboard');
       }
