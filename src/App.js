@@ -10,22 +10,15 @@ import {
 import Routes from './routes/Routes.js';
 
 // import Material UI
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 
 import { easings } from 'react-animation';
 import { CoffeeLoading } from 'react-loadingg';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#f8bbd0',
-    },
-    secondary: {
-      main: '#ba68c8',
-    },
-  },
-});
+// TODO: Make this dydnamic so we can have multiple and custom
+// Importing Theme Here
+import theme from './themes/Pink.js';
 
 function App() {
   const [animationClass] = useState('background-grad');
@@ -45,7 +38,7 @@ function App() {
 
   return firebaseInitialized !== false ? (
       <MuiThemeProvider theme={theme}>
-  		<CssBaseline />
+  		  <CssBaseline />
         <Router>
           <div>
             <Routes checkIfLoggedIn={checkIfLoggedIn}/>
