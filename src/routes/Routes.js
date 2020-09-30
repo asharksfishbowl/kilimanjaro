@@ -7,7 +7,7 @@ import LrParallax from '../components/LrParallax.js';
 import NmParallax from '../components/NmParallax.js';
 
 // Pages Links
-import Company from '../components/pages/Company.js';
+import Company from '../components/pages/company/Company.js';
 
 // Componet Links
 import Home from '../components/home/Home.js';

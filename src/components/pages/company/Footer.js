@@ -1,6 +1,6 @@
 import React from 'react'
 import Styles from './Styles.js';
-import Copyright from '../Copyright.js';
+import Copyright from '../../Copyright.js';
 
 function Footer(props) {
   const classes = Styles();
