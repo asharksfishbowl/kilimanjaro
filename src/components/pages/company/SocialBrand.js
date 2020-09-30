@@ -12,6 +12,9 @@ const SocialBrand = () => {
       <p className={classes.p}>
         We believe in Simple, Creative & Flexible Design Standards.
       </p>
+      <p className={classes.p}>
+        Add a contact form here
+      </p>
     </section>
   );
 };
