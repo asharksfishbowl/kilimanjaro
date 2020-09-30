@@ -53,11 +53,13 @@ const Styles = () => {
     },
     headerTitle: {
       color:'lightgrey',
-      fontSize: '50px'
+      fontSize: '50px',
+      opacity: '0.4'
     },
     headerText: {
       color:'lightgrey',
-      fontSize: '20px'
+      fontSize: '20px',
+      opacity: '0.4'
     },
     heroContent: {
       backgroundColor: theme.palette.background.paper,
