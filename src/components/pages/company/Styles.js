@@ -52,14 +52,16 @@ const Styles = () => {
       height: '30vh',
     },
     headerTitle: {
-      color:'lightgrey',
+      color: theme.palette.secondary.light,
       fontSize: '50px',
-      opacity: '0.4'
+      opacity: '0.4',
+      fontFamily: 'fantasy'
     },
     headerText: {
-      color:'lightgrey',
+      color: theme.palette.secondary.main,
       fontSize: '20px',
-      opacity: '0.4'
+      opacity: '0.4',
+      fontFamily: 'fantasy'
     },
     heroContent: {
       backgroundColor: theme.palette.background.paper,
