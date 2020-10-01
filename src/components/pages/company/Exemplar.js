@@ -1,23 +1,31 @@
 import React from 'react';
 import Styles from './Styles.js';
-import sprintboard from '../../../assets/images/Oopseis.jpg';
+import Img from 'react-image';
+import SignInImg from '../../../assets/images/ASF/SignIn.png';
+
+// Material UI
+import {
+  Typography,
+  Grid,
+  Container,
+} from '@material-ui/core';
 
 const Exemplar = () => {
   const classes = Styles();
 
   return (
     <section id="examplar" className={classes.exemplar}>
-      <div className={classes.container}>
-        <div className={classes.row}>
-          <div className="col l1"></div>
-          <div className="col l10 center-align">
-            <h1>Modern Custom Websites</h1>
-            <p>We use a modern technology stack to build fast, responsive, single page web applications.</p>
-            <img className="responsive-img" src={sprintboard} alt="sprint Img"/>
-          </div>
-          <div className="col l1"></div>
-        </div>
-      </div>
+      <Container>
+        <Grid>
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            Modern Custom Websites
+          </Typography>
+          <Typography component="p" variant="h5" align="center" color="textPrimary" gutterBottom>
+            We use a modern technology stack to build fast, responsive, single page web applications.
+          </Typography>
+          <Img src={SignInImg} alt="sprint Img"/>
+        </Grid>
+      </Container>
     </section>
   );
 };

@@ -58,7 +58,7 @@ const Styles = () => {
       fontFamily: 'fantasy'
     },
     headerText: {
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.light,
       fontSize: '20px',
       opacity: '0.4',
       fontFamily: 'fantasy'
