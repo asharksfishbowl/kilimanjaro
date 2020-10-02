@@ -24,15 +24,12 @@ const Styles = () => {
       padding: theme.spacing(4),
     },
     latestNews: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(4),
+      backgroundColor: 'lightgrey',
+      padding: theme.spacing(1),
     },
     socialBrand: {
       backgroundColor: theme.palette.secondary.light,
       padding: theme.spacing(4),
-    },
-    container: {
-      height: '90vh',
     },
     main: {
       marginTop: theme.spacing(8),
@@ -52,32 +49,6 @@ const Styles = () => {
       color: theme.palette.primary.light,
       opacity: '0.8',
       fontFamily: 'fantasy',
-    },
-    heroContent: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(8, 0, 6),
-    },
-    heroButtons: {
-      marginTop: theme.spacing(4),
-    },
-    blogpost: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '10px',
-    },
-    imageWrapper: {
-      flex: 4,
-      margin: '0px auto'
-    },
-    blogpostContent: {
-      flex: 4,
-    },
-    blogpostFooter: {
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    blogpostFooterContent: {
-      display: 'flex',
     },
     statUpper: {
       textTransform: 'uppercase',
@@ -99,36 +70,8 @@ const Styles = () => {
     counter: {
       fontSize: '32px',
     },
-    row: {
-      flex: 2,
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-    },
-    materialIcons: {
-      maxWidth: '24px',
-      margin: '0 8px',
-    },
     footerContent: {
       display: 'flex',
-    },
-    readMore: {
-      display: 'flex',
-      justifyContent: 'center',
-    },
-    flexDirCol: {
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100%',
-    },
-    jcCenter: {
-      justifyContent: 'center',
-    },
-    jcSpaceBetween: {
-      justifyContent: 'space-between',
-    },
-    mR16: {
-      marginRight: '16px'
     },
     footer: {
       backgroundColor: theme.palette.primary.light,
