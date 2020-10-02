@@ -8,7 +8,7 @@ const BlogPost = () => {
   return (
     <div className={classes.blogpost}>
         <div className={classes.imageWrapper}>
-          <img className="responsive-img" src={img} alt="Blog Img"/>
+          <img className="responsive-img" height="100%" width="100%" src={img} alt="Blog Img"/>
         </div>
         <div className={classes.blogpostContent}>
           <h4>This is a standard post</h4>

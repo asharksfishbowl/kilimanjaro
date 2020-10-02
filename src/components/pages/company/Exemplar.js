@@ -15,15 +15,21 @@ const Exemplar = () => {
 
   return (
     <section id="examplar" className={classes.exemplar}>
-      <Container>
-        <Grid>
-          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-            Modern Custom Websites
-          </Typography>
-          <Typography component="p" variant="h5" align="center" color="textPrimary" gutterBottom>
-            We use a modern technology stack to build fast, responsive, single page web applications.
-          </Typography>
-          <Img src={SignInImg} alt="sprint Img"/>
+      <Container maxWidth="lg">
+        <Grid container spacing={0}>
+          <Grid item xs={12}>
+            <Typography variant="overline">
+              Modern Custom Websites
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="overline">
+              We use a modern technology stack to build fast, responsive, single page web applications.
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Img src={SignInImg} height="100%" width="100%" alt="sign in Img"/>
+          </Grid>
         </Grid>
       </Container>
     </section>

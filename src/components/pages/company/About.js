@@ -13,40 +13,46 @@ const About = () => {
 
   return (
     <section id="about" className={classes.about}>
-      <Container maxWidth="lg" className={classes.container}>
-        <div className={classes.row}>
-          <Grid xs={12} sm={4} md={6}>
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Bogus Studio
-            </Typography>
-            <Typography component="p" variant="p" align="center" color="textPrimary" gutterBottom>
-              We are a studio that aims to give our clients a platform that exemplifies a good user experience...
-            </Typography>
+      <Container maxWidth="lg">
+          <Grid container spacing={10}>
+            <Grid item xs={12} sm={6} md={4}>
+              <Typography variant="h2" align="left" color="textPrimary" gutterBottom>
+                ASF Studios
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Typography variant="caption" align="center" color="textPrimary" gutterBottom>
+                We are a studio that aims to give our clients a platform that exemplifies a good user experience...
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid xs={12} sm={4} md={6}>
-            <div className={classes.stats}>
-              <div className={classes.stat}>
-                <h2 className={classes.counter}>123</h2>
-                <p className="grey-text darken-1">coders maimed</p>
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={6} md={4}>
+              <div className={classes.stats}>
+                <div className={classes.stat}>
+                  <h2 className={classes.counter}>123</h2>
+                  <p className="grey-text darken-1">coders maimed</p>
+                </div>
+                <div className={classes.stat}>
+                  <h2 className={classes.counter}>123</h2>
+                  <p className="grey-text darken-1">fresh pots of coffee</p>
+                </div>
+                <div className={classes.stat}>
+                  <h2 className={classes.counter}>123</h2>
+                  <p className="grey-text lighten-1">pounds gnar shredded</p>
+                </div>
+                <div className={classes.stat}>
+                  <h2 className={classes.counter}>0</h2>
+                  <p className="grey-text darken-1">honeybadgers harmed</p>
+                </div>
               </div>
-              <div className={classes.stat}>
-                <h2 className={classes.counter}>123</h2>
-                <p className="grey-text darken-1">fresh pots of coffee</p>
-              </div>
-              <div className={classes.stat}>
-                <h2 className={classes.counter}>123</h2>
-                <p className="grey-text lighten-1">pounds gnar shredded</p>
-              </div>
-              <div className={classes.stat}>
-                <h2 className={classes.counter}>0</h2>
-                <p className="grey-text darken-1">honeybadgers harmed</p>
-              </div>
-            </div>
+            </Grid>
           </Grid>
-        </div>
-        <div className={classes.row}>
-          <p>Along with a conservative dose of personality.</p>
-        </div>
+          <Grid container spacing={0}>
+            <Grid item xs={12} sm={6} md={4}>
+              <p>Along with a conservative dose of personality.</p>
+            </Grid>
+          </Grid>
       </Container>
     </section>
   );

@@ -2,12 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const Styles = () => {
   const useStyles = makeStyles(theme => ({
-    h1: {
-      fontWeight: '300',
-    },
-    p: {
-      fontSize: '16px',
-    },
     root: {
       display: 'flex',
       flexDirection: 'column',
@@ -23,7 +17,7 @@ const Styles = () => {
     },
     features: {
       backgroundColor: 'lightgrey',
-      padding: theme.spacing(8),
+      padding: theme.spacing(4),
     },
     about: {
       backgroundColor: theme.palette.background.paper,
@@ -32,36 +26,32 @@ const Styles = () => {
     latestNews: {
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(4),
-      height: '90vh',
     },
     socialBrand: {
       backgroundColor: theme.palette.secondary.light,
       padding: theme.spacing(4),
     },
     container: {
-      height: '60vh',
+      height: '90vh',
     },
     main: {
       marginTop: theme.spacing(8),
       marginBottom: theme.spacing(2),
     },
     header: {
-      padding: theme.spacing(10),
-      width: '100%',
+      marginTop: theme.spacing(8),
+      padding: theme.spacing(4),
       textAlign: 'center',
-      height: '30vh',
     },
     headerTitle: {
-      color: theme.palette.secondary.light,
-      fontSize: '50px',
-      opacity: '0.4',
-      fontFamily: 'fantasy'
+      color: theme.palette.primary.main,
+      opacity: '0.7',
+      fontFamily: 'fantasy',
     },
     headerText: {
       color: theme.palette.primary.light,
-      fontSize: '20px',
-      opacity: '0.4',
-      fontFamily: 'fantasy'
+      opacity: '0.8',
+      fontFamily: 'fantasy',
     },
     heroContent: {
       backgroundColor: theme.palette.background.paper,
