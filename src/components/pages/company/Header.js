@@ -17,7 +17,7 @@ function Header(props) {
       <ParticlesBg type="lines" num={450} bg={true} />
       <Grid container spacing={0}>
         <Grid item xs={12}>
-          <Typography variant="h1" align="center" color="primary" className={classes.headerTitle}>
+          <Typography variant="h2" align="center" color="primary" className={classes.headerTitle}>
             {props.title}
           </Typography>
         </Grid>

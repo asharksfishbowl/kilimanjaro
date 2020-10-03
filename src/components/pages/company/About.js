@@ -10,6 +10,7 @@ import {
 
 const About = () => {
   const classes = Styles();
+  const aboutUs = "We are a studio that aims to give our clients a platform that exemplifies a good user experience...";
 
   return (
     <section id="about" className={classes.about}>
@@ -22,7 +23,7 @@ const About = () => {
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
               <Typography variant="overline" align="left">
-                We are a studio that aims to give our clients a platform that exemplifies a good user experience...
+                {aboutUs}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={4} className={classes.stats}>
