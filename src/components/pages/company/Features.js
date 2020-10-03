@@ -21,7 +21,6 @@ const Features = () => {
   const responsiveText = "Our responsive design will make your solution look great on all devices";
   const timelyText = "With our modern stack we can create test driven prototypes and meet the needs of today's technological demand";
   const clientsText = "We strive to make our clients happy by being transparent and direct to meet their every need.";
-  const lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor dolore magna aliqua. Ut enim!";
   const sellingPoint = "We worked out an amazing combination of vast functionality and user's comfort. It will totally impress you with its power!";
 
   return (
