@@ -17,6 +17,10 @@ import {
 
 const Features = () => {
   const classes = Styles();
+  const pixelText = "We create solutions that will meet every need down to the pixel whether it's web, app or native solutions.";
+  const responsiveText = "Our responsive design will make your solution look great on all devices";
+  const timelyText = "With our modern stack we can create test driven prototypes and meet the needs of today's technological demand";
+  const clientsText = "We strive to make our clients happy by being transparent and direct to meet their every need.";
   const lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor dolore magna aliqua. Ut enim!";
   const sellingPoint = "We worked out an amazing combination of vast functionality and user's comfort. It will totally impress you with its power!";
 
@@ -39,7 +43,7 @@ const Features = () => {
               <CreateIcon /> Pixel-Perfect Design
             </Typography>
             <Typography variant="overline">
-              {lorem}
+              {pixelText}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -47,7 +51,7 @@ const Features = () => {
               <DevicesIcon /> Thoroughly Responsive
             </Typography>
             <Typography variant="overline">
-              {lorem}
+              {responsiveText}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -55,7 +59,7 @@ const Features = () => {
               <BuildIcon /> Timely Support
             </Typography>
             <Typography variant="overline">
-              {lorem}
+              {timelyText}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -63,7 +67,7 @@ const Features = () => {
               <MoodIcon /> Happy Clients
             </Typography>
             <Typography variant="overline">
-              {lorem}
+              {clientsText}
             </Typography>
           </Grid>
         </Grid>
