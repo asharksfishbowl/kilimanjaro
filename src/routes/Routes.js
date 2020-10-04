@@ -47,8 +47,8 @@ function Routes(props) {
            window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
            return null;
       }}/>
-      <Route path="/company" component={Company} />
-      <Route path="/" component={Home} onEnter={props.checkIfLoggedIn()}/>
+      <Route path="/home" component={Home} />
+      <Route path="/" component={Company} onEnter={props.checkIfLoggedIn()}/>
     </Switch>
   )
 }

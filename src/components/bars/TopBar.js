@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import clsx from 'clsx';
 
 import {
   AppBar,
   Toolbar,
   Typography,
+  Button,
   IconButton,
   MenuItem,
   Menu,
@@ -23,12 +25,18 @@ import TopStyles from './TopStyles.js';
 
 function TopBar(props) {
     const classes = TopStyles();
-    const [auth] = useState(AuthController.isLoggedIn());
     const [username] = useState(AuthController.getCurrentDisplayName());
+    const [auth, setAuth] = useState(false);
     const [rightMenu, setRightMenu] = useState(null);
     const [leftDrawer, setLeftDrawer] = useState(null);
     const openMenu = Boolean(rightMenu);
     const openDrawer = Boolean(leftDrawer);
+    let history = useHistory();
+
+    useEffect(() => {
+      const checkAuth = async () => setAuth(AuthController.isLoggedIn());
+      checkAuth();
+    });
 
     const handleMenu = (event) => {
       setRightMenu(event.currentTarget);
@@ -41,6 +49,12 @@ function TopBar(props) {
     const handleClose = () => {
       setRightMenu(null);
       setLeftDrawer(null);
+    };
+
+    const handleLogout = () => {
+      setRightMenu(null);
+      AuthController.logout();
+      history.push('/');
     };
 
     return(
@@ -60,39 +74,43 @@ function TopBar(props) {
               <Typography variant="h6" color="inherit" className={classes.title}>
                 {auth ? username : props.title}
               </Typography>
-              {auth && (
-              <div>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="menu-TopBar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                  className={classes.username}
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
-                  id="menu-TopBar"
-                  anchorEl={rightMenu}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={openMenu}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Menu>
-              </div>
-            )}
+              {auth ?
+                <div>
+                  <IconButton
+                    aria-label="account of current user"
+                    aria-controls="menu-TopBar"
+                    aria-haspopup="true"
+                    onClick={handleMenu}
+                    color="inherit"
+                    className={classes.username}
+                  >
+                    <AccountCircle />
+                  </IconButton>
+                  <Menu
+                    id="menu-TopBar"
+                    anchorEl={rightMenu}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={openMenu}
+                    onClose={handleClose}
+                  >
+                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                  </Menu>
+                </div>
+                :
+                <Button href="/SignInSide">
+                  Login
+                </Button>
+              }
             </Toolbar>
           </AppBar>
         <LeftDrawer open={openDrawer} handleDrawerClose={handleClose}/>
