@@ -14,7 +14,7 @@ admin.initializeApp(functions.config().firebase);
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-// Custom Functions
+// App Functions
 exports.helloWorld = HelloWorld.helloWorld;
 exports.randomNumber = RandomNumber.randomNumber;
 exports.toTheFishbowl = ToTheFishbowl.toTheFishbowl;

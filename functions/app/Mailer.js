@@ -49,7 +49,8 @@ exports.sendMail = functions.https.onCall((data, response) => {
               console.log(error.message);
             }
             response.send({
-              message:'Mail Sent'
+              success: true,
+              message: 'Mail Sent'
             });
         });
     });
