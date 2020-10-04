@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ContactController from './controllers/Contact.js';
 // import CRUD from '../../server/CRUD.js';
 import Styles from './Styles.js';
-// import swal from '@sweetalert/with-react';
+import swal from '@sweetalert/with-react';
 
 // Material UI
 import {
@@ -46,7 +46,13 @@ function Contact(props){
       email,
       message
     };
-    await ContactController.sendMessage(record);
+    const sendMsg = await ContactController.sendMessage(record);
+    if (sendMsg) {
+      swal('Thanks for the message Shark!', 'We will get back to you within 24hrs', "success");
+    }
+    else{
+      console.log(sendMsg);
+    }
     hideBackdrop();
   }
 
