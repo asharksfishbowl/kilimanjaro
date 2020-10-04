@@ -9,13 +9,14 @@ const cors = require('cors')({
 // NOTE: Load Custom Functions Here
 const HelloWorld = require('./HelloWorld.js');
 
-
+// Init Functions
 admin.initializeApp(functions.config().firebase);
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
+
 // Example Functions
-exports.helloWorld = HelloWorld;
+exports.helloWorld = HelloWorld.helloWorld;
 
 exports.randomNumber = functions.https.onRequest((request, response) => {
   const number = Math.round(Math.random() * 100);
