@@ -79,12 +79,11 @@ let transporter = nodemailer.createTransport({
 // NOTE: Function to send Email
 exports.sendMail = functions.https.onRequest((req, res) => {
     cors(req, res, () => {
-        // getting who email by query string
         const email = req.query.email;
         const message = req.query.message;
 
         const mailOptions = {
-            from: who,
+            from: email,
             to: "A Shark's Fishbowl <asharksfishbowl@gmail.com>",
             cc: "supermaario5@gmail.com, dcmiguel07@gmail.com",
             subject: "I'M A PICKLE!!!",
@@ -96,9 +95,10 @@ exports.sendMail = functions.https.onRequest((req, res) => {
             ` + {message}
         };
         // returning result
-        return transporter.sendMail(mailOptions, (erro, info) => {
-            if(erro){
-                return res.send(erro.toString());
+        return transporter.sendMail(mailOptions, (error, info) => {
+            if(error){
+              console.log(error);
+              return res.send(error.toString());
             }
             return res.send('Sended');
         });
