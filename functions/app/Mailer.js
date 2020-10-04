@@ -49,9 +49,11 @@ exports.sendMail = functions.https.onCall((request, response) => {
               console.log(error.message);
             }
             console.log(info);
-            request.send({
+            response.send({
               success: true,
               message: 'Mail Sent'
+            }).catch(() => {
+              response.status(500).send("error");
             });
         });
     });
