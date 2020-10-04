@@ -15,7 +15,7 @@ const BlogPost = (props) => {
   return (
     <Container maxWidth="lg">
       <Grid container spacing={2}>
-        <Grid item xs={8} sm={4} md={3}>
+        <Grid item xs={10} sm={4} md={3}>
           <ReactPlayer height="100%" width="100%" url={props.url} className={classes.video}/>
         </Grid>
         <Grid item xs={12}>
