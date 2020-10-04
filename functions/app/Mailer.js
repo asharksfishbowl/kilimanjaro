@@ -6,35 +6,51 @@ const cors = require('cors');
 /**
 * Here we're using Gmail to send
 */
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'asharksfishbowl@gmail.com',
-        pass: 'Ilnbvm30@84'
-    }
-});
-
-// NOTE: Function to send Email
 exports.sendMail = functions.https.onCall((data, response) => {
-    cors(data, response, () => {
-        const email = data.email;
+    return cors(data, response, () => {
+        const from = data.from;
+        const to = data.to;
         const message = data.message;
+        const accessKey = 'asharksfishbowl@gmail.com';
+        const secretKey = 'Ilnbvm30@84';
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: accessKey,
+                pass: secretKey
+            }
+        });
+
+        const html = `
+          <div>
+            <h4>Information</h4>
+            <ul>
+              <li>
+                Email - ${email || ""}
+              </li>
+            </ul>
+            <h4>Message</h4>
+            <p>${message || ""}</p>
+          </div>
+        `;
 
         const mailOptions = {
-            from: email,
-            to: "asharksfishbowl@gmail.com",
+            to: to,
+            from: from,
             cc: "supermaario5@gmail.com, dcmiguel07@gmail.com",
             subject: "Message from a potenial client",
-            html: "<h1>"+ message +"</h1>"
+            html: html,
+            text: html
         };
         // returning result
-        return transporter.sendMail(mailOptions, (error, info) => {
+        transporter.sendMail(mailOptions, (error, info) => {
             if(error){
-              console.log(error);
-              throw new functions.https.HttpsError('unknown', error.message, error);
-              return response.send(error.toString());
+              console.log(error.message);
             }
-            return response.send('Mail Sent');
+            response.send({
+              message:'Mail Sent'
+            });
         });
     });
 });

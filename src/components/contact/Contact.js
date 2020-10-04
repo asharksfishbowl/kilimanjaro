@@ -43,11 +43,12 @@ function Contact(props){
   async function save() {
     showBackdrop();
     let record = {
+      'asharksfishbowl@gmail.com',
       email,
       message
     };
     const sendMsg = await ContactController.sendMessage(record);
-    if (sendMsg) {
+    if (sendMsg && sendMsg.data) {
       swal('Thanks for the message Shark!', 'We will get back to you within 24hrs', "success");
     }
     else{
