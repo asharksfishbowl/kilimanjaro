@@ -71,7 +71,7 @@ exports.addFeedback = functions.https.onCall((data, context) => {
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'asharksfishbowl',
+        user: 'asharksfishbowl@gmail.com',
         pass: 'Ilnbvm30@84'
     }
 });
