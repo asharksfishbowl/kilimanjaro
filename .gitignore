@@ -26,3 +26,4 @@ firebase-debug.log
 functions/ui-debug.log
 functions/firestore-debug.log
 functions/*.log
+functions/database-debug.log
