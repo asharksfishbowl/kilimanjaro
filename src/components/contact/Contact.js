@@ -78,14 +78,12 @@ function Contact(props){
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
                 value={email}
                 onChange={onEmailChange}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                autoFocus
                 id="message"
                 label="Message"
                 fullWidth
