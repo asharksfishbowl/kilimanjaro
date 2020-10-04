@@ -17,27 +17,26 @@ let transporter = nodemailer.createTransport({
 });
 
 // NOTE: Function to send Email
-exports.sendMail = functions.https.onCall((data, request) => {
-    cors(data, request, () => {
+exports.sendMail = functions.https.onCall((data, response) => {
+    cors(data, response, () => {
         const email = data.email;
         const message = data.message;
 
         const mailOptions = {
-            from: "A Shark's Fishbowl <asharksfishbowl@gmail.com>",
-            to: "A Shark's Fishbowl <asharksfishbowl@gmail.com>",
+            from: email,
+            to: "asharksfishbowl@gmail.com",
             cc: "supermaario5@gmail.com, dcmiguel07@gmail.com",
-            subject: "Message from potenial client",
-            html: "<h1>hello</h1>"
-
+            subject: "Message from a potenial client",
+            html: "<h1>"+ message +"</h1>"
         };
         // returning result
-        return transporter.sendMail(mailOptions, (error, info) => {
+        transporter.sendMail(mailOptions, (error, info) => {
             if(error){
               console.log(error);
               throw new functions.https.HttpsError('unknown', error.message, error);
-              return request.send(error.toString());
+              response.send(error.toString());
             }
-            return request.send('Sended');
+            response.send('Mail Sent');
         });
     });
 });
