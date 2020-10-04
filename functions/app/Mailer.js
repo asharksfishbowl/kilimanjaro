@@ -11,16 +11,16 @@ exports.sendMail = functions.https.onCall((request, response) => {
         const from = request.from;
         const to = request.to;
         const message = request.message;
-        const accessKey = 'asharksfishbowl@gmail.com';
-        const secretKey = 'Ilnbvm30@84';
+        const accessKey = 'Firebase';
+        const secretKey = 'jpvzffpwvczgmqef';
 
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: accessKey,
-                pass: secretKey
-            }
-        });
+        const transporter = nodemailer.createTransport(smtpTransport({
+          service: 'gmail',
+          auth: {
+              user: sesAccessKey,
+              pass: sesSecretKey
+          }
+        }));
 
         const html = `
           <div>
