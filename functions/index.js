@@ -77,10 +77,10 @@ let transporter = nodemailer.createTransport({
 });
 
 // NOTE: Function to send Email
-exports.sendMail = functions.https.onRequest((req, res) => {
-    cors(req, res, () => {
-        const email = req.query.email;
-        const message = req.query.message;
+exports.sendMail = functions.https.onCall((data, request) => {
+    cors(data, request, () => {
+        const email = data.query.email;
+        const message = data.query.message;
 
         const mailOptions = {
             from: email,
@@ -98,9 +98,9 @@ exports.sendMail = functions.https.onRequest((req, res) => {
         return transporter.sendMail(mailOptions, (error, info) => {
             if(error){
               console.log(error);
-              return res.send(error.toString());
+              return request.send(error.toString());
             }
-            return res.send('Sended');
+            return request.send('Sended');
         });
     });
 });
