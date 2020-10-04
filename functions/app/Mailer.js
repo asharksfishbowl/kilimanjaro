@@ -1,9 +1,7 @@
 // NOTE: Trying to seperate the functions out
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
-const cors = require('cors')({
-  origin: true
-});
+const cors = require('cors');
 
 /**
 * Here we're using Gmail to send
