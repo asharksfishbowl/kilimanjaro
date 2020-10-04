@@ -14,7 +14,7 @@ function Header(props) {
 
   return(
     <Container className={classes.header} maxWidth="lg">
-      <ParticlesBg type="lines" num={450} bg={true} />
+      <ParticlesBg type="random" num={450} bg={true} className={classes.particleBg}/>
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h2" align="center" color="primary" className={classes.headerTitle}>

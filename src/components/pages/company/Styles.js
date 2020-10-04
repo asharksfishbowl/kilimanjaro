@@ -45,11 +45,13 @@ const Styles = () => {
       color: theme.palette.primary.main,
       opacity: '0.7',
       fontFamily: 'fantasy',
+      textShadow: '2px 2px #ff0000'
     },
     headerText: {
       color: theme.palette.primary.light,
       opacity: '0.8',
       fontFamily: 'fantasy',
+      textShadow: '2px 2px #ff0000'
     },
     statUpper: {
       textTransform: 'uppercase',
@@ -70,6 +72,10 @@ const Styles = () => {
     },
     counter: {
       fontSize: '32px',
+    },
+    logo: {
+      borderRadius: '15px',
+      boxShadow: '12px 6px 11px 0px black',
     },
     footerContent: {
       display: 'flex',

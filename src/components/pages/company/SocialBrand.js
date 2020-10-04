@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './Styles.js';
 import Img from 'react-image';
-import Logo from '../../../assets/images/ASF/Logo.png';
+import Logo from '../../../assets/images/ASF/Howdy.jpg';
 import Contact from '../../contact/Contact.js';
 
 // Material UI
@@ -20,7 +20,7 @@ const SocialBrand = () => {
       <Container maxWidth="lg">
         <Grid container spacing={1}>
           <Grid item xs={4}>
-            <Img src={Logo} height="100%" width="100%" alt="Logo"/>
+            <Img src={Logo} height="100%" width="100%" alt="Logo" className={classes.logo}/>
           </Grid>
           <Grid item xs={12} align="left">
             <Typography variant="overline">
