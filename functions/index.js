@@ -2,16 +2,20 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const sanitizer = require('./sanitizer.js');
 const nodemailer = require('nodemailer');
-const cors = require('cors')({origin: true});
+const cors = require('cors')({
+  origin: true
+});
+
+// NOTE: Load Custom Functions Here
+const HelloWorld = require('./HelloWorld.js');
+
+
 admin.initializeApp(functions.config().firebase);
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 // Example Functions
-exports.helloWorld = functions.https.onCall((data, response) => {
-  let message = data + ' ' + 'World';
-  return message;
-});
+exports.helloWorld = HelloWorld;
 
 exports.randomNumber = functions.https.onRequest((request, response) => {
   const number = Math.round(Math.random() * 100);
@@ -94,6 +98,7 @@ exports.sendMail = functions.https.onCall((data, request) => {
         return transporter.sendMail(mailOptions, (error, info) => {
             if(error){
               console.log(error);
+              throw new functions.https.HttpsError('unknown', error.message, error);
               return request.send(error.toString());
             }
             return request.send('Sended');
