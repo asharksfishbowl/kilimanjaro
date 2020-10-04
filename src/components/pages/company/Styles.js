@@ -28,7 +28,8 @@ const Styles = () => {
       padding: theme.spacing(1),
     },
     socialBrand: {
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: theme.palette.secondary.dark,
+      color: theme.palette.primary.light,
       padding: theme.spacing(4),
     },
     main: {

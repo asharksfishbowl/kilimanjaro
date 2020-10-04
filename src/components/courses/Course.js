@@ -81,7 +81,7 @@ function Course(props) {
   async function saveRecord() {
     showBackdrop();
     let record = {name, date, description, visible, order};
-    await CRUD.create('lessons', record, record.name);
+    await CRUD.create('lessons', record);
     hideBackdrop();
   };
 

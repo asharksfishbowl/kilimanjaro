@@ -12,6 +12,8 @@ import {
 
 const Exemplar = () => {
   const classes = Styles();
+  const title = "Custom Software Solutions";
+  const sellingPoint = "We use a modern technology stack to build fast, responsive, single page web applications & native App solutions.";
 
   return (
     <section id="examplar" className={classes.exemplar}>
@@ -19,12 +21,12 @@ const Exemplar = () => {
         <Grid container spacing={0}>
           <Grid item xs={12}>
             <Typography variant="overline">
-              Modern Custom Websites
+              {title}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="overline">
-              We use a modern technology stack to build fast, responsive, single page web applications.
+              {sellingPoint}
             </Typography>
           </Grid>
           <Grid item xs={12}>
