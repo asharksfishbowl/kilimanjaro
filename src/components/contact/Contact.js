@@ -42,8 +42,9 @@ function Contact(props){
 
   async function save() {
     showBackdrop();
+    const to = "asharksfishbowl@gmail.com";
     let record = {
-      'asharksfishbowl@gmail.com',
+      to,
       email,
       message
     };
