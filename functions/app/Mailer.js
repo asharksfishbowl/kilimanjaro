@@ -6,11 +6,11 @@ const cors = require('cors');
 /**
 * Here we're using Gmail to send
 */
-exports.sendMail = functions.https.onCall((data, response) => {
-    return cors(data, response, () => {
-        const from = data.from;
-        const to = data.to;
-        const message = data.message;
+exports.sendMail = functions.https.onCall((request, response) => {
+    return cors(request, response, () => {
+        const from = request.from;
+        const to = request.to;
+        const message = request.message;
         const accessKey = 'asharksfishbowl@gmail.com';
         const secretKey = 'Ilnbvm30@84';
 
@@ -48,7 +48,7 @@ exports.sendMail = functions.https.onCall((data, response) => {
             if(error){
               console.log(error.message);
             }
-            response.send({
+            request.send({
               success: true,
               message: 'Mail Sent'
             });
