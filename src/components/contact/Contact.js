@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import ContactController from './controllers/Contact.js';
-import CRUD from '../../server/CRUD.js';
+import ContactController from './controllers/Contact.js';
+// import CRUD from '../../server/CRUD.js';
 import Styles from './Styles.js';
 // import swal from '@sweetalert/with-react';
 
@@ -42,8 +42,11 @@ function Contact(props){
 
   async function save() {
     showBackdrop();
-    let record = {email, message};
-    await CRUD.create('contacts', record, "Thanks for the message!", "We will respond within 24 hrs!");
+    let record = {
+      email,
+      message
+    };
+    await ContactController.sendMessage(record);
     hideBackdrop();
   }
 

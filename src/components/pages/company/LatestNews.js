@@ -15,7 +15,7 @@ const LatestNews = () => {
   return (
     <section id="news" className={classes.latestNews}>
       <Container maxWidth="lg">
-        <Typography variant="h4" align="center">Latest from the Loop</Typography>
+        <Typography variant="h4" align="left">Latest from the Loop</Typography>
         <Grid container spacing={2} align="left">
           <Grid item xs={12} >
             <BlogPost

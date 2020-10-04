@@ -2,7 +2,10 @@ import firebase from '../firebase.js';
 import swal from '@sweetalert/with-react';
 
 class CRUD {
-  create(collection, record, title, message){
+  create(collection, record, title = "Thanks Shark!!! :)", message){
+    const createRef = firebase.database.ref(collection);
+    const pushCreateRef = createRef.push();
+
     if (!title) {
       title = "Thanks Shark!!! :)";
     }
@@ -11,13 +14,7 @@ class CRUD {
       message = 'Data saved successfully Shark!!!';
     }
 
-    if(!firebase.auth.currentUser) {
-      return swal('Sorry Shark', "You need to sign in first :)", "error");
-    }
-    else {
-      const createRef = firebase.database.ref(collection);
-      const pushCreateRef = createRef.push();
-
+    if (firebase.auth.currentUser) {
       pushCreateRef.set(record, function(error) {
         if (error) {
           console.log(error);
@@ -26,6 +23,9 @@ class CRUD {
           return record;
         }
       });
+    }
+    else {
+      swal("Sorry", "Permission Denind", "error");
     }
   };
 

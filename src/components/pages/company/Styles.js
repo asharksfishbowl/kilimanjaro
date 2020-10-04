@@ -92,6 +92,9 @@ const Styles = () => {
       display: 'flex',
       justifyContent: 'center',
     },
+    particleBg: {
+      background: theme.palette.secondary.dark,
+    },
   }))
   return useStyles();
 };

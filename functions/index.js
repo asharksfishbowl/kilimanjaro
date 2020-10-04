@@ -1,6 +1,8 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const sanitizer = require('./sanitizer.js');
+const nodemailer = require('nodemailer');
+const cors = require('cors')({origin: true});
 admin.initializeApp(functions.config().firebase);
 
 // Create and Deploy Your First Cloud Functions
@@ -61,4 +63,41 @@ exports.addFeedback = functions.https.onCall((data, context) => {
   .catch((error) => {
     throw new functions.https.HttpsError('unknown', error.message, error);
   });
+});
+
+/**
+* Here we're using Gmail to send
+*/
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'asharksfishbowl@gmail.com',
+        pass: 'Ilnbvm30@84'
+    }
+});
+
+// NOTE: Function to send Email
+exports.sendMail = functions.https.onRequest((req, res) => {
+    cors(req, res, () => {
+        // getting who email by query string
+        const who = req.query.email;
+
+        const mailOptions = {
+            from: who,
+            to: "A Shark's Fishbowl <asharksfishbowl@gmail.com>",
+            cc: "supermaario5@gmail.com, dcmiguel07@gmail.com",
+            subject: "I'M A PICKLE!!!",
+            html: `<p style="font-size: 16px;">Pickle Riiiiiiiiiiiiiiiick!!</p>
+                <br />
+                <img src="https://images.prod.meredith.com/product/fc8754735c8a9b4aebb786278e7265a5/1538025388228/l/rick-and-morty-pickle-rick-sticker" />
+            `
+        };
+        // returning result
+        return transporter.sendMail(mailOptions, (erro, info) => {
+            if(erro){
+                return res.send(erro.toString());
+            }
+            return res.send('Sended');
+        });
+    });
 });
