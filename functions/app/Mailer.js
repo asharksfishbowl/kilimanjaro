@@ -28,13 +28,13 @@ exports.sendMail = functions.https.onCall((data, response) => {
             html: "<h1>"+ message +"</h1>"
         };
         // returning result
-        transporter.sendMail(mailOptions, (error, info) => {
+        return transporter.sendMail(mailOptions, (error, info) => {
             if(error){
               console.log(error);
               throw new functions.https.HttpsError('unknown', error.message, error);
-              response.send(error.toString());
+              return response.send(error.toString());
             }
-            response.send('Mail Sent');
+            return response.send('Mail Sent');
         });
     });
 });
