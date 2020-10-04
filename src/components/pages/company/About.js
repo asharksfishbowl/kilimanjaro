@@ -15,7 +15,7 @@ const About = () => {
   return (
     <section id="about" className={classes.about}>
       <Container maxWidth="lg">
-          <Grid container spacing={5}>
+          <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={2}>
               <Typography variant="h4" align="left">
                 ASF Studios

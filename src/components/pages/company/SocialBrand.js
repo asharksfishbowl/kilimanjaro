@@ -19,11 +19,11 @@ const SocialBrand = () => {
     <section id="social" className={classes.socialBrand}>
       <Container maxWidth="lg">
         <Grid container spacing={1}>
-          <Grid item xs={4}>
+          <Grid item xs={3}>
             <Img src={Logo} height="100%" width="100%" alt="Logo" className={classes.logo}/>
           </Grid>
           <Grid item xs={12} align="left">
-            <Typography variant="overline">
+            <Typography variant="h6">
               {moto}
             </Typography>
           </Grid>

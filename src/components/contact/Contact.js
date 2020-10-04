@@ -64,7 +64,7 @@ function Contact(props){
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="overline">
+              <Typography variant="body1">
                 {feelFree}
               </Typography>
             </Grid>
@@ -72,14 +72,16 @@ function Contact(props){
               <TextField
                 variant="outlined"
                 margin="normal"
-                required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
                 autoComplete="email"
                 value={email}
                 onChange={onEmailChange}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
             </Grid>
             <Grid item xs={12}>
