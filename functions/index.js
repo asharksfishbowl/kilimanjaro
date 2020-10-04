@@ -80,17 +80,20 @@ let transporter = nodemailer.createTransport({
 exports.sendMail = functions.https.onRequest((req, res) => {
     cors(req, res, () => {
         // getting who email by query string
-        const who = req.query.email;
+        const email = req.query.email;
+        const message = req.query.message;
 
         const mailOptions = {
             from: who,
             to: "A Shark's Fishbowl <asharksfishbowl@gmail.com>",
             cc: "supermaario5@gmail.com, dcmiguel07@gmail.com",
             subject: "I'M A PICKLE!!!",
-            html: `<p style="font-size: 16px;">Pickle Riiiiiiiiiiiiiiiick!!</p>
-                <br />
-                <img src="https://images.prod.meredith.com/product/fc8754735c8a9b4aebb786278e7265a5/1538025388228/l/rick-and-morty-pickle-rick-sticker" />
-            `
+            html: `
+              <p style="font-size: 16px;">Pickle Riiiiiiiiiiiiiiiick!!</p>
+              <br />
+              <img src="https://images.prod.meredith.com/product/fc8754735c8a9b4aebb786278e7265a5/1538025388228/l/rick-and-morty-pickle-rick-sticker" />
+              <br />
+            ` + {message}
         };
         // returning result
         return transporter.sendMail(mailOptions, (erro, info) => {
