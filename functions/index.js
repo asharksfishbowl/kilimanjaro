@@ -87,7 +87,7 @@ exports.sendMail = functions.https.onCall((data, request) => {
             to: "A Shark's Fishbowl <asharksfishbowl@gmail.com>",
             cc: "supermaario5@gmail.com, dcmiguel07@gmail.com",
             subject: "Message from potenial client",
-            html: message
+            html: "<h1>hello</h1>"
 
         };
         // returning result
