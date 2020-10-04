@@ -48,6 +48,7 @@ exports.sendMail = functions.https.onCall((request, response) => {
             if(error){
               console.log(error.message);
             }
+            console.log(info);
             request.send({
               success: true,
               message: 'Mail Sent'
