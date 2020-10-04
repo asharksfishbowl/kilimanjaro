@@ -77,6 +77,9 @@ const Styles = () => {
       borderRadius: '15px',
       boxShadow: '12px 6px 11px 0px black',
     },
+    video: {
+      boxShadow: '12px 6px 11px 0px black',
+    },
     footerContent: {
       display: 'flex',
     },
