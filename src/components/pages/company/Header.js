@@ -22,7 +22,7 @@ function Header(props) {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="overline" align="center" color="primary" className={classes.headerText}>
+          <Typography variant="h4" align="center" color="primary" className={classes.headerText}>
             {props.text}
           </Typography>
         </Grid>

@@ -14,7 +14,7 @@ exports.sendMail = functions.https.onCall((request, response) => {
         const accessKey = 'Firebase';
         const secretKey = 'jpvzffpwvczgmqef';
 
-        const transporter = nodemailer.createTransport(smtpTransport({
+        let transporter = nodemailer.createTransport(smtpTransport({
           service: 'gmail',
           auth: {
               user: sesAccessKey,

@@ -43,15 +43,16 @@ const Styles = () => {
     },
     headerTitle: {
       color: theme.palette.primary.main,
-      opacity: '0.7',
+      opacity: '0.9',
       fontFamily: 'fantasy',
-      textShadow: '2px 2px #ff0000'
+      textShadow: '6px 2px #000000'
     },
     headerText: {
-      color: theme.palette.primary.light,
-      opacity: '0.8',
+      color: theme.palette.secondary.dark,
+      opacity: '0.9',
       fontFamily: 'fantasy',
-      textShadow: '2px 2px #ff0000'
+      textShadow: '1px 2px #000000',
+      fontSize: '20px',
     },
     statUpper: {
       textTransform: 'uppercase',
