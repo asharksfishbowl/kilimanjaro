@@ -20,7 +20,7 @@ function Contact(props){
   const classes = Styles();
   const [backdrop, setShowBackdrop] = useState(false);
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [question, setQuestion] = useState('');
   const title = "Got a Question?";
   const feelFree = "Feel free to contact us for any questions, we are happy to answer :)";
 
@@ -28,8 +28,8 @@ function Contact(props){
     setEmail(event.target.value);
   };
 
-  const onMessageChange = (event) => {
-    setMessage(event.target.value);
+  const onQuestionChange = (event) => {
+    setQuestion(event.target.value);
   };
 
   const hideBackdrop = () => {
@@ -46,11 +46,11 @@ function Contact(props){
     let record = {
       to,
       email,
-      message
+      question
     };
-    const sendMsg = await ContactController.sendMessage(record);
+    const sendMsg = await ContactController.createQuestion(record);
     if (sendMsg && sendMsg.result) {
-      swal('Thanks for the message Shark!', 'We will get back to you within 24hrs', "success");
+      swal('Thanks for the question Shark!', 'We will try our best to get back to you within 24hrs', "success");
     }
     else{
       console.log(sendMsg);
@@ -81,6 +81,7 @@ function Contact(props){
             </Grid>
             <Grid item xs={12}>
               <TextField
+                required
                 variant="outlined"
                 margin="normal"
                 fullWidth
@@ -93,19 +94,20 @@ function Contact(props){
                 InputLabelProps={{
                   shrink: true,
                 }}
+                placeholder="So we know who to reply to :)"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                id="message"
-                label="Message"
+                id="question"
+                label="Question"
                 fullWidth
                 multiline
                 rows={6}
                 rowsMax={6}
                 variant="outlined"
-                value={message}
-                onChange={onMessageChange}
+                value={question}
+                onChange={onQuestionChange}
                 InputLabelProps={{
                   shrink: true,
                 }}

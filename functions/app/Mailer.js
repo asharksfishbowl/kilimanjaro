@@ -1,7 +1,36 @@
 // NOTE: Trying to seperate the functions out
 const functions = require('firebase-functions');
+const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+
+admin.initializeApp(functions.config().firebase);
+
+exports.onQuestionCreation = functions.firestore.document('questions/{questionId}')
+  .onCreate(async(snapshot, context) => {
+    const itemDataSnap = await snapshot.ref.get()
+    return admin.firestore().collection('mail').add({
+      to: [itemDataSnap.data().email],
+      message: {
+        subject: 'Potenial Client has a question :)',
+        html: itemDataSnap.data().message,
+      }
+    }).then(() => console.log('Queued email for delivery!'));
+});
+
+exports.createQuestion = functions.https.onCall((request, response) => {
+  return admin.firestore().collection("questions").doc(request.email).set({
+      to: request.to,
+      email: request.email,
+      question: request.question
+  })
+  .then(function() {
+      console.log("Document successfully written!");
+  })
+  .catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
+});
 
 /**
 * Here we're using Gmail to send
@@ -22,7 +51,7 @@ exports.sendMail = functions.https.onCall((request, response) => {
           }
         }));
 
-        const html = `
+        let html = `
           <div>
             <h4>Information</h4>
             <ul>
