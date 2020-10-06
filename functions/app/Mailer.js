@@ -9,11 +9,11 @@ admin.initializeApp(functions.config().firebase);
 exports.onQuestionCreation = functions.firestore.document('questions/{questionId}')
   .onCreate(async(snapshot, context) => {
     const itemDataSnap = await snapshot.ref.get()
-    return admin.firestore().collection('mail').add({
-      to: [itemDataSnap.data().email],
+    return admin.firestore().collection('questions').add({
+      to: [itemDataSnap.data().email, 'supermaario5@gmail.com', 'dcmiguel07@gmail.com'],
       message: {
         subject: 'Potenial Client has a question :)',
-        html: itemDataSnap.data().message,
+        html: itemDataSnap.data().question,
       }
     }).then(() => console.log('Queued email for delivery!'));
 });
