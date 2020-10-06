@@ -17,16 +17,18 @@ exports.onQuestionCreation = functions.firestore.document('questions/{questionId
 });
 
 exports.createQuestion = functions.https.onCall((request, response) => {
-  return admin.firestore().collection("questions").doc(request.email).set({
-      to: request.to,
-      email: request.email,
-      question: request.question
-  })
-  .then(function() {
-      console.log("Document successfully written!");
-  })
-  .catch(function(error) {
-      console.error("Error writing document: ", error);
+  return cors(request, response, () => {
+    return admin.firestore().collection("questions").doc(request.email).set({
+        to: request.to,
+        email: request.email,
+        question: request.question
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
   });
 });
 
