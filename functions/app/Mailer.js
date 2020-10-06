@@ -4,8 +4,6 @@ const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 
-admin.initializeApp(functions.config().firebase);
-
 exports.onQuestionCreation = functions.firestore.document('questions/{questionId}')
   .onCreate(async(snapshot, context) => {
     const itemDataSnap = await snapshot.ref.get()
