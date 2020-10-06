@@ -1,10 +1,10 @@
 import firebase from '../../../firebase.js';
 
 class Contact {
-  async sendQuestion(question) {
+  async createQuestion(question) {
     try {
-      const sendMail = firebase.functions.httpsCallable('sendMail');
-      const record = await sendMail(question);
+      const createQuestion = firebase.functions.httpsCallable('createQuestion');
+      const record = await createQuestion(question);
       return record;
     } catch (e) {
       console.log(e.message);
