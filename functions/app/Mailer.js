@@ -30,7 +30,6 @@ exports.createQuestion = functions.https.onCall((request, response) => {
         console.error("Error writing document: ", error);
         return {'success':false, 'error':error};
     });
-  })
 });
 
 /**
