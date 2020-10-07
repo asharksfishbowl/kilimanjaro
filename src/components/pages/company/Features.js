@@ -13,13 +13,15 @@ import {
   Devices as DevicesIcon,
   Build as BuildIcon,
   Mood as MoodIcon,
+  Dns as DnsIcon,
 } from '@material-ui/icons';
 
 const Features = () => {
   const classes = Styles();
   const pixelText = "We create solutions that will meet every need down to the pixel whether it's web, app or native solutions.";
   const responsiveText = "Our responsive design will make your solution look great on all devices";
-  const timelyText = "With our modern stack we can create test driven prototypes and meet the needs of today's technological demand";
+  const timelyText = "With dedicate ourselves to quick reponse time and provide the best possible support";
+  const ourStackText = "With our modern stack we can create anything from test driven prototypes to fully functional solutions that meet the needs of today's technological demand";
   const clientsText = "We strive to make our clients happy by being transparent and direct to meet their every need.";
   const sellingPoint = "We worked out an amazing combination of vast functionality and user's comfort. It will totally impress you with its power!";
 
@@ -51,6 +53,14 @@ const Features = () => {
             </Typography>
             <Typography variant="overline">
               {responsiveText}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography variant="h5">
+              <DnsIcon /> Our Stack
+            </Typography>
+            <Typography variant="overline">
+              {ourStackText}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
