@@ -49,7 +49,7 @@ function Contact(props){
       question
     };
     const sendMsg = await ContactController.createQuestion(record);
-    if (sendMsg && sendMsg.result) {
+    if (sendMsg && sendMsg.success) {
       swal('Thanks for the question Shark!', 'We will try our best to get back to you within 24hrs', "success");
     }
     else{
