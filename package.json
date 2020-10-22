@@ -11,8 +11,8 @@
     "@sweetalert/with-react": "^0.1.1",
     "aos": "^3.0.0-beta.6",
     "emoji-mart": "^3.0.0",
-    "firebase": "^7.15.5",
-    "firebase-admin": "^9.0.0",
+    "firebase": "^7.23.0",
+    "firebase-admin": "^9.2.0",
     "firebase-functions": "^3.8.0",
     "gsap": "^3.4.0",
     "particles-bg": "^2.5.0",
@@ -68,5 +68,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.0.4"
   }
 }

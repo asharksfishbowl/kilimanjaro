@@ -1,9 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+// import dependencies
+import React from 'react'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// import react-testing methods
+import { render, fireEvent, waitFor, screen } from '@testing-library/react'
+
+// the component to test
+import App from './App'
+
+test('app rendered successfully', async () => {
+  render(<App url="/" />)
+})

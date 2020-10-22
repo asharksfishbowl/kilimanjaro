@@ -11,11 +11,10 @@ import TopBar from '../../bars/TopBar.js';
 
 function Company(props) {
   const classes = Styles();
-  // TODO: Make this dynamic
   const about = "We are a company dedicated to creating beautiful and elegant websites";
 
   return(
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="company-container">
       <TopBar {...props}/>
       <Header title={"A Shark's Fishbowl"} text={about}/>
       <Exemplar />
