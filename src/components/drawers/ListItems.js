@@ -10,6 +10,8 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
+import { Emojione } from 'react-emoji-render';
+
 export const mainListItems = (
   <div>
     <ListItem button>
@@ -22,13 +24,13 @@ export const mainListItems = (
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Products" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Artists" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
@@ -47,24 +49,33 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    <ListSubheader inset>Blog Articles</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <Emojione text=":pizza:"/>
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <ListItemText
+        primary="Amazing"
+        secondary="Oven Baked"
+      />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <Emojione text=":garlic:"/>
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
+      <ListItemText
+        primary="Homemade"
+        secondary="Garlic Oil"
+      />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <Emojione text=":chicken:"/>
       </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <ListItemText
+        primary="Chicken"
+        secondary="with Roasted Tomato"
+      />
     </ListItem>
   </div>
 );
