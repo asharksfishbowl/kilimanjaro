@@ -6,7 +6,6 @@ const HelloWorld = require('./app/HelloWorld.js');
 const RandomNumber = require('./app/RandomNumber.js');
 const ToTheFishbowl = require('./app/ToTheFishbowl.js');
 const Feedback = require('./app/Feedback.js');
-const Mailer = require('./app/Mailer.js');
 
 // Init Functions
 admin.initializeApp(functions.config().firebase);

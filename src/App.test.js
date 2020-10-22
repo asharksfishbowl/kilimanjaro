@@ -8,5 +8,5 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import App from './App'
 
 test('app rendered successfully', async () => {
-  render(<App url="/" />)
+  () => render(<App url="/company" />)
 })
