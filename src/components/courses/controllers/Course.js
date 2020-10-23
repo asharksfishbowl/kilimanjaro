@@ -7,6 +7,7 @@ class Course {
       let result = [];
       snapshot.forEach(data => {
         let record = data.val();
+        record.id = data.key;
         result.push(record);
       });
       if (result && result.length > 0) {

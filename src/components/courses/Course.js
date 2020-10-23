@@ -149,7 +149,7 @@ function Course(props) {
                 <IconButton aria-label="delete" onClick={() => { editRecord(lesson.name)}}>
                   <EditIcon />
                 </IconButton>
-                <IconButton aria-label="delete" onClick={() => { deleteRecord(lesson.name)}}>
+                <IconButton aria-label="delete" onClick={() => { deleteRecord(lesson.id)}}>
                   <DeleteIcon />
                 </IconButton>
               </CardActions>
