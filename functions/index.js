@@ -18,5 +18,3 @@ exports.helloWorld = HelloWorld.helloWorld;
 exports.randomNumber = RandomNumber.randomNumber;
 exports.toTheFishbowl = ToTheFishbowl.toTheFishbowl;
 exports.addFeedback = Feedback.addFeedback;
-exports.sendMail = Mailer.sendMail;
-exports.createQuestion = Mailer.createQuestion;
