@@ -10,7 +10,7 @@ import {
 
 const About = () => {
   const classes = Styles();
-  const aboutUs = "We are a studio that aims to give our clients a platform that exemplifies a good user experience...";
+  const aboutUs = "We are a studio that aims to give our viewers a unique and fun viewing experience...";
 
   return (
     <section id="about" className={classes.about}>
@@ -29,27 +29,27 @@ const About = () => {
             <Grid item xs={12} sm={6} md={4} className={classes.stats}>
               <div className={classes.stat}>
                 <Typography variant="h2" className={classes.counter}>
-                  123
+                  3
                 </Typography>
-                <p className="grey-text darken-1">coders maimed</p>
+                <p className="grey-text darken-1">Cooking Videos</p>
               </div>
               <div className={classes.stat}>
                 <Typography variant="h2" className={classes.counter}>
-                  123
+                  12
                 </Typography>
-                <p className="grey-text darken-1">fresh pots of coffee</p>
+                <p className="grey-text darken-1">Music Videos</p>
               </div>
               <div className={classes.stat}>
                 <Typography variant="h2" className={classes.counter}>
-                  123
+                  1
                 </Typography>
-                <p className="grey-text lighten-1">pounds gnar shredded</p>
+                <p className="grey-text lighten-1">Tutorial Videos</p>
               </div>
               <div className={classes.stat}>
                 <Typography variant="h2" className={classes.counter}>
                   0
                 </Typography>
-                <p className="grey-text darken-1">honeybadgers harmed</p>
+                <p className="grey-text darken-1">Shop Project Videos</p>
               </div>
             </Grid>
           </Grid>
