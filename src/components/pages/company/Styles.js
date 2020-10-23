@@ -50,9 +50,9 @@ const Styles = () => {
     headerText: {
       color: theme.palette.secondary.dark,
       opacity: '0.9',
-      fontFamily: 'fantasy',
-      textShadow: '1px 2px #000000',
-      fontSize: '20px',
+      fontFamily: 'Roboto',
+      textShadow: '1px 2px #f8bbd0',
+      fontSize: '30px',
     },
     statUpper: {
       textTransform: 'uppercase',

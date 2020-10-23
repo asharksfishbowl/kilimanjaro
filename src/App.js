@@ -37,7 +37,7 @@ function App() {
   }
 
   return firebaseInitialized !== false ? (
-      <MuiThemeProvider theme={theme} data-appid="kilimanjaro">
+      <MuiThemeProvider theme={theme}>
   		  <CssBaseline />
         <Router>
           <div>
