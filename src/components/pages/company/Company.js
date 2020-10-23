@@ -11,7 +11,7 @@ import TopBar from '../../bars/TopBar.js';
 
 function Company(props) {
   const classes = Styles();
-  const about = "We are a company dedicated to creating beautiful and elegant websites";
+  const about = "We dedicated ourselves to create entertaining content to we can all learn from";
 
   return(
     <div className={classes.root} data-testid="company-container">
