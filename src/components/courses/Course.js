@@ -5,27 +5,32 @@ import Styles from './Styles.js';
 
 import SoftwareImg from './assets/software.png';
 
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import TextField from '@material-ui/core/TextField';
-import Switch from '@material-ui/core/Switch';
+import {
+  Grid,
+  Container,
+  Avatar,
+  Card,
+  CardHeader,
+  CardActions,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+  FormGroup,
+  FormControlLabel,
+  Button,
+  IconButton,
+  TextField,
+  Switch
+} from '@material-ui/core';
+
+import {
+  Delete as DeleteIcon,
+  Edit as EditIcon,
+  Favorite as FavoriteIcon,
+  Share as ShareIcon,
+  MoreVert as MoreVertIcon
+} from '@material-ui/icons';
 
 function Course(props) {
   const classes = Styles();
