@@ -53,8 +53,9 @@ function TopBar(props) {
 
     const handleLogout = () => {
       setRightMenu(null);
+      setAuth(null);
       AuthController.logout();
-      history.push('/');
+      history.push('/company');
     };
 
     return(
