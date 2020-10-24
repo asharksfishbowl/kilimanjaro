@@ -7,6 +7,10 @@ const Styles = () => {
       flexDirection: 'column',
       minHeight: '100vh',
     },
+    trigger: {
+      position: 'absolute',
+      bottom: '-50em',
+    },
     section: {
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(4),

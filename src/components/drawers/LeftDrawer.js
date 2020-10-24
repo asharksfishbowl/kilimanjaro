@@ -1,12 +1,13 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import Styles from './Styles.js';
-import { mainListItems, secondaryListItems } from './ListItems.js';
+import MainList from './MainList.js';
+import SecondaryList from './SecondaryList.js';
 
 // Material UI
 import {
   Drawer,
   Divider,
-  List,
   IconButton,
 } from '@material-ui/core';
 
@@ -16,6 +17,11 @@ import {
 
 function LeftDrawer(props) {
   const classes = Styles();
+  let history = useHistory();
+
+  const selectItem = (item) => {
+    history.push("/" + item);
+  };
 
   return(
     <Drawer
@@ -28,9 +34,9 @@ function LeftDrawer(props) {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <MainList selectItem={selectItem}/>
         <Divider />
-        <List>{secondaryListItems}</List>
+        <SecondaryList selectItem={selectItem}/>
     </Drawer>
   )
 }

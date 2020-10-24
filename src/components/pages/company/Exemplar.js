@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import Styles from './Styles.js';
 import Img from 'react-image';
 import SignInImg from '../../../assets/images/ASF/SignIn.png';
@@ -14,6 +15,7 @@ const Exemplar = () => {
   const classes = Styles();
   const title = "Custom Software Solutions";
   const sellingPoint = "We use a modern technology stack to build fast, responsive, single page web applications & native App solutions.";
+  let history = useHistory();
 
   return (
     <section id="examplar" className={classes.exemplar}>
@@ -30,7 +32,12 @@ const Exemplar = () => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Img src={SignInImg} height="100%" width="100%" alt="sign in Img"/>
+            <Img
+              src={SignInImg}
+              height="100%"
+              width="100%"
+              alt="sign in Img"
+              onClick={() => history.push("/SignInSide")}/>
           </Grid>
         </Grid>
       </Container>
