@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import Styles from './Styles.js';
 import MainList from './MainList.js';
 import SecondaryList from './SecondaryList.js';
+import AuthController from '../auth/controllers/Auth.js';
 
 // Material UI
 import {
@@ -18,9 +19,22 @@ import {
 function LeftDrawer(props) {
   const classes = Styles();
   let history = useHistory();
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = async () => setAuth(AuthController.isLoggedIn());
+    checkAuth();
+  });
 
   const selectItem = (item) => {
-    history.push("/" + item);
+    if (item == 'dashboard' && !auth) {
+      history.push("/SignInSide");
+    }
+    else {
+      history.push("/" + item);
+    }
+
+
   };
 
   return(
