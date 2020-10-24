@@ -51,6 +51,11 @@ function TopBar(props) {
       setLeftDrawer(null);
     };
 
+    const showProfile = () => {
+      handleClose();
+      history.push('/profile');
+    };
+
     const handleLogout = () => {
       setRightMenu(null);
       setAuth(null);
@@ -102,8 +107,7 @@ function TopBar(props) {
                     open={openMenu}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                    <MenuItem onClick={showProfile}>Profile</MenuItem>
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </Menu>
                 </div>

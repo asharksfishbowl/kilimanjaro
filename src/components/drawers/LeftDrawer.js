@@ -27,14 +27,12 @@ function LeftDrawer(props) {
   });
 
   const selectItem = (item) => {
-    if (item == 'dashboard' && !auth) {
+    if (item === 'dashboard' && !auth) {
       history.push("/SignInSide");
     }
     else {
       history.push("/" + item);
     }
-
-
   };
 
   return(

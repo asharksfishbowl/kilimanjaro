@@ -13,7 +13,7 @@ function BottomBar(props) {
     return(
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href="/">
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href="/home">
             <HomeIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
