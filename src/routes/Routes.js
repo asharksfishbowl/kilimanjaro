@@ -48,7 +48,8 @@ function Routes(props) {
            return null;
       }}/>
       <Route path="/home" component={Home} />
-      <Route path="/" component={Company} onEnter={props.checkIfLoggedIn()}/>
+      <Route path="/" exact component={Company} onEnter={props.checkIfLoggedIn()}/>
+      <Route component={Underconstruction} />
     </Switch>
   )
 }

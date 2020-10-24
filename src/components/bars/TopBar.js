@@ -60,7 +60,7 @@ function TopBar(props) {
       setRightMenu(null);
       setAuth(null);
       AuthController.logout();
-      history.push('/company');
+      history.push('/');
     };
 
     return(
