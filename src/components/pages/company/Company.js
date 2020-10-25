@@ -18,7 +18,7 @@ function Company(props) {
   }, []);
 
   return(
-    <div className={classes.root} data-testid="company-container">
+    <div className={classes.root} data-testid="company">
       <TopBar {...props}/>
       <Header title={"A Shark's Fishbowl"} text={about}/>
       <Exemplar />

@@ -16,6 +16,7 @@ import Dashboard from '../components/dashboard/Dashboard.js';
 import Admin from '../components/admin/Admin.js';
 import Courses from '../components/courses/Course.js';
 import PreciousPlastic from '../components/preciousplastic/PreciousPlastic.js';
+import Blog from '../components/blogs/Blog.js';
 
 // Helper Componets
 import Underconstruction from '../components/Underconstruction.js';
@@ -43,6 +44,9 @@ function Routes(props) {
       <Route path="/VideoCreation" component={Underconstruction} />
       <Route path="/DIY" component={Underconstruction} />
       <Route path="/Cooking" component={Underconstruction} />
+      <Route path="/Blog/Pizza" component={Blog} />
+      <Route path="/Blog/Garlic" component={Blog} />
+      <Route path="/Blog/Chicken`" component={Blog} />
       <Route path='/trololo' component={() => {
            window.location.href = 'https://www.youtube.com/watch?v=2Z4m4lnjxkY';
            return null;

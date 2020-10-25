@@ -63,7 +63,7 @@ const pdfs = [
 
 const items = [];
 for (const [index, pdf] of pdfs.entries()) {
-  items.push(<MenuItem value={pdf.value}>{pdf.key}</MenuItem>);
+  items.push(<MenuItem value={pdf.value} key={index}>{pdf.key}</MenuItem>);
 }
 
 function PdfLoader(props) {

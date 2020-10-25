@@ -1,7 +1,10 @@
 import React from 'react';
-import { render, fireEvent } from "@testing-library/react";
-import { Company } from "../company/Company";
+import { render } from "@testing-library/react";
+import Company from "../company/Company";
 
-test('company rendered successfully', async () => {
-    () => render(<Company url="/company" />)
+const company = <Company url="/company" />;
+
+it("company rendered successfully", () => {
+  const { queryByTestId } = render(company);
+  expect(queryByTestId("company")).toBeTruthy();
 })

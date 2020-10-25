@@ -24,10 +24,12 @@ function App() {
   const [animationClass] = useState('background-grad');
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
 
+  const checkAuth = async () => Auth.isInitialized().then(value => {
+    setFirebaseInitialized(value);
+  });
+
   useEffect(() => {
-    Auth.isInitialized().then(value => {
-      setFirebaseInitialized(value);
-    })
+    checkAuth();
   });
 
   const checkIfLoggedIn = () => {
@@ -41,12 +43,12 @@ function App() {
   		  <CssBaseline />
         <Router>
           <div>
-            <Routes checkIfLoggedIn={checkIfLoggedIn}/>
+            <Routes checkIfLoggedIn={checkIfLoggedIn} />
           </div>
         </Router>
       </MuiThemeProvider>
   ) :
-  <div id="loader" className={animationClass} style={{animation: easings.easeInSine}}>
+  <div id="loader" className={animationClass} style={{animation: easings.easeInSine}} >
       <CoffeeLoading />
   </div>
 }
