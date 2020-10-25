@@ -13,7 +13,7 @@ function Header(props) {
   const classes = Styles();
 
   return(
-    <Container className={classes.header} maxWidth="lg">
+    <Container className={classes.header} maxWidth="lg" data-testid="header">
       <ParticlesBg type="square" num={200} bg={true} className={classes.particleBg}/>
       <Grid container spacing={0}>
         <Grid item xs={12}>

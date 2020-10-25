@@ -13,7 +13,7 @@ const About = () => {
   const aboutUs = "We are a studio that aims to give our viewers a unique and fun viewing experience...";
 
   return (
-    <section id="about" className={classes.about}>
+    <section id="about" className={classes.about} data-testid="about">
       <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={2}>

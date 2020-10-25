@@ -13,7 +13,7 @@ const LatestNews = () => {
   const classes = Styles();
 
   return (
-    <section id="news" className={classes.latestNews}>
+    <section id="news" className={classes.latestNews} data-testid="news">
       <Container maxWidth="lg">
         <Typography variant="h4" align="left">Latest from the Loop</Typography>
         <Grid container spacing={2} align="left">

@@ -16,7 +16,7 @@ const SocialBrand = () => {
   const moto = "We believe in Simple, Creative & Flexible Design Standards.";
 
   return (
-    <section id="social" className={classes.socialBrand}>
+    <section id="social" className={classes.socialBrand} data-testid="social">
       <Container maxWidth="lg">
         <Grid container spacing={1}>
           <Grid item xs={3}>

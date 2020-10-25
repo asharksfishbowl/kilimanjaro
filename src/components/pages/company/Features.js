@@ -26,7 +26,7 @@ const Features = () => {
   const sellingPoint = "We worked out an amazing combination of vast functionality and user's comfort. It will totally impress you with its power!";
 
   return (
-    <section id="features" className={classes.features}>
+    <section id="features" className={classes.features} data-testid="features">
       <Container maxWidth="lg">
         <Grid container spacing={6}>
           <Grid item xs={12}>

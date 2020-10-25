@@ -6,7 +6,7 @@ function Footer(props) {
   const classes = Styles();
 
   return(
-    <footer className={classes.footer}>
+    <footer className={classes.footer} data-testid="footer">
       <Copyright color='secondary'/>
     </footer>
   )

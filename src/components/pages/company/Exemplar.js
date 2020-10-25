@@ -18,7 +18,7 @@ const Exemplar = () => {
   let history = useHistory();
 
   return (
-    <section id="examplar" className={classes.exemplar}>
+    <section id="exemplar" className={classes.exemplar} data-testid="exemplar">
       <Container maxWidth="lg">
         <Grid container spacing={0}>
           <Grid item xs={12}>
