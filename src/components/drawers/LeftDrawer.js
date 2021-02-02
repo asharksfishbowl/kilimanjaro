@@ -33,6 +33,7 @@ function LeftDrawer(props) {
     else {
       history.push("/" + item);
     }
+    props.handleDrawerClose();
   };
 
   return(

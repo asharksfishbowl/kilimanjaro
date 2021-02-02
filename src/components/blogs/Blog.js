@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -11,14 +12,20 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
+import Copyright from '../Copyright.js';
 import Footer from './Footer';
-import post1 from './posts/blog-post.1.md';
-import post2 from './posts/blog-post.2.md';
-import post3 from './posts/blog-post.3.md';
+
+import TopBar from '../bars/TopBar.js';
+import BottomBar from '../bars/BottomBar.js';
+
+import BlogController from './controllers/Blog.js';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
+  },
+  sidebar: {
+    // position: 'fixed',
   },
 }));
 
@@ -63,7 +70,7 @@ const featuredPosts = [
   },
 ];
 
-const posts = [post1, post2, post3];
+
 
 const sidebar = {
   title: 'About',
@@ -89,33 +96,46 @@ const sidebar = {
   ],
 };
 
-function Blog() {
+function Blog(props) {
   const classes = useStyles();
+  const [blogs, setBlogs] = useState('');
+  const [blog, setBlog] = useState('');
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => BlogController.getBlogs(setBlogs);
+    const fetchBlog = async () => BlogController.getBlogById(id, setBlog);
+    fetchData();
+    fetchBlog();
+  }, []);
 
   return (
       <React.Fragment>
         <CssBaseline />
+        <TopBar title="Blog Name Here" position="relative" {...props}/>
         <Container maxWidth="lg">
-          <Header title="Blog" sections={sections} />
-          <main>
-            <MainFeaturedPost post={mainFeaturedPost} />
+          <main >
+            <MainFeaturedPost post={blog} />
             <Grid container spacing={4}>
-              {featuredPosts.map((post) => (
+              {featuredPosts && featuredPosts.map((post) => (
                 <FeaturedPost key={post.title} post={post} />
               ))}
             </Grid>
-            <Grid container spacing={5} className={classes.mainGrid}>
-              <Main title="From the firehose" posts={posts} />
+            <Grid container spacing={6} className={classes.mainGrid}>
+              <Main title="Post Details" posts={blogs} url={blog.youtube}/>
               <Sidebar
-                title={sidebar.title}
-                description={sidebar.description}
-                archives={sidebar.archives}
+                title={blog.title ? blog.title : 'Missing Title'}
+                description={blog.description ? blog.description : 'Missing description'}
                 social={sidebar.social}
+                className={classes.sidebar}
               />
+
             </Grid>
+
           </main>
+
         </Container>
-        <Footer title="Footer" description="Something here to give the footer a purpose!" />
+        <BottomBar position="fixed" title=<Copyright color='secondary'/> />
       </React.Fragment>
     );
   }

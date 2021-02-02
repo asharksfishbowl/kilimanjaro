@@ -11,7 +11,7 @@ function BottomBar(props) {
     const classes = BottomStyles();
 
     return(
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar position={props.position ? props.position : "fixed"} color="primary" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" href="/home">
             <HomeIcon />

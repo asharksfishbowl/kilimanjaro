@@ -15,7 +15,7 @@ function SecondaryList(props) {
   return(
     <List>
       <ListSubheader inset>Blog Articles</ListSubheader>
-      <ListItem button onClick={() => props.selectItem('blog/pizza')}>
+      <ListItem button onClick={() => props.selectItem('pizza/blog/')}>
         <ListItemIcon>
           <Emojione text=":pizza:"/>
         </ListItemIcon>
@@ -24,7 +24,7 @@ function SecondaryList(props) {
           secondary="Oven Baked"
         />
       </ListItem>
-      <ListItem button onClick={() => props.selectItem('blog/garlic')}>
+      <ListItem button onClick={() => props.selectItem('garlic/blog/')}>
         <ListItemIcon>
           <Emojione text=":garlic:"/>
         </ListItemIcon>
@@ -33,7 +33,7 @@ function SecondaryList(props) {
           secondary="Garlic Oil"
         />
       </ListItem>
-      <ListItem button onClick={() => props.selectItem('blog/chicken')}>
+      <ListItem button onClick={() => props.selectItem('chicken/blog')}>
         <ListItemIcon>
           <Emojione text=":chicken:"/>
         </ListItemIcon>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Markdown from 'markdown-to-jsx';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
@@ -38,5 +37,5 @@ const options = {
 };
 
 export default function Post(props) {
-  return <Markdown options={options} {...props} />;
+  return <div options={options} {...props} />;
 }

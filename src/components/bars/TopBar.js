@@ -66,7 +66,7 @@ function TopBar(props) {
     return(
       <div className={classes.root}>
         <CssBaseline />
-          <AppBar position="fixed">
+          <AppBar position={props.position ? props.position : "fixed"}>
             <Toolbar className={classes.toolbar}>
               <IconButton
                 edge="start"
