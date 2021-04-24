@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sidebar(props) {
   const classes = useStyles();
-  const { archives, description, social, title } = props;
+  const { description, social, title } = props;
 
   return (
     <Grid item xs={12} md={4} className={classes.sidebar}>

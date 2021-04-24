@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
 import ReactPlayer from 'react-player';
 import InstagramEmbed from 'react-instagram-embed';
 
-import Post from './Post';
 import Instructions from './Instructions';
 
 const useStyles = makeStyles((theme) => ({
