@@ -107,7 +107,7 @@ function Blog(props) {
     const fetchBlog = async () => BlogController.getBlogById(id, setBlog);
     fetchData();
     fetchBlog();
-  }, []);
+  }, [id]);
 
   return (
       <React.Fragment>
