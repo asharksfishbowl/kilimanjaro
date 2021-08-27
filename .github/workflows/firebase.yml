@@ -44,6 +44,8 @@ jobs:
         FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
         TARGET_BRANCH: master
     - name: Deploy Fuctions to Firebase
-      uses: wib-wub/deploy-firebase-functions@1.0.1
+      uses: w9jds/firebase-action@master
+      with:
+          args: deploy --only functions
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
