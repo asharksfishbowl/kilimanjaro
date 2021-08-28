@@ -1,0 +1,17 @@
+.calculator{
+    background: #ffe2eb;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    @include rem(padding, 40px);
+}
+
+@media only screen and (min-width:1024px) {
+    .calculator{
+        @include rem(margin-top, 40px);
+
+        .feet .form-row{
+            float:left;
+            width:50%;
+        }
+    }
+}

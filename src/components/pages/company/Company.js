@@ -4,6 +4,7 @@ import Header from './Header.js';
 import Exemplar from './Exemplar';
 import Features from './Features';
 import About from './About';
+import CalculatorForm from '../../calculator/CalculatorForm';
 import LatestNews from './LatestNews';
 import SocialBrand from './SocialBrand';
 import Footer from './Footer.js';
@@ -24,6 +25,7 @@ function Company(props) {
       <Exemplar />
       <Features />
       <About />
+      <CalculatorForm />
       <LatestNews />
       <SocialBrand />
       <Footer />

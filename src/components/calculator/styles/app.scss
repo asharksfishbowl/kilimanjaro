@@ -1,0 +1,14 @@
+.App{
+    align-content: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:0 auto;
+    width:100%;
+}
+
+@media only screen and (min-width:1024px) {
+    .App{
+        @include rem(width, 600px);
+    }
+}

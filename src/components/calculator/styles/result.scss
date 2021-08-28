@@ -1,0 +1,52 @@
+.result{
+    background: #ffffff;
+
+    h3{
+        background: $brand__secondary;
+        color: $brand__color;
+        @include rem(font-size, 26px);
+        @include rem(margin, 40px 0 0 0);
+        @include rem(padding, 10px 30px);
+        text-align: center;
+    }
+
+    .macronutrients{
+        display:flex;
+        flex-direction: column;
+
+        div{
+            background: $brand__color;
+            color: $brand__secondary;
+            @include rem(font-size, 30px);
+            @include rem(padding, 30px);
+            @include rem(margin, 10px 0);
+            text-align: center;
+            text-transform: lowercase;
+            width:100%;
+
+            &:first-child{
+                @include rem(margin, 0);
+            }
+        }
+
+        span{
+            display:block;
+            @include rem(font-size, 16px);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+@media only screen and (min-width:1024px) {
+    .result{
+        .macronutrients{
+            flex-direction: row;
+
+            div{
+                @include rem(margin, 0);
+            }
+        }
+    }
+}
