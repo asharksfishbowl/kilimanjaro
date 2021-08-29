@@ -18,7 +18,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import Img from 'react-image';
-import ASF from '../../assets/images/ASF/ASF2.jpg';
+import ASF from '../../assets/images/ASF/Logo.png';
 
 export default function SignInSide(props) {
   const classes = Styles();

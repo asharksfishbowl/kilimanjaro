@@ -18,7 +18,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 import Img from 'react-image';
-import ASF from '../../assets/images/ASF/ASF2.jpg';
+import ASF from '../../assets/images/ASF/Logo.png';
 
 export default function SignUp() {
   const classes = Styles();
