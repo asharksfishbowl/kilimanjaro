@@ -17,6 +17,7 @@ export default class Calculator extends Component {
     render() {
         return (
             <div className="calculator">
+                <h2 className="title">Macro Calculator</h2>
                 <form onSubmit={ this.props.handleSubmit }>
 
                     <SingleInput

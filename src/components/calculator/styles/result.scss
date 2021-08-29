@@ -10,6 +10,15 @@
         text-align: center;
     }
 
+    h4{
+        background: $brand__secondary;
+        color: $brand__color;
+        @include rem(font-size, 20px);
+        @include rem(margin, 0px 0 0 0);
+        @include rem(padding, 30px 30px);
+        text-align: center;
+    }
+
     .macronutrients{
         display:flex;
         flex-direction: column;
