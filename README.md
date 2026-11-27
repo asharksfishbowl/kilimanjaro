@@ -75,6 +75,6 @@ Push to `master` runs **Climbing the Mountain** (`.github/workflows/firebase.yml
 
 | Secret | Value |
 | --- | --- |
-| `FIREBASE_SERVICE_ACCOUNT` | Full JSON of a Firebase/Google **service account** with Firebase Hosting Admin (Project settings → Service accounts → Generate new private key) |
+| `FIREBASE_ADMIN` | Full JSON of a Firebase/Google **service account** with Firebase Hosting Admin (Project settings → Service accounts → Generate new private key) |
 
-Do **not** paste the key into chat. Optional fallback: `FIREBASE_TOKEN` from `firebase login:ci`. Optional vars: `PUBLIC_RUST_API` / `PUBLIC_PYTHON_API`.
+Do **not** paste the key into chat. Also accepted: `FIREBASE_SERVICE_ACCOUNT`. Optional fallback: `FIREBASE_TOKEN` from `firebase login:ci`. Optional vars: `PUBLIC_RUST_API` / `PUBLIC_PYTHON_API`.
