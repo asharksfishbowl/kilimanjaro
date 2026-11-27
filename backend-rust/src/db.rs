@@ -200,11 +200,11 @@ pub fn seed_if_empty(conn: &Connection) -> Result<(), DbError> {
         (
             "p-fighter-rpg",
             "Fighter RPG Showdown 3D",
-            "3D fighter RPG showdown — arena combat with a Fishbowl arcade pulse.",
-            r#"["HTML","3D","Game"]"#,
+            "Playable Three.js 2.5D fighter with XP, stats, and an empire map — hosted at /fighter.",
+            r#"["TypeScript","Three.js","Vite"]"#,
             2026,
             "Game",
-            Some("https://github.com/asharksfishbowl/fighter-rpg-showdown-3d"),
+            Some("/fighter/"),
         ),
     ];
 

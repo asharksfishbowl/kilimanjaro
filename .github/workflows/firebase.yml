@@ -44,6 +44,24 @@ jobs:
           PUBLIC_RUST_API: ${{ vars.PUBLIC_RUST_API || '' }}
           PUBLIC_PYTHON_API: ${{ vars.PUBLIC_PYTHON_API || '' }}
 
+      - name: Checkout Fighter RPG
+        uses: actions/checkout@v4
+        with:
+          repository: asharksfishbowl/fighter-rpg-showdown-3d
+          path: fighter-src
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Fighter RPG
+        working-directory: fighter-src
+        run: |
+          npm ci
+          npm run build
+
+      - name: Nest Fighter under /fighter/
+        run: |
+          mkdir -p web/dist/fighter
+          cp -R fighter-src/dist/. web/dist/fighter/
+
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:

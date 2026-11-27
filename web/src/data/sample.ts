@@ -191,11 +191,12 @@ export const SAMPLE_SITE: SitePayload = {
     {
       id: "p-fighter-rpg",
       title: "Fighter RPG Showdown 3D",
-      summary: "3D fighter RPG showdown — arena combat with a Fishbowl arcade pulse.",
-      stack: ["HTML", "3D", "Game"],
+      summary:
+        "Playable Three.js 2.5D fighter with XP, stats, and an empire map — hosted at /fighter.",
+      stack: ["TypeScript", "Three.js", "Vite"],
       year: 2026,
       kind: "Game",
-      href: "https://github.com/asharksfishbowl/fighter-rpg-showdown-3d",
+      href: "/fighter/",
     },
   ],
   tracks: [
