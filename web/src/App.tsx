@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Businesses } from "./components/Businesses";
+import { Games } from "./components/Games";
 import { Portfolio } from "./components/Portfolio";
 import { NeonMap } from "./components/NeonMap";
 import { YouTubeSection } from "./components/YouTubeSection";
@@ -53,7 +54,8 @@ export default function App() {
       {error ? <div className="error-banner">{error}</div> : null}
       <Hero brand={site.brand} tagline={site.tagline} about={site.about} />
       <Businesses items={site.businesses} source={siteSource} />
-      <Portfolio items={site.portfolio} />
+      <Games />
+      <Portfolio items={site.portfolio.filter((item) => item.kind !== "Game")} />
       <NeonMap nodes={site.map_nodes} arcs={site.map_arcs} />
       <YouTubeSection media={media} />
       <Music tracks={site.tracks} clips={media.clips} />
