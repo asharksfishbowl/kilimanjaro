@@ -62,7 +62,10 @@ export function createSynthScene(container: HTMLElement): SynthSceneHandle {
   const stars = buildStars();
   scene.add(stars);
 
-  let energy = 0.22;
+  let energyTarget = 0.22;
+  let energySmooth = 0.22;
+  let camX = 0;
+  let lookY = 1.2;
   let raf = 0;
   let width = 0;
   let height = 0;
@@ -79,32 +82,44 @@ export function createSynthScene(container: HTMLElement): SynthSceneHandle {
   }
 
   function setEnergy(next: number) {
-    energy = THREE.MathUtils.clamp(next, 0, 1);
+    energyTarget = THREE.MathUtils.clamp(next, 0, 1);
   }
 
   const clock = new THREE.Clock();
+  const lookAt = new THREE.Vector3(0, 1.2, -4);
 
   function frame() {
     raf = requestAnimationFrame(frame);
     resize();
-    const t = clock.getElapsedTime();
-    // Idle climb — soft ambient energy when nothing drives setEnergy
-    const ambientEnergy = 0.18 + Math.sin(t * 0.55) * 0.08 + Math.sin(t * 1.1) * 0.04;
-    const e = Math.max(energy, ambientEnergy);
+    const dt = Math.min(clock.getDelta(), 0.05);
+    const t = clock.elapsedTime;
+
+    // Idle climb + critically damped energy (no hard steps)
+    const ambientEnergy =
+      0.18 + Math.sin(t * 0.45) * 0.07 + Math.sin(t * 0.9) * 0.035;
+    const desired = Math.max(energyTarget, ambientEnergy);
+    const ease = 1 - Math.exp(-dt * 3.2);
+    energySmooth += (desired - energySmooth) * ease;
+    const e = energySmooth;
     const pulse = 0.4 + e * 0.75;
 
-    sunGroup.position.y = 3.15 + Math.sin(t * 0.4) * 0.08;
+    sunGroup.position.y = 3.15 + Math.sin(t * 0.35) * 0.06;
     sunGroup.userData.pulse(pulse, t);
 
-    mountain.position.y = -0.12 + e * 0.1;
-    mountain.rotation.y = Math.sin(t * 0.08) * 0.02;
+    mountain.position.y = -0.12 + e * 0.08;
+    mountain.rotation.y = Math.sin(t * 0.06) * 0.015;
 
-    updateGrid(t, e);
-    stars.rotation.y = t * 0.012;
-    (stars.material as THREE.PointsMaterial).opacity = 0.38 + e * 0.3;
+    updateGrid(t, e, dt);
+    stars.rotation.y = t * 0.01;
+    (stars.material as THREE.PointsMaterial).opacity = 0.38 + e * 0.28;
 
-    camera.position.x = Math.sin(t * 0.14) * 0.32;
-    camera.lookAt(0, 1.2 + e * 0.15, -4);
+    const camTargetX = Math.sin(t * 0.11) * 0.28;
+    const lookTargetY = 1.2 + e * 0.12;
+    camX += (camTargetX - camX) * ease;
+    lookY += (lookTargetY - lookY) * ease;
+    camera.position.x = camX;
+    lookAt.set(0, lookY, -4);
+    camera.lookAt(lookAt);
 
     renderer.render(scene, camera);
   }
@@ -288,18 +303,20 @@ function buildMountain() {
   return group;
 }
 
+/**
+ * Perspective grid with GPU wave displacement.
+ * CPU used to rewrite every vertex/color each frame — that stuttered.
+ */
 function buildGrid() {
-  const cols = 48;
-  const rows = 36;
+  const cols = 56;
+  const rows = 42;
   const positions: number[] = [];
-  const colors: number[] = [];
 
   for (let z = 0; z <= rows; z++) {
     for (let x = 0; x <= cols; x++) {
       const px = (x / cols - 0.5) * 28;
       const pz = -2 - (z / rows) * 22;
       positions.push(px, 0, pz);
-      colors.push(0.18, 0.89, 0.9);
     }
   }
 
@@ -319,52 +336,68 @@ function buildGrid() {
   }
 
   const geo = new THREE.BufferGeometry();
-  const posAttr = new THREE.Float32BufferAttribute(positions, 3);
-  geo.setAttribute("position", posAttr);
-  geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
   geo.setIndex(indices);
 
-  const mat = new THREE.LineBasicMaterial({
-    vertexColors: true,
+  const uniforms = {
+    uTime: { value: 0 },
+    uEnergy: { value: 0.22 },
+    uOpacity: { value: 0.5 },
+    uCyan: { value: new THREE.Color(PALETTE.grid) },
+    uPink: { value: new THREE.Color(PALETTE.gridHot) },
+  };
+
+  const mat = new THREE.ShaderMaterial({
+    uniforms,
     transparent: true,
-    opacity: 0.55,
-    blending: THREE.AdditiveBlending,
     depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexShader: /* glsl */ `
+      uniform float uTime;
+      uniform float uEnergy;
+      varying float vFade;
+      varying float vMix;
+
+      void main() {
+        vec3 p = position;
+        float wave = 0.55 + uEnergy * 1.35;
+        // Lower temporal frequencies = creamier motion
+        float y =
+          sin(p.x * 0.42 + uTime * 1.15) * 0.07 * wave +
+          sin(p.z * 0.72 + uTime * 0.85) * 0.1 * wave +
+          sin(p.x * 0.9 + p.z * 0.45 + uTime * 1.55) * (0.05 + uEnergy * 0.1);
+        p.y = y;
+
+        vFade = clamp((-p.z - 2.0) / 22.0, 0.0, 1.0);
+        vMix = 0.35 + sin(p.x * 0.22 + uTime * 0.4) * 0.32;
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+      }
+    `,
+    fragmentShader: /* glsl */ `
+      uniform vec3 uCyan;
+      uniform vec3 uPink;
+      uniform float uEnergy;
+      uniform float uOpacity;
+      varying float vFade;
+      varying float vMix;
+
+      void main() {
+        vec3 c = mix(uCyan, uPink, clamp(vMix, 0.0, 1.0));
+        float bright = 0.42 + uEnergy * 0.4 + (1.0 - vFade) * 0.22;
+        gl_FragColor = vec4(c * bright, uOpacity);
+      }
+    `,
   });
+
   const mesh = new THREE.LineSegments(geo, mat);
   mesh.position.y = -1.15;
+  mesh.frustumCulled = false;
 
-  const cyan = new THREE.Color(PALETTE.grid);
-  const pink = new THREE.Color(PALETTE.gridHot);
-
-  const update = (t: number, energy: number) => {
-    const arr = posAttr.array as Float32Array;
-    const colorArr = geo.attributes.color.array as Float32Array;
-    const wave = 0.7 + energy * 1.8;
-    const scroll = (t * 1.4) % 1;
-    for (let z = 0; z <= rows; z++) {
-      for (let x = 0; x <= cols; x++) {
-        const i = (z * stride + x) * 3;
-        const px = arr[i];
-        const pz = arr[i + 2];
-        const ripples =
-          Math.sin(px * 0.55 + t * 2.1 + scroll) * 0.09 * wave +
-          Math.sin(pz * 0.9 + t * 1.5) * 0.12 * wave +
-          energy * Math.sin(px * 1.4 + pz * 0.7 + t * 3.5) * 0.16;
-        arr[i + 1] = ripples;
-
-        const fade = THREE.MathUtils.clamp((-pz - 2) / 22, 0, 1);
-        const mix = 0.35 + Math.sin(px * 0.25 + t * 0.6) * 0.35;
-        const c = cyan.clone().lerp(pink, THREE.MathUtils.clamp(mix, 0, 1));
-        const bright = 0.4 + energy * 0.45 + (1 - fade) * 0.25;
-        colorArr[i] = c.r * bright;
-        colorArr[i + 1] = c.g * bright;
-        colorArr[i + 2] = c.b * bright;
-      }
-    }
-    posAttr.needsUpdate = true;
-    geo.attributes.color.needsUpdate = true;
-    mat.opacity = 0.42 + energy * 0.32;
+  const update = (t: number, energy: number, _dt: number) => {
+    uniforms.uTime.value = t;
+    uniforms.uEnergy.value = energy;
+    uniforms.uOpacity.value = 0.4 + energy * 0.28;
   };
 
   return { mesh, update };
