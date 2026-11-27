@@ -12,7 +12,7 @@ Synthwave portfolio site for **A Shark's Fishbowl** / ASF Studios — businesses
 | Database | **SQLite** (`data/kilimanjaro.db`) |
 | Hero | **Three.js** synthwave sun + perspective grid + Kibo/Mawenzi ridge (SVG fallback when reduced-motion) |
 | Viz | **deck.gl** hexbins, arcs, pulsing scatter + MapLibre dark basemap |
-| Games | **Fighter RPG Showdown 3D** nested at `/fighter/` (built from [fighter-rpg-showdown-3d](https://github.com/asharksfishbowl/fighter-rpg-showdown-3d) in CI) |
+| Games | **Fighter RPG Showdown 3D** nested at `/arena/` (built from [fighter-rpg-showdown-3d](https://github.com/asharksfishbowl/fighter-rpg-showdown-3d) in CI; `/fighter/` redirects there) |
 
 ## Quick start
 

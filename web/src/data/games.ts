@@ -26,7 +26,7 @@ export const GAMES: GameItem[] = [
     status: "playable",
     stack: ["Three.js", "TypeScript", "Vite"],
     accent: "#ffd400",
-    playUrl: "/fighter/",
+    playUrl: "/arena/",
     href: "https://github.com/asharksfishbowl/fighter-rpg-showdown-3d",
     year: 2026,
   },

@@ -6,10 +6,22 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "redirects": [
       {
         "source": "/fighter",
-        "destination": "/fighter/index.html"
+        "destination": "/arena/",
+        "type": 302
+      },
+      {
+        "source": "/fighter/**",
+        "destination": "/arena/",
+        "type": 302
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/arena",
+        "destination": "/arena/index.html"
       },
       {
         "source": "**",
@@ -45,7 +57,7 @@
         ]
       },
       {
-        "source": "/fighter",
+        "source": "/arena",
         "headers": [
           {
             "key": "Cache-Control",
@@ -54,11 +66,29 @@
         ]
       },
       {
-        "source": "/fighter/",
+        "source": "/arena/",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "no-cache, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/fighter",
+        "headers": [
+          {
+            "key": "Clear-Site-Data",
+            "value": "\"cache\""
+          }
+        ]
+      },
+      {
+        "source": "/fighter/",
+        "headers": [
+          {
+            "key": "Clear-Site-Data",
+            "value": "\"cache\""
           }
         ]
       }

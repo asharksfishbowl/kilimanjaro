@@ -192,11 +192,11 @@ export const SAMPLE_SITE: SitePayload = {
       id: "p-fighter-rpg",
       title: "Fighter RPG Showdown 3D",
       summary:
-        "Playable Three.js 2.5D fighter with XP, stats, and an empire map — hosted at /fighter.",
+        "Playable Three.js 2.5D fighter with XP, stats, and an empire map — hosted at /arena.",
       stack: ["TypeScript", "Three.js", "Vite"],
       year: 2026,
       kind: "Game",
-      href: "/fighter/",
+      href: "/arena/",
     },
   ],
   tracks: [
