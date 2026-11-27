@@ -58,7 +58,9 @@ jobs:
           npm run build
 
       - name: Nest Fighter under /fighter/
+        working-directory: .
         run: |
+          test -f fighter-src/dist/index.html
           mkdir -p web/dist/fighter
           cp -R fighter-src/dist/. web/dist/fighter/
 
