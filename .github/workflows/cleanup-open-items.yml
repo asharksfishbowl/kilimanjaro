@@ -1,0 +1,43 @@
+name: Cleanup open issues and PRs
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/cleanup-open-items.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close open issues and pull requests
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          COMMENT="Superseded by the synthwave Kilimanjaro rebuild (PR #71). Closing as part of repo cleanup."
+
+          echo "Closing open issues..."
+          gh issue list -R "$REPO" --state open --json number -q '.[].number' | while read -r n; do
+            echo "Closing issue #$n"
+            gh issue close "$n" -R "$REPO" --comment "$COMMENT" || true
+          done
+
+          echo "Closing open pull requests (no merge)..."
+          gh pr list -R "$REPO" --state open --json number -q '.[].number' | while read -r n; do
+            echo "Closing PR #$n"
+            gh pr close "$n" -R "$REPO" --comment "$COMMENT" || true
+          done
+
+          echo "Remaining open issues:"
+          gh issue list -R "$REPO" --state open || true
+          echo "Remaining open PRs:"
+          gh pr list -R "$REPO" --state open || true
