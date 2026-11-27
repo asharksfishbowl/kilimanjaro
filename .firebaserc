@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "kilimanjaro-4c1b5"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }

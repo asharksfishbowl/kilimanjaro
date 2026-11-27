@@ -22,7 +22,8 @@
           }
         ]
       }
-    ]
+    ],
+    "site": "kilimanjaro-4c1b5"
   },
   "functions": {
     "source": "functions"

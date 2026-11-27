@@ -62,9 +62,9 @@ jobs:
           node-version: "22"
 
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools@13
+        run: npm install -g firebase-tools@13.29.1
 
       - name: Deploy Hosting to Firebase
-        run: firebase deploy --only hosting --project kilimanjaro-4c1b5 --non-interactive
+        run: firebase deploy --only hosting:kilimanjaro-4c1b5 --project kilimanjaro-4c1b5 --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
