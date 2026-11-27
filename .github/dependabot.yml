@@ -1,0 +1,4 @@
+# Dependabot paused after the synthwave rebuild.
+# Re-enable ecosystems/directories deliberately when ready.
+version: 2
+updates: []

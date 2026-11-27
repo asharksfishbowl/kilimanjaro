@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - ".github/workflows/cleanup-open-items.yml"
+      - ".github/dependabot.yml"
   workflow_dispatch:
 
 permissions:
@@ -25,15 +26,19 @@ jobs:
           set -euo pipefail
           COMMENT="Superseded by the synthwave Kilimanjaro rebuild (PR #71). Closing as part of repo cleanup."
 
-          echo "Closing open issues..."
+          # Pass 1
           gh issue list -R "$REPO" --state open --json number -q '.[].number' | while read -r n; do
-            echo "Closing issue #$n"
             gh issue close "$n" -R "$REPO" --comment "$COMMENT" || true
           done
-
-          echo "Closing open pull requests (no merge)..."
           gh pr list -R "$REPO" --state open --json number -q '.[].number' | while read -r n; do
-            echo "Closing PR #$n"
+            gh pr close "$n" -R "$REPO" --comment "$COMMENT" || true
+          done
+
+          # Brief pause in case Dependabot opens more mid-run
+          sleep 20
+
+          # Pass 2
+          gh pr list -R "$REPO" --state open --json number -q '.[].number' | while read -r n; do
             gh pr close "$n" -R "$REPO" --comment "$COMMENT" || true
           done
 
