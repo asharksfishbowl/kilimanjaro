@@ -1,24 +1,28 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 /**
- * Side-view great white cruise (thunniform) via compositor transforms.
- * Not WebGL — continuous Three.js redraw + deck.gl on the same page was
- * the choppiness; JS heap was fine (~25MB). Motion translateX runs on the
- * GPU compositor and stays smooth.
- *
- * neon-shark.png faces left. Mirror with scaleX(-1) when cruising right
- * so the nose always leads.
+ * Side-view great white cruise + underwater bubble field.
+ * Compositor transforms only (no CSS filters on moving sharks).
  */
 
 type SharkLane = {
   id: string;
   top: string;
   size: number;
-  /** Seconds for one full crossing */
   duration: number;
   delay: number;
   direction: 1 | -1;
+  opacity: number;
+};
+
+type BubbleSpec = {
+  id: string;
+  left: string;
+  size: number;
+  duration: number;
+  delay: number;
+  drift: number;
   opacity: number;
 };
 
@@ -33,6 +37,15 @@ const LANES: SharkLane[] = [
     opacity: 0.72,
   },
   {
+    id: "mid",
+    top: "40%",
+    size: 120,
+    duration: 40,
+    delay: -8,
+    direction: -1,
+    opacity: 0.4,
+  },
+  {
     id: "trail",
     top: "58%",
     size: 150,
@@ -42,6 +55,21 @@ const LANES: SharkLane[] = [
     opacity: 0.55,
   },
 ];
+
+function makeBubbles(count: number): BubbleSpec[] {
+  return Array.from({ length: count }, (_, i) => {
+    const seed = (i * 47 + 13) % 100;
+    return {
+      id: `b${i}`,
+      left: `${(seed * 9.7) % 100}%`,
+      size: 4 + (seed % 14),
+      duration: 10 + (seed % 18),
+      delay: -((seed * 0.37) % 16),
+      drift: ((seed % 2 === 0 ? 1 : -1) * (8 + (seed % 20))) / 1,
+      opacity: 0.25 + (seed % 40) / 100,
+    };
+  });
+}
 
 function Shark({ lane, reduced }: { lane: SharkLane; reduced: boolean }) {
   const swimRight = lane.direction === 1;
@@ -53,7 +81,7 @@ function Shark({ lane, reduced }: { lane: SharkLane; reduced: boolean }) {
     return (
       <img
         className="neon-shark"
-        src="/neon-shark.png"
+        src="./neon-shark.png"
         alt=""
         draggable={false}
         style={{
@@ -98,7 +126,7 @@ function Shark({ lane, reduced }: { lane: SharkLane; reduced: boolean }) {
       }}
     >
       <img
-        src="/neon-shark.png"
+        src="./neon-shark.png"
         alt=""
         draggable={false}
         style={{
@@ -112,11 +140,39 @@ function Shark({ lane, reduced }: { lane: SharkLane; reduced: boolean }) {
   );
 }
 
+function BubbleField({ reduced }: { reduced: boolean }) {
+  const bubbles = useMemo(() => makeBubbles(reduced ? 8 : 36), [reduced]);
+
+  return (
+    <div className="bubble-field" aria-hidden>
+      {bubbles.map((b) => (
+        <span
+          key={b.id}
+          className="neon-bubble"
+          style={{
+            left: b.left,
+            width: b.size,
+            height: b.size,
+            opacity: b.opacity,
+            ["--bubble-duration" as string]: `${b.duration}s`,
+            ["--bubble-delay" as string]: `${b.delay}s`,
+            ["--bubble-drift" as string]: `${b.drift}px`,
+            animationPlayState: reduced ? "paused" : "running",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 function NeonSharksInner() {
   const reduced = !!useReducedMotion();
 
   return (
     <div className="neon-sharks" aria-hidden>
+      <div className="underwater-haze" />
+      <div className="caustic-light" />
+      <BubbleField reduced={reduced} />
       {LANES.map((lane) => (
         <Shark key={lane.id} lane={lane} reduced={reduced} />
       ))}

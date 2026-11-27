@@ -9,7 +9,10 @@ export function Portfolio({ items }: Props) {
     <section className="section" id="portfolio">
       <div className="section-head">
         <h2>Portfolio</h2>
-        <p>Selected climbs — platforms, experiences, tools, and impact work.</p>
+        <p>
+          Selected climbs from the Fishbowl lab — agents, games, tools, and the Kilimanjaro
+          rebuild.
+        </p>
       </div>
       <div className="portfolio-list">
         {items.map((item) => (
