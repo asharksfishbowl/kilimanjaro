@@ -57,12 +57,12 @@ jobs:
           npm ci
           npm run build
 
-      - name: Nest Fighter under /fighter/
+      - name: Nest Fighter under /arena/
         working-directory: .
         run: |
           test -f fighter-src/dist/index.html
-          mkdir -p web/dist/fighter
-          cp -R fighter-src/dist/. web/dist/fighter/
+          mkdir -p web/dist/arena
+          cp -R fighter-src/dist/. web/dist/arena/
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
