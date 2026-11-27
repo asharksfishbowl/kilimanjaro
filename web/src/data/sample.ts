@@ -95,7 +95,7 @@ export const SAMPLE_SITE: SitePayload = {
       description:
         "Flagship brand for courses, music videos, cooking drops, DIY builds, and experimental software.",
       category: "Studio",
-      url: "https://github.com/asharksfishbowl",
+      url: "https://github.com/asharksfishbowl/asf-studio",
       accent: "#ff2bd6",
     },
     {
@@ -105,7 +105,7 @@ export const SAMPLE_SITE: SitePayload = {
       description:
         "Maker-focused sustainability experiments and workshop content around circular materials.",
       category: "Impact",
-      url: null,
+      url: "https://github.com/asharksfishbowl/precious-plastic-lab",
       accent: "#2de2e6",
     },
     {
@@ -115,7 +115,7 @@ export const SAMPLE_SITE: SitePayload = {
       description:
         "Hands-on software and creative courses that turn viewers into builders.",
       category: "Education",
-      url: null,
+      url: "https://github.com/asharksfishbowl/asf-courses",
       accent: "#f7b32b",
     },
     {
@@ -125,7 +125,7 @@ export const SAMPLE_SITE: SitePayload = {
       description:
         "Original music and video collaborations from the Fishbowl night drive.",
       category: "Music",
-      url: null,
+      url: "https://github.com/asharksfishbowl/neon-signal-records",
       accent: "#b967ff",
     },
   ],

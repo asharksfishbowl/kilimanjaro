@@ -102,7 +102,7 @@ pub fn seed_if_empty(conn: &Connection) -> Result<(), DbError> {
             "Creative studio & media lab",
             "Flagship brand for courses, music videos, cooking drops, DIY builds, and experimental software.",
             "Studio",
-            Some("https://github.com/asharksfishbowl"),
+            Some("https://github.com/asharksfishbowl/asf-studio"),
             "#ff2bd6",
         ),
         (
@@ -111,7 +111,7 @@ pub fn seed_if_empty(conn: &Connection) -> Result<(), DbError> {
             "Recycle. Remake. Remix.",
             "Maker-focused sustainability experiments and workshop content around circular materials.",
             "Impact",
-            None,
+            Some("https://github.com/asharksfishbowl/precious-plastic-lab"),
             "#2de2e6",
         ),
         (
@@ -120,7 +120,7 @@ pub fn seed_if_empty(conn: &Connection) -> Result<(), DbError> {
             "Ship skills, not slides",
             "Hands-on software and creative courses that turn viewers into builders.",
             "Education",
-            None,
+            Some("https://github.com/asharksfishbowl/asf-courses"),
             "#f7b32b",
         ),
         (
@@ -129,7 +129,7 @@ pub fn seed_if_empty(conn: &Connection) -> Result<(), DbError> {
             "Synthwave & soundtrack drops",
             "Original music and video collaborations from the Fishbowl night drive.",
             "Music",
-            None,
+            Some("https://github.com/asharksfishbowl/neon-signal-records"),
             "#b967ff",
         ),
     ];
