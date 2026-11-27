@@ -187,6 +187,19 @@ img {
   z-index: -3;
 }
 
+.hero-three {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.hero-three-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-kili {
   position: absolute;
   left: 0;

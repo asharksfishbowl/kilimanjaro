@@ -60,7 +60,8 @@ export default function App() {
       <Contact />
       <footer className="footer">
         <strong>KILIMANJARO</strong> · Gotta climb to get to the top · Built with
-        TypeScript, Rust (ts-rs), Python &amp; SQLite · deck.gl neon layers
+        TypeScript, Rust (ts-rs), Python &amp; SQLite · Three.js hero · deck.gl
+        neon layers
       </footer>
     </div>
   );
