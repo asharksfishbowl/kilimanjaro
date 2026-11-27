@@ -8,6 +8,14 @@
     ],
     "rewrites": [
       {
+        "source": "/fighter",
+        "destination": "/fighter/index.html"
+      },
+      {
+        "source": "/fighter/**",
+        "destination": "/fighter/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
