@@ -8,7 +8,8 @@ type Props = {
 const SPOTIFY_ALBUM = {
   title: "Living from a place of love :)",
   url: "https://open.spotify.com/album/4HVfHr9Ah4ckA9ZWEq1uoK",
-  embed: "https://open.spotify.com/embed/album/4HVfHr9Ah4ckA9ZWEq1uoK?utm_source=generator",
+  embed:
+    "https://open.spotify.com/embed/album/4HVfHr9Ah4ckA9ZWEq1uoK?utm_source=generator&theme=0",
 };
 
 function formatDuration(sec: number) {
@@ -52,7 +53,7 @@ export function Music({ tracks, clips }: Props) {
             title={`Spotify album: ${SPOTIFY_ALBUM.title}`}
             src={SPOTIFY_ALBUM.embed}
             width="100%"
-            height="352"
+            height="100%"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           />

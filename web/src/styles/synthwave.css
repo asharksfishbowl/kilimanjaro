@@ -330,7 +330,7 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   gap: 1.5rem;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: 2rem;
 }
 
@@ -360,12 +360,20 @@ img {
   overflow: hidden;
   background: rgba(7, 1, 15, 0.65);
   box-shadow: 0 0 28px rgba(45, 226, 230, 0.12);
+  display: flex;
+  flex-direction: column;
+  min-height: min(72vh, 560px);
+  height: 100%;
+  align-self: stretch;
 }
 
 .spotify-embed iframe {
   display: block;
   border: 0;
   width: 100%;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: min(72vh, 560px);
 }
 
 .hero-copy {
@@ -936,8 +944,10 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .spotify-embed,
   .spotify-embed iframe {
-    height: 300px;
+    min-height: min(70vh, 480px);
+    height: min(70vh, 480px);
   }
 
   .section {
