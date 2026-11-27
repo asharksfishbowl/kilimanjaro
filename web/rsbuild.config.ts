@@ -21,6 +21,8 @@ export default defineConfig({
     },
   },
   output: {
+    // Relative URLs work on Firebase (/) and GitHub Pages (/kilimanjaro/)
+    assetPrefix: "./",
     copy: [{ from: "./public" }],
   },
 });
