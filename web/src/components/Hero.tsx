@@ -1,4 +1,4 @@
-import { KilimanjaroBackdrop } from "./KilimanjaroBackdrop";
+import { HeroThreeScene } from "./HeroThreeScene";
 import { NeonSharks } from "./NeonSharks";
 
 type Props = {
@@ -11,9 +11,8 @@ export function Hero({ brand, tagline, about }: Props) {
   return (
     <section className="hero" id="top" aria-label="Hero">
       <div className="hero-sky" aria-hidden />
-      <KilimanjaroBackdrop />
+      <HeroThreeScene />
       <NeonSharks />
-      <div className="hero-grid" aria-hidden />
       <div className="hero-copy">
         <p className="hero-kicker">Kilimanjaro · ASF Studios</p>
         <h1 className="hero-title">{brand}</h1>

@@ -10,6 +10,7 @@ Synthwave portfolio site for **A Shark's Fishbowl** / ASF Studios — businesses
 | Types bridge | **ts-rs** — Rust structs export to `shared/types/` |
 | API | **Rust** (Axum) + **Python** (FastAPI) |
 | Database | **SQLite** (`data/kilimanjaro.db`) |
+| Hero | **Three.js** synthwave sun + perspective grid + Kibo/Mawenzi ridge (SVG fallback when reduced-motion) |
 | Viz | **deck.gl** hexbins, arcs, pulsing scatter + MapLibre dark basemap |
 
 ## Quick start
@@ -45,7 +46,7 @@ Serves `/api/media` (YouTube + music clips).
 
 ## Sections
 
-1. **Hero** — retro sun + perspective grid + neon brand
+1. **Hero** — Three.js neon sun + perspective grid + Kilimanjaro ridge + neon brand
 2. **Businesses** — Fishbowl studio, Precious Plastic, courses, Neon Signal Records
 3. **Portfolio** — selected climbs and tools
 4. **Neon Map** — deck.gl showcase (Colorado Springs → Kilimanjaro circuit)
