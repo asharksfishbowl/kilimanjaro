@@ -125,8 +125,13 @@ jobs:
           set -euo pipefail
           SA_JSON="${FIREBASE_ADMIN:-${FIREBASE_SERVICE_ACCOUNT:-}}"
           if [ -n "${SA_JSON}" ]; then
+            # FIREBASE_TOKEN takes precedence in firebase-tools and the old
+            # CI token is expired — clear it so the Admin key is used.
+            unset FIREBASE_TOKEN
             echo "$SA_JSON" > "${RUNNER_TEMP}/firebase-sa.json"
             export GOOGLE_APPLICATION_CREDENTIALS="${RUNNER_TEMP}/firebase-sa.json"
+            # Validate JSON shape without printing secrets
+            python3 -c 'import json,os; json.load(open(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])); print("service-account JSON ok")'
             echo "Deploying with Firebase Admin service account."
             firebase deploy --only hosting:kilimanjaro-4c1b5 --project kilimanjaro-4c1b5 --non-interactive
             rm -f "${RUNNER_TEMP}/firebase-sa.json"
