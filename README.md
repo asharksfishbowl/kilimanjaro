@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Kilimanjaro — A Shark's Fishbowl
 
-## Available Scripts
+Synthwave portfolio site for **A Shark's Fishbowl** / ASF Studios — businesses, YouTube, music, and a neon **deck.gl** world map. Tagline stays true: *Gotta climb to get to the top*.
 
-In the project directory, you can run:
+## Stack
 
-### `npm start`
+| Layer | Tech |
+| --- | --- |
+| Frontend | **Rsbuild** + React + TypeScript (not Vite / not Next.js) |
+| Types bridge | **ts-rs** — Rust structs export to `shared/types/` |
+| API | **Rust** (Axum) + **Python** (FastAPI) |
+| Database | **SQLite** (`data/kilimanjaro.db`) |
+| Viz | **deck.gl** hexbins, arcs, pulsing scatter + MapLibre dark basemap |
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Quick start
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Frontend (port 3847)
 
-### `npm test`
+```bash
+cd web
+npm install
+npm run dev
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open `http://127.0.0.1:3847`. The UI ships with sample data, so it runs even if the APIs are offline.
 
-### `npm run build`
+### Rust API (port 3848)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd backend-rust
+KILI_DB=../data/kilimanjaro.db cargo run
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Serves `/api/site`, `/api/contact`, and seeds SQLite on first boot. Also regenerates TypeScript bindings via **ts-rs**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Python media API (port 3849)
 
-### `npm run eject`
+```bash
+pip install -r backend-python/requirements.txt
+cd backend-python
+KILI_DB=../data/kilimanjaro.db python3 main.py
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Serves `/api/media` (YouTube + music clips).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Sections
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Hero** — retro sun + perspective grid + neon brand
+2. **Businesses** — Fishbowl studio, Precious Plastic, courses, Neon Signal Records
+3. **Portfolio** — selected climbs and tools
+4. **Neon Map** — deck.gl showcase (Colorado Springs → Kilimanjaro circuit)
+5. **YouTube** — curated channel drops
+6. **Music** — tracklist with EQ-style motion
+7. **Contact** — posts to the Rust API (falls back gracefully offline)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Environment
 
-## Learn More
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `KILI_DB` | `../data/kilimanjaro.db` | SQLite path |
+| `KILI_RUST_PORT` | `3848` | Rust listen port |
+| `KILI_PY_PORT` | `3849` | Python listen port |
+| `PUBLIC_RUST_API` | `http://127.0.0.1:3848` | Frontend → Rust |
+| `PUBLIC_PYTHON_API` | `http://127.0.0.1:3849` | Frontend → Python |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deploy (Firebase Hosting)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Push to `master` runs **Climbing the Mountain** (`.github/workflows/firebase.yml`):
 
-### Code Splitting
+1. `npm ci` + `npm run build` in `web/` (Rsbuild → `web/dist`)
+2. `firebase deploy --only hosting` to project `kilimanjaro-4c1b5`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Requires repo secret `FIREBASE_TOKEN`. Optional repo variables `PUBLIC_RUST_API` / `PUBLIC_PYTHON_API` bake API URLs into the static build.
