@@ -63,11 +63,18 @@ Serves `/api/media` (YouTube + music clips).
 | `PUBLIC_RUST_API` | `http://127.0.0.1:3848` | Frontend → Rust |
 | `PUBLIC_PYTHON_API` | `http://127.0.0.1:3849` | Frontend → Python |
 
-## Deploy (Firebase Hosting)
+## Deploy (Firebase Hosting → asharksfishbowl.com)
 
 Push to `master` runs **Climbing the Mountain** (`.github/workflows/firebase.yml`):
 
 1. `npm ci` + `npm run build` in `web/` (Rsbuild → `web/dist`)
-2. `firebase deploy --only hosting` to project `kilimanjaro-4c1b5`
+2. Deploy `web/dist` to Firebase Hosting site `kilimanjaro-4c1b5` (custom domain **asharksfishbowl.com**)
+3. Also mirrors to GitHub Pages as a backup
 
-Requires repo secret `FIREBASE_TOKEN`. Optional repo variables `PUBLIC_RUST_API` / `PUBLIC_PYTHON_API` bake API URLs into the static build.
+**Required GitHub secret** (Settings → Secrets and variables → Actions):
+
+| Secret | Value |
+| --- | --- |
+| `FIREBASE_SERVICE_ACCOUNT` | Full JSON of a Firebase/Google **service account** with Firebase Hosting Admin (Project settings → Service accounts → Generate new private key) |
+
+Do **not** paste the key into chat. Optional fallback: `FIREBASE_TOKEN` from `firebase login:ci`. Optional vars: `PUBLIC_RUST_API` / `PUBLIC_PYTHON_API`.
