@@ -355,25 +355,28 @@ img {
 }
 
 .spotify-embed {
+  position: relative;
+  z-index: 2;
   border: 1px solid rgba(45, 226, 230, 0.28);
   border-radius: 14px;
   overflow: hidden;
   background: rgba(7, 1, 15, 0.65);
   box-shadow: 0 0 28px rgba(45, 226, 230, 0.12);
-  display: flex;
-  flex-direction: column;
-  min-height: min(72vh, 560px);
-  height: 100%;
   align-self: stretch;
+  /* Match iframe pixel height so Spotify's player initializes hit-targets correctly */
+  height: 480px;
+  max-width: 100%;
+  pointer-events: auto;
 }
 
 .spotify-embed iframe {
   display: block;
   border: 0;
   width: 100%;
-  flex: 1 1 auto;
-  height: 100%;
-  min-height: min(72vh, 560px);
+  height: 480px;
+  max-width: 100%;
+  pointer-events: auto;
+  border-radius: 12px;
 }
 
 .hero-copy {
@@ -946,8 +949,7 @@ img {
 
   .spotify-embed,
   .spotify-embed iframe {
-    min-height: min(70vh, 480px);
-    height: min(70vh, 480px);
+    height: 420px;
   }
 
   .section {

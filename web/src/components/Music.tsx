@@ -53,9 +53,11 @@ export function Music({ tracks, clips }: Props) {
             title={`Spotify album: ${SPOTIFY_ALBUM.title}`}
             src={SPOTIFY_ALBUM.embed}
             width="100%"
-            height="100%"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
+            height={480}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture; web-share"
+            allowFullScreen
+            loading="eager"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
       </div>
