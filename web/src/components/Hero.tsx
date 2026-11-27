@@ -20,11 +20,11 @@ export function Hero({ brand, tagline, about }: Props) {
           <strong style={{ color: "var(--neon-amber)" }}>{tagline}.</strong> {about}
         </p>
         <div className="cta-row">
-          <a className="btn btn-primary" href="#map">
-            Explore the neon map
+          <a className="btn btn-primary" href="#games">
+            Play the games
           </a>
-          <a className="btn btn-ghost" href="#youtube">
-            Watch on YouTube
+          <a className="btn btn-ghost" href="#map">
+            Explore the neon map
           </a>
         </div>
       </div>

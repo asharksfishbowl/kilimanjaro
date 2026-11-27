@@ -554,6 +554,96 @@ img {
   color: var(--muted);
 }
 
+.grid-games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.35rem 1.25rem 1.4rem;
+  border-top: 3px solid var(--accent, var(--neon-amber));
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--accent, #ffd400) 14%, transparent), rgba(7, 1, 15, 0.55)),
+    var(--bg-panel);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.game-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.game-status {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.game-status.is-live {
+  color: var(--neon-mint);
+  text-shadow: 0 0 10px rgba(5, 255, 161, 0.45);
+}
+
+.game-status.is-proto {
+  color: var(--neon-cyan);
+}
+
+.game-year {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.game-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.game-tagline {
+  margin: 0;
+  color: var(--accent, var(--neon-amber));
+  font-weight: 600;
+}
+
+.game-card > p:not(.game-tagline) {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  flex: 1;
+}
+
+.game-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.game-actions .btn[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
 .portfolio-list {
   display: grid;
   gap: 1rem;
@@ -905,6 +995,10 @@ img {
   }
 
   .port-item {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-games {
     grid-template-columns: 1fr;
   }
 
