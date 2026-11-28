@@ -10,8 +10,10 @@ export type GameItem = {
   accent: string;
   /** Live play URL when hosted beside this site. */
   playUrl: string | null;
-  /** Public repo or docs link. */
+  /** Secondary link (repo, wiki, recordings, …). */
   href: string | null;
+  /** Button label for `href` (defaults to Repo). */
+  hrefLabel?: string;
   year: number;
 };
 
@@ -53,7 +55,8 @@ export const GAMES: GameItem[] = [
     stack: ["Unreal Engine 5", "C++", "Co-op"],
     accent: "#2de2e6",
     playUrl: null,
-    href: null,
+    href: "https://namec-wiki.azurewebsites.net/recordings/",
+    hrefLabel: "Recordings",
     year: 2026,
   },
 ];
