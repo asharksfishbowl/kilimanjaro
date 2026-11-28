@@ -39,7 +39,7 @@ function GameCard({ game }: { game: GameItem }) {
         )}
         {game.href ? (
           <a className="btn btn-ghost" href={game.href} target="_blank" rel="noreferrer">
-            Repo
+            {game.hrefLabel ?? "Repo"}
           </a>
         ) : null}
       </div>
